@@ -46,7 +46,7 @@ struct AppState {
         let newLevelCount = Self.levelCount - levels.count
         if newLevelCount > 0 {
             for index in (self.levels.count)...(self.levels.count + newLevelCount - 1) {
-                levels.append(Level(level: index + 1, result: .none))
+                levels.append(Level(level: index + 1, result: .none, category: .yo1))
             }
         }
     }

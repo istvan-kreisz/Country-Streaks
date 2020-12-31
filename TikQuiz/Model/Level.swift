@@ -21,9 +21,22 @@ enum LevelResult: String, Codable {
     }
 }
 
+enum Category: String, Codable, CaseIterable {
+    case yo1, yo2
+    
+    var imageName: String {
+        ""
+    }
+    
+    var name: String {
+        "bitch"
+    }
+}
+
 struct Level: Codable {
     let level: Int
     let result: LevelResult
+    let category: Category
     
     var didComplete: Bool {
         result.didComplete
