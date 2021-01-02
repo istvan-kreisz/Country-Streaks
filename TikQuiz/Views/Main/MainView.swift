@@ -15,9 +15,11 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: PlayView(level: store.state.nextLevel).environmentObject(store),
-                               tag: 1,
-                               selection: self.$selectedMenuId) { EmptyView() }
+                NavigationLink(destination: PlayView(level: store.state.nextLevel)
+                    .environmentObject(store)
+                    .environmentObject(CountdownTimer.default),
+                    tag: 1,
+                    selection: self.$selectedMenuId) { EmptyView() }
                 NavigationLink(destination: CategoriesView(),
                                tag: 2,
                                selection: self.$selectedMenuId) { EmptyView() }

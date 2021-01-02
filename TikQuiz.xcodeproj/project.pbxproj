@@ -47,6 +47,7 @@
 		5DF14A2225A078AE00A92C7C /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A0A25A078A100A92C7C /* Rubik-Italic.ttf */; };
 		5DF14A2325A078AE00A92C7C /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A1125A078A100A92C7C /* Rubik-LightItalic.ttf */; };
 		5DF14A2625A0793900A92C7C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2525A0793900A92C7C /* Fonts.swift */; };
+		5DF14A2925A0FF9F00A92C7C /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2825A0FF9F00A92C7C /* CountdownTimer.swift */; };
 		A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		5DF14A1325A078A100A92C7C /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		5DF14A1425A078A100A92C7C /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		5DF14A2525A0793900A92C7C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		5DF14A2825A0FF9F00A92C7C /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 		5DF149FB259D4F8000A92C7C /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				5DF14A2825A0FF9F00A92C7C /* CountdownTimer.swift */,
 				5DF149FC259D4F9100A92C7C /* PlayView.swift */,
 			);
 			path = Play;
@@ -448,6 +451,7 @@
 			files = (
 				5D14ABD5259C03FB003C5E28 /* AppAction.swift in Sources */,
 				5D14ABAE259C0390003C5E28 /* AppDelegate.swift in Sources */,
+				5DF14A2925A0FF9F00A92C7C /* CountdownTimer.swift in Sources */,
 				5D14ABFE259C0421003C5E28 /* Colors.swift in Sources */,
 				5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */,
 				5DA1E157259D428400CFF764 /* Spinner.swift in Sources */,

@@ -22,7 +22,7 @@ struct WithDefaultBackground: ViewModifier {
     
     func body(content: Content) -> some View {
         ZStack {
-            LinearGradient(gradient: .init(colors: [.customDarkGray, .customGrayBlue]),
+            LinearGradient(gradient: .init(colors: [.customGray3, .customGrayBlue]),
                            startPoint: .top,
                            endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)

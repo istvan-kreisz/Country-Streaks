@@ -26,11 +26,11 @@ struct MainMenuButton: View {
             HStack {
                 Text(text)
                     .multilineTextAlignment(.center)
-                    .font(.medium(size: 18))
+                    .font(.medium(size: 17))
                     .foregroundColor(.white)
             }
             .padding(.horizontal, 20)
-            .frame(width: 305, height: 50)
+            .frame(width: 305, height: 46)
             .cornerRadius(10)
             .overlay(RoundedRectangle(cornerRadius: 10)
                 .stroke(color, lineWidth: 1))

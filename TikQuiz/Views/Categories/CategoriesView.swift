@@ -26,7 +26,7 @@ struct CategoriesView: View {
                         Spacer()
                         CategoryView(category: Category.allCases[rowIndex * 2 + 1],
                                      color: Category.allCases[rowIndex * 2 + 1].color) {
-                            categoryTapped(Category.allCases[rowIndex * 2 + 1])
+                            categoryTapped(Category.allCases[rowIndex * 2 + 0])
                         }
                     }
                     .withDefaultInsets(isRowEnd: rowIndex == Category.allCases.count / 2)
