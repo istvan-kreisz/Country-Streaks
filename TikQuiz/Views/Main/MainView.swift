@@ -27,7 +27,7 @@ struct MainView: View {
                                tag: 3,
                                selection: self.$selectedMenuId) { EmptyView() }
                 Spacer()
-                Image("logoo")
+                Image("logo")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 70)

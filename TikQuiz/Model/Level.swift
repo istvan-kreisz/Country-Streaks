@@ -50,7 +50,7 @@ enum Category: String, Codable, CaseIterable {
 struct Level {
     var level: Int!
     let question: String
-    let result: LevelResult
+    var result: LevelResult
     let category: Category
     let answers: [String]
 

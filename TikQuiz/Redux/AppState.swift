@@ -28,8 +28,8 @@ struct AppState {
         levels.first(where: { !$0.didComplete }) ?? levels[0]
     }
     
-    func nextLevel(in category: Category) -> Level? {
-        levels.first(where: { !$0.didComplete && $0.category == category })
+    func nextLevel(in category: Category) -> Level {
+        levels.first(where: { !$0.didComplete && $0.category == category }) ?? levels.first(where: { $0.category == category })!
     }
 
     func level(after level: Level) -> Level? {
