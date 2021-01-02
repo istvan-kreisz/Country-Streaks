@@ -10,6 +10,7 @@ import SwiftUI
 
 extension Color {
     static var customDarkGray = Color("darkGray")
+    static var customGrayBlue = Color("customGrayBlue")
     static var customGreen = Color("green")
     static var customBlue = Color("primaryBlue")
     static var customRed = Color("red")
@@ -19,6 +20,7 @@ extension Color {
 
 extension UIColor {
     static var customDarkGray = UIColor(named: "darkGray")
+    static var customGrayBlue = UIColor(named: "customGrayBlue")
     static var customGreen = UIColor(named: "green")
     static var customBlue = UIColor(named: "primaryBlue")
     static var customRed = UIColor(named: "red")

@@ -16,17 +16,26 @@ struct SettingsCellView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Text(text)
-                .font(.system(size: 25, weight: .bold))
-                .foregroundColor(color)
+            Image("logoo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 41, height: 41)
+                .background(Color.clear)
+
+            VStack(alignment: .leading, spacing: 10) {
+                Text(text)
+                    .font(.regular(size: 16))
+                    .foregroundColor(.white)
+                Text(text)
+                    .font(.light(size: 14))
+                    .foregroundColor(.white)
+            }
             Spacer()
-            accessoryView
         }
-        .padding(.horizontal, 20)
+        .padding(20)
         .frame(height: 80)
-        .background(Color.customBlue)
-        .cornerRadius(13)
-        .withDefaultShadow()
+        .background(Color.white.opacity(0.1))
+        .cornerRadius(15)
     }
 }
 

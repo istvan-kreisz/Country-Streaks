@@ -19,16 +19,14 @@ struct CategoryView: View {
                 VStack(spacing: 5) {
                     if category != nil {
                         Text("Level " + "\(category!.name)")
-                            .font(.system(size: 14, weight: .bold))
+                            .font(.bold(size: 12))
                             .foregroundColor(.customYellow)
-                        ZStack {
-                            Image(category!.imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 45)
-                                .foregroundColor(.white)
-                                .padding(.bottom, 5)
-                        }
+                        Image(category!.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 45)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 5)
                         Spacer()
                     }
                 }
@@ -40,7 +38,7 @@ struct CategoryView: View {
         }
         .frame(width: UIScreen.isiPad ? 120 : 95, height: 125)
         .buttonStyle(BorderlessButtonStyle())
-        withDefaultShadow()
+        .withDefaultShadow()
     }
 }
 

@@ -61,6 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().showsVerticalScrollIndicator = false
         UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = UIColor.clear
         UITableView.appearance().allowsSelection = false
         UITableViewCell.appearance().selectionStyle = .none
         UITableViewCell.appearance().backgroundColor = .clear

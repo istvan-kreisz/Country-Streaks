@@ -14,6 +14,20 @@ extension View {
         self
             .modifier(DefaultPadding(padding: [.top, .leading, .trailing]))
             .navigationbarHidden()
+            .withDefaultBackground()
+    }
+}
+
+struct WithDefaultBackground: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        ZStack {
+            LinearGradient(gradient: .init(colors: [.customDarkGray, .customGrayBlue]),
+                           startPoint: .top,
+                           endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            content
+        }
     }
 }
 
@@ -29,6 +43,10 @@ struct NavigationbarHidden: ViewModifier {
 extension View {
     func navigationbarHidden() -> some View {
         ModifiedContent(content: self, modifier: NavigationbarHidden())
+    }
+    
+    func withDefaultBackground() -> some View {
+        ModifiedContent(content: self, modifier: WithDefaultBackground())
     }
 }
 

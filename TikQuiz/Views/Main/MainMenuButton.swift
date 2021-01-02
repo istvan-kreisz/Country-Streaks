@@ -9,11 +9,10 @@
 import SwiftUI
 
 struct MainMenuButton: View {
-    
     let text: String
     let color: Color
     let action: () -> Void
-    
+
     init(text: String,
          color: Color,
          action: @escaping () -> Void) {
@@ -21,19 +20,20 @@ struct MainMenuButton: View {
         self.color = color
         self.action = action
     }
-    
+
     var body: some View {
         Button(action: action) {
             HStack {
                 Text(text)
-                    .font(.system(size: 22, weight: .bold))
+                    .multilineTextAlignment(.center)
+                    .font(.medium(size: 18))
                     .foregroundColor(.white)
-                Spacer()
             }
             .padding(.horizontal, 20)
-            .frame(width: UIScreen.isiPad ? 260 : 220, height: UIScreen.isiPad ? 71 : 60)
-            .background(color)
+            .frame(width: 305, height: 50)
             .cornerRadius(10)
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                .stroke(color, lineWidth: 1))
         }
     }
 }

@@ -24,26 +24,34 @@ struct MainView: View {
                 NavigationLink(destination: SettingsView(),
                                tag: 3,
                                selection: self.$selectedMenuId) { EmptyView() }
+                Spacer()
+                Image("logoo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 70)
+                    .background(Color.white)
                 Text("Tik Trivia")
-                    .font(.system(size: UIScreen.isiPad ? 55 : 40, weight: .black))
+                    .font(.black(size: 40))
                     .foregroundColor(.white)
                     .padding(.bottom, 60)
+
+                Spacer()
 
                 VStack(spacing: UIScreen.isiPad ? 35 : 26) {
                     MainMenuButton(text: "Play",
                                    color: .customBlue,
-                                   action: { self.selectedMenuId = 0 })
+                                   action: { self.selectedMenuId = 1 })
                         .withDefaultShadow()
                     MainMenuButton(text: "Categories",
                                    color: .customYellow,
-                                   action: { self.selectedMenuId = 1 })
+                                   action: { self.selectedMenuId = 2 })
                     MainMenuButton(text: "Settings",
                                    color: .customRed,
-                                   action: { self.selectedMenuId = 2 })
+                                   action: { self.selectedMenuId = 3 })
                 }
+                Spacer()
             }
             .defaultScreenSetup()
-            .background(Color.customDarkGray.edgesIgnoringSafeArea(.all))
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

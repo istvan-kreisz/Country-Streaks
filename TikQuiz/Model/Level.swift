@@ -22,7 +22,7 @@ enum LevelResult: String, Codable {
 }
 
 enum Category: String, Codable, CaseIterable {
-    case yo1, yo2
+    case yo1, yo2, yo3, yo4
     
     var imageName: String {
         ""

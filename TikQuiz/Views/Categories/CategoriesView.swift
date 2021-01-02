@@ -11,34 +11,37 @@ import SwiftUI
 struct CategoriesView: View {
     @EnvironmentObject var store: Store
 
-    @State var selectedCategory: Category?
+//    @State var selectedCategory: Category?
 
     var body: some View {
         return VStack {
             NavigationBar(title: "Categories", isBackButtonVisible: true)
             List {
-                ForEach(1 ... (Category.allCases.count / 2), id: \.self) { (rowIndex: Int) in
+                ForEach(0 ... Category.allCases.count / 2 - 1, id: \.self) { rowIndex in
                     HStack {
                         CategoryView(category: Category.allCases[rowIndex * 2 + 0]) {
-                            categoryTapped(category: Category.allCases[rowIndex * 2 + 0])
+                            categoryTapped(Category.allCases[rowIndex * 2 + 0])
                         }
                         Spacer()
                         CategoryView(category: Category.allCases[rowIndex * 2 + 1]) {
-                            categoryTapped(category: Category.allCases[rowIndex * 2 + 1])
+                            categoryTapped(Category.allCases[rowIndex * 2 + 1])
                         }
                     }
                     .withDefaultInsets(isRowEnd: rowIndex == Category.allCases.count / 2)
+                    .listRowBackground(Color.clear)
                 }
             }
         }
-        .withDefaultPadding(padding: [.top])
-        .frame(maxWidth: 500)
-        .navigationbarHidden()
+        .defaultScreenSetup()
+        .onAppear {
+            UITableView.appearance().backgroundColor = UIColor.clear
+            UITableViewCell.appearance().backgroundColor = UIColor.clear
+        }
     }
 
-    private func categoryTapped(category: Category?) {
-        guard let category = category else { return }
-        selectedCategory = category
+    private func categoryTapped(_ category: Category?) {
+        guard let selectedCategory = category else { return }
+//        self.selectedCategory = selectedCategory
     }
 }
 

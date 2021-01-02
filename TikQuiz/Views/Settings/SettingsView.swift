@@ -19,19 +19,23 @@ struct SettingsView: View {
                 SettingsCellView(text: "Remove Ads",
                                  color: .customGreen,
                                  accessoryView: loadingView())
+                    .listRowBackground(Color.clear)
                     .animateOnTap(actionOnTap: removeAds)
                     .withDefaultInsets(isRowEnd: false)
                 SettingsCellView(text: "Restore Purchases",
                                  color: .customYellow,
                                  accessoryView: nil)
+                    .listRowBackground(Color.clear)
                     .animateOnTap(actionOnTap: restorePurchases)
                     .withDefaultInsets(isRowEnd: false)
             }
             .withDefaultInsets(isRowEnd: false)
         }
-        .withDefaultPadding(padding: [.top])
-        .frame(maxWidth: 500)
-        .navigationbarHidden()
+        .defaultScreenSetup()
+        .onAppear() {
+            UITableView.appearance().backgroundColor = UIColor.clear
+            UITableViewCell.appearance().backgroundColor = UIColor.clear
+        }
     }
     
     func loadingView() -> AnyView {
@@ -43,7 +47,7 @@ struct SettingsView: View {
         } else {
             return AnyView(
                 Text(store.state.didBuyRemoveAds ? "Purchased" : "$2.99")
-                    .font(.system(size: 25, weight: .semibold))
+                    .font(.medium(size: 25))
                     .foregroundColor(.customGreen)
             )
         }
