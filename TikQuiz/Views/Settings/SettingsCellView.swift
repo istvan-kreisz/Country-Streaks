@@ -16,7 +16,7 @@ struct SettingsCellView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Image("logoo")
+            Image("logo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 41, height: 41)

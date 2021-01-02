@@ -51,10 +51,12 @@ struct Level: Codable {
     let level: Int
     let result: LevelResult
     let category: Category
-    
+    let answers: [String]
+    let correctAnswerIndex: Int
+
     var didComplete: Bool {
         result.didComplete
     }
     
-    var imageName: String { "level\(level)" }
+    var imageName: String? { nil }
 }

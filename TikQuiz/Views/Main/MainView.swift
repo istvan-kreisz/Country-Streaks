@@ -15,7 +15,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: PlayView().environmentObject(store),
+                NavigationLink(destination: PlayView(level: store.state.nextLevel).environmentObject(store),
                                tag: 1,
                                selection: self.$selectedMenuId) { EmptyView() }
                 NavigationLink(destination: CategoriesView(),
