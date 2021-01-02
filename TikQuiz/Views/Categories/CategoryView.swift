@@ -43,6 +43,6 @@ struct CategoryView: View {
 
 struct LevelView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(category: .yo1, color: .customTurquoise, action: {})
+        CategoryView(category: .bitch, color: .customTurquoise, action: {})
     }
 }

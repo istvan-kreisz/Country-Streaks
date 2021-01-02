@@ -29,6 +29,10 @@ final class Store: ObservableObject {
             .sink { _ in self.objectWillChange.send() }
             .store(in: &cancellables)
     }
+    
+    deinit {
+        print("asdsd")
+    }
 
     // MARK: Methods
     func send(_ action: AppAction) {

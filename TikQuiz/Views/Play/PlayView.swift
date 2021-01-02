@@ -70,7 +70,7 @@ struct PlayView: View {
                             .foregroundColor(.customGray4)
                             .frame(width: 64, height: 64)
 //                        Text("\(timer.count)")
-                            Text("12")
+                        Text("12")
                             .transition(.opacity)
                             .font(.black(size: 25))
                             .foregroundColor(.white)
@@ -86,10 +86,11 @@ struct PlayView: View {
 struct PlayView_Previews: PreviewProvider {
     static var previews: some View {
         PlayView(level: .init(level: 1,
+                              question: "sup?",
                               result: .none,
-                              category: .yo1,
+                              category: .lasagna,
                               answers: ["hey", "yo", "bitch", "mama"],
-                              correctAnswerIndex: 2))
+                              imageName: nil))
             .environmentObject(CountdownTimer.default)
     }
 }

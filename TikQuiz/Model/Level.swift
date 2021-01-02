@@ -23,7 +23,7 @@ enum LevelResult: String, Codable {
 }
 
 enum Category: String, Codable, CaseIterable {
-    case yo1, yo2, yo3, yo4
+    case bitch, lasagna, hmmm, what
     
     var imageName: String {
         ""
@@ -35,28 +35,43 @@ enum Category: String, Codable, CaseIterable {
     
     var color: Color {
         switch self {
-        case .yo1:
+        case .bitch:
             return .customTurquoise
-        case .yo2:
+        case .lasagna:
             return .customBlue
-        case .yo3:
+        case .hmmm:
             return .customYellow
-        case .yo4:
+        case .what:
             return .customGreen
         }
     }
 }
 
-struct Level: Codable {
-    let level: Int
+struct Level {
+    var level: Int!
+    let question: String
     let result: LevelResult
     let category: Category
     let answers: [String]
-    let correctAnswerIndex: Int
 
     var didComplete: Bool {
         result.didComplete
     }
     
-    var imageName: String? { nil }
+    var imageName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case question, result, category, answers, imageName
+    }
+}
+
+extension Level: Codable {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.question = try values.decode(String.self, forKey: .question)
+        self.result = (try values.decodeIfPresent(LevelResult.self, forKey: .result)) ?? .none
+        self.category = try values.decode(Category.self, forKey: .category)
+        self.answers = try values.decode([String].self, forKey: .answers)
+        self.imageName = try values.decode(String.self, forKey: .imageName)
+    }
 }
