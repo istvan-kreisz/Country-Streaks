@@ -10,40 +10,39 @@ import SwiftUI
 
 struct CategoryView: View {
     let category: Category?
+    let color: Color
     let action: () -> Void
 
     var body: some View {
         Button(action: {
             action()
         }) {
-                VStack(spacing: 5) {
+                VStack(spacing: 10) {
                     if category != nil {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(color)
+                                .frame(width: 160, height: 160, alignment: .center)
+                            Image(category!.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 90)
+                                .foregroundColor(.white)
+                                .padding(.bottom, 5)
+                        }
                         Text("Level " + "\(category!.name)")
-                            .font(.bold(size: 12))
+                            .font(.regular(size: 15))
                             .foregroundColor(.customYellow)
-                        Image(category!.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 45)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 5)
                         Spacer()
                     }
                 }
-                .padding(.horizontal, 13)
-                .padding(.top, 10)
-                .padding(.bottom, 15)
-//            .background(level == nil ? nil : Color.customDarkBlue)
-                .cornerRadius(13)
         }
-        .frame(width: UIScreen.isiPad ? 120 : 95, height: 125)
         .buttonStyle(BorderlessButtonStyle())
-        .withDefaultShadow()
     }
 }
 
 struct LevelView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(category: .yo1, action: {})
+        CategoryView(category: .yo1, color: .customTurquoise, action: {})
     }
 }

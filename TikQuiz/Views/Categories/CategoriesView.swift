@@ -11,7 +11,7 @@ import SwiftUI
 struct CategoriesView: View {
     @EnvironmentObject var store: Store
 
-//    @State var selectedCategory: Category?
+    @State var selectedCategory: Category? = nil
 
     var body: some View {
         return VStack {
@@ -19,11 +19,13 @@ struct CategoriesView: View {
             List {
                 ForEach(0 ... Category.allCases.count / 2 - 1, id: \.self) { rowIndex in
                     HStack {
-                        CategoryView(category: Category.allCases[rowIndex * 2 + 0]) {
+                        CategoryView(category: Category.allCases[rowIndex * 2 + 0],
+                                     color: Category.allCases[rowIndex * 2 + 0].color) {
                             categoryTapped(Category.allCases[rowIndex * 2 + 0])
                         }
                         Spacer()
-                        CategoryView(category: Category.allCases[rowIndex * 2 + 1]) {
+                        CategoryView(category: Category.allCases[rowIndex * 2 + 1],
+                                     color: Category.allCases[rowIndex * 2 + 1].color) {
                             categoryTapped(Category.allCases[rowIndex * 2 + 1])
                         }
                     }
@@ -41,7 +43,7 @@ struct CategoriesView: View {
 
     private func categoryTapped(_ category: Category?) {
         guard let selectedCategory = category else { return }
-//        self.selectedCategory = selectedCategory
+        self.selectedCategory = selectedCategory
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum LevelResult: String, Codable {
     case none, correct, wrong
@@ -30,6 +31,19 @@ enum Category: String, Codable, CaseIterable {
     
     var name: String {
         "bitch"
+    }
+    
+    var color: Color {
+        switch self {
+        case .yo1:
+            return .customTurquoise
+        case .yo2:
+            return .customBlue
+        case .yo3:
+            return .customYellow
+        case .yo4:
+            return .customGreen
+        }
     }
 }
 
