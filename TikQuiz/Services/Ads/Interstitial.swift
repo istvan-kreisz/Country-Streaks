@@ -62,7 +62,7 @@ final class Interstitial: NSObject {
             completion(false)
             return
         }
-        if adsShowCount % 2 == 1 {
+        if adsShowCount % 5 == 1 {
             self.completion = completion
             self.interstitial.present(fromRootViewController: root)
         } else {

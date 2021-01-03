@@ -52,7 +52,7 @@ struct Level {
     let question: String
     var result: LevelResult
     let category: Category
-    let answers: [String]
+    var answers: [String]
 
     var didComplete: Bool {
         result.didComplete
@@ -61,13 +61,14 @@ struct Level {
     var imageName: String?
     
     enum CodingKeys: String, CodingKey {
-        case question, result, category, answers, imageName
+        case level, question, result, category, answers, imageName
     }
 }
 
 extension Level: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.level = (try values.decodeIfPresent(Int.self, forKey: .level))
         self.question = try values.decode(String.self, forKey: .question)
         self.result = (try values.decodeIfPresent(LevelResult.self, forKey: .result)) ?? .none
         self.category = try values.decode(Category.self, forKey: .category)

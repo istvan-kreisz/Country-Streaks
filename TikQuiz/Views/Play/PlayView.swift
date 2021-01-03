@@ -14,12 +14,30 @@ struct PlayView: View {
 
     @State var level: Level
     @State var answerIndex: Int = -1
+    
+    @State var correctAnswer: String
 
     init(level: Level, didBuyRemoveAds: Bool) {
+        self._correctAnswer = State<String>(initialValue: level.answers[0])
         var newLevel = level
         newLevel.result = .none
+        newLevel.answers.shuffle()
         self._level = State<Level>(initialValue: newLevel)
         self.interstitial = Interstitial(didBuyRemoveAds: didBuyRemoveAds)
+    }
+    
+    func color(for answer: String) -> Color {
+        if answerIndex == -1 {
+            return .clear
+        } else if level.answers.firstIndex(of: answer) == answerIndex {
+            if answer == correctAnswer {
+                return .customGreen
+            } else {
+                return .customRed
+            }
+        } else {
+            return .clear
+        }
     }
 
     var body: some View {
@@ -60,12 +78,9 @@ struct PlayView: View {
                     .layoutPriority(1)
                 VStack(spacing: 10) {
                     ForEach(level.answers, id: \.self) { answer in
-                        let color: Color = (level.result == .none) ?
-                            .clear : (level.result == .correct ?
-                                .customGreen : .customRed)
                         MainMenuButton(text: answer,
                                        color: .white,
-                                       fillColor: color,
+                                       fillColor: color(for: answer),
                                        action: {
                                            answerTapped(answer: answer)
                                        })
@@ -82,7 +97,7 @@ struct PlayView: View {
     func answerTapped(answer: String) {
         let answerIndex = level.answers.firstIndex(of: answer)!
         self.answerIndex = answerIndex
-        store.send(.finishedLevel(level: level, didGuessRight: answerIndex == 0))
+        store.send(.finishedLevel(level: level, didGuessRight: answer == correctAnswer))
         Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
             self.goToNextLevel()
         }
@@ -90,10 +105,12 @@ struct PlayView: View {
 
     private func goToNextLevel() {
         interstitial.showAd { didShowAd in
-            self.answerIndex = -1
             var newLevel = store.state.nextLevel
+            self.correctAnswer = newLevel.answers[0]
             newLevel.result = .none
+            newLevel.answers.shuffle()
             self.level = newLevel
+            self.answerIndex = -1
         }
     }
 }
