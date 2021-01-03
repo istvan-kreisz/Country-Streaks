@@ -111,9 +111,9 @@ struct DefaultInsets: ViewModifier {
     func body(content: Content) -> some View {
         content
         .listRowInsets(EdgeInsets(top: 10,
-                                  leading: 25,
+                                  leading: 10,
                                   bottom: isRowEnd ? 40 : 10,
-                                  trailing: 25))
+                                  trailing: 10))
     }
 }
 

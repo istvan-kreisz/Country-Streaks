@@ -8,45 +8,66 @@
 import SwiftUI
 
 struct PlayView: View {
-    @EnvironmentObject var timer: CountdownTimer
     @EnvironmentObject var store: Store
 
+    let interstitial: Interstitial
+
     @State var level: Level
+    @State var answerIndex: Int = -1
+
+    init(level: Level, didBuyRemoveAds: Bool) {
+        var newLevel = level
+        newLevel.result = .none
+        self._level = State<Level>(initialValue: newLevel)
+        self.interstitial = Interstitial(didBuyRemoveAds: didBuyRemoveAds)
+    }
 
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                NavigationBar(title: "Question 3", isBackButtonVisible: true)
-                Text("Category")
+                NavigationBar(title: "Question \(level.level!)", isBackButtonVisible: true)
+                Text(level.category.name)
                     .foregroundColor(.white)
                     .font(.light(size: 13))
                     .offset(x: 0, y: -8)
                 Spacer(minLength: 22)
                 VStack(spacing: 10) {
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sapien ante")
+                    Text(level.question)
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(.horizontal, 20)
                         .foregroundColor(.white)
                         .font(.regular(size: 20))
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
-                    Image(level.imageName ?? "")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 180, height: 180)
-                        .foregroundColor(.white)
-                        .padding(.bottom, 5)
-                        .layoutPriority(1)
+                    if let imageName = level.imageName {
+                        Image(imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 180, height: 180)
+                            .foregroundColor(.white)
+                            .padding(.bottom, 5)
+                            .layoutPriority(1)
+                    } else {
+                        Rectangle()
+                            .frame(width: 180, height: 180)
+                            .foregroundColor(.clear)
+                            .padding(.bottom, 5)
+                            .layoutPriority(1)
+                    }
                 }
                 .layoutPriority(1)
                 Spacer(minLength: 20)
                     .layoutPriority(1)
                 VStack(spacing: 10) {
-                    ForEach(0 ... level.answers.count - 1, id: \.self) { index in
-                        MainMenuButton(text: level.answers[index],
+                    ForEach(level.answers, id: \.self) { answer in
+                        let color: Color = (level.result == .none) ?
+                            .clear : (level.result == .correct ?
+                                .customGreen : .customRed)
+                        MainMenuButton(text: answer,
                                        color: .white,
+                                       fillColor: color,
                                        action: {
-                                           answerTapped(index: index)
+                                           answerTapped(answer: answer)
                                        })
                     }
                 }
@@ -55,32 +76,26 @@ struct PlayView: View {
                     .layoutPriority(1)
             }
             .defaultScreenSetup()
-            ZStack {
-                VStack {
-                    Spacer()
-                    Rectangle()
-                        .foregroundColor(.customGray1)
-                        .frame(height: 37 + UIScreen.safeAreaInsets().bottom)
-                }
-                .edgesIgnoringSafeArea(.all)
-                VStack {
-                    Spacer()
-                    ZStack {
-                        Circle()
-                            .foregroundColor(.customGray4)
-                            .frame(width: 64, height: 64)
-//                        Text("\(timer.count)")
-                        Text("12")
-                            .transition(.opacity)
-                            .font(.black(size: 25))
-                            .foregroundColor(.white)
-                    }
-                }
-            }
         }
     }
 
-    func answerTapped(index: Int) {}
+    func answerTapped(answer: String) {
+        let answerIndex = level.answers.firstIndex(of: answer)!
+        self.answerIndex = answerIndex
+        store.send(.finishedLevel(level: level, didGuessRight: answerIndex == 0))
+        Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
+            self.goToNextLevel()
+        }
+    }
+
+    private func goToNextLevel() {
+        interstitial.showAd { didShowAd in
+            self.answerIndex = -1
+            var newLevel = store.state.nextLevel
+            newLevel.result = .none
+            self.level = newLevel
+        }
+    }
 }
 
 struct PlayView_Previews: PreviewProvider {
@@ -90,7 +105,8 @@ struct PlayView_Previews: PreviewProvider {
                               result: .none,
                               category: .lasagna,
                               answers: ["hey", "yo", "bitch", "mama"],
-                              imageName: nil))
+                              imageName: nil), didBuyRemoveAds: true)
+            .environmentObject(Store())
             .environmentObject(CountdownTimer.default)
     }
 }

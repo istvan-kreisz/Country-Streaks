@@ -22,7 +22,7 @@ struct CategoryView: View {
                         ZStack {
                             Circle()
                                 .foregroundColor(color)
-                                .frame(width: 160, height: 160, alignment: .center)
+                                .frame(width: 140, height: 140, alignment: .center)
                             Image(category!.imageName)
                                 .resizable()
                                 .scaledToFit()

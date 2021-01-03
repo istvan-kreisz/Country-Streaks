@@ -12,12 +12,15 @@ struct MainMenuButton: View {
     let text: String
     let color: Color
     let action: () -> Void
+    let fillColor: Color
 
     init(text: String,
          color: Color,
+         fillColor: Color = .clear,
          action: @escaping () -> Void) {
         self.text = text
         self.color = color
+        self.fillColor = fillColor
         self.action = action
     }
 
@@ -32,6 +35,7 @@ struct MainMenuButton: View {
             .padding(.horizontal, 20)
             .frame(width: 305, height: 46)
             .cornerRadius(10)
+            .background(fillColor)
             .overlay(RoundedRectangle(cornerRadius: 10)
                 .stroke(color, lineWidth: 1))
         }

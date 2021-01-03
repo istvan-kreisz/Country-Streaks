@@ -19,7 +19,8 @@ struct CategoriesView: View {
         return VStack {
             NavigationBar(title: "Categories", isBackButtonVisible: true)
             if let category = selectedCategory {
-                NavigationLink(destination: PlayView(level: store.state.nextLevel(in: category))
+                NavigationLink(destination: PlayView(level: store.state.nextLevel(in: category),
+                                                     didBuyRemoveAds: store.state.didBuyRemoveAds)
                     .environmentObject(store)
                     .environmentObject(CountdownTimer.default),
                     isActive: showLevel,

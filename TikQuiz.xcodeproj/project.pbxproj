@@ -49,6 +49,7 @@
 		5DF14A2625A0793900A92C7C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2525A0793900A92C7C /* Fonts.swift */; };
 		5DF14A2925A0FF9F00A92C7C /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2825A0FF9F00A92C7C /* CountdownTimer.swift */; };
 		5DF14A2C25A103A600A92C7C /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A2B25A103A600A92C7C /* levels.json */; };
+		5DF14A3025A12C8800A92C7C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2F25A12C8700A92C7C /* GameState.swift */; };
 		A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		5DF14A2525A0793900A92C7C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		5DF14A2825A0FF9F00A92C7C /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 		5DF14A2B25A103A600A92C7C /* levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
+		5DF14A2F25A12C8700A92C7C /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 		5DF149FB259D4F8000A92C7C /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				5DF14A2F25A12C8700A92C7C /* GameState.swift */,
 				5DF14A2825A0FF9F00A92C7C /* CountdownTimer.swift */,
 				5DF149FC259D4F9100A92C7C /* PlayView.swift */,
 			);
@@ -474,6 +477,7 @@
 				5DA1E159259D428400CFF764 /* Modifiers.swift in Sources */,
 				5D14ABD4259C03FB003C5E28 /* AppState.swift in Sources */,
 				5D14ABCD259C03EF003C5E28 /* Level.swift in Sources */,
+				5DF14A3025A12C8800A92C7C /* GameState.swift in Sources */,
 				5D14ABB2259C0390003C5E28 /* MainView.swift in Sources */,
 				5DF149F8259D4F6C00A92C7C /* CategoriesView.swift in Sources */,
 			);
