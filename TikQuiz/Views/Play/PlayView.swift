@@ -36,7 +36,11 @@ struct PlayView: View {
                 return .customRed
             }
         } else {
-            return .clear
+            if answer == correctAnswer {
+                return .customGreen
+            } else {
+                return .clear                
+            }
         }
     }
 
@@ -98,7 +102,7 @@ struct PlayView: View {
         let answerIndex = level.answers.firstIndex(of: answer)!
         self.answerIndex = answerIndex
         store.send(.finishedLevel(level: level, didGuessRight: answer == correctAnswer))
-        Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
             self.goToNextLevel()
         }
     }

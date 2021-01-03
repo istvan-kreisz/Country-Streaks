@@ -23,6 +23,10 @@ struct AppState {
             }
         }
     }
+    
+    var didFinishAllLevels: Bool {
+        !levels.contains(where: { !$0.didComplete })
+    }
 
     var nextLevel: Level {
         levels.first(where: { !$0.didComplete }) ?? levels[0]
@@ -31,9 +35,9 @@ struct AppState {
     func nextLevel(in category: Category) -> Level {
         levels.first(where: { !$0.didComplete && $0.category == category }) ?? levels.first(where: { $0.category == category })!
     }
-
-    func level(after level: Level) -> Level? {
-        levels.first { $0.level > level.level }
+    
+    func didFinishAllLevels(in category: Category) -> Bool {
+        !levels.filter { $0.category == category }.contains { !$0.didComplete }
     }
     
     init() {
