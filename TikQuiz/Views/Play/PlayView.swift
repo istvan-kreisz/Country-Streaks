@@ -8,24 +8,30 @@
 import SwiftUI
 
 struct PlayView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var store: Store
 
     let interstitial: Interstitial
 
     @State var level: Level
     @State var answerIndex: Int = -1
-    
+
     @State var correctAnswer: String
 
-    init(level: Level, didBuyRemoveAds: Bool) {
+    @State var category: Category?
+
+    @State var showAlert = false
+
+    init(level: Level, category: Category?, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.answers[0])
         var newLevel = level
         newLevel.result = .none
         newLevel.answers.shuffle()
+        self._category = State<Category?>(initialValue: category)
         self._level = State<Level>(initialValue: newLevel)
         self.interstitial = Interstitial(didBuyRemoveAds: didBuyRemoveAds)
     }
-    
+
     func color(for answer: String) -> Color {
         if answerIndex == -1 {
             return .clear
@@ -39,7 +45,7 @@ struct PlayView: View {
             if answer == correctAnswer {
                 return .customGreen
             } else {
-                return .clear                
+                return .clear
             }
         }
     }
@@ -96,6 +102,15 @@ struct PlayView: View {
             }
             .defaultScreenSetup()
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(category == nil ? "Game Finished" : "Category complete"),
+                  message: Text(category == nil ?
+                      "You answered all questions. To replay the game, reset your progress in the Stats menu" :
+                      "You answered all questions in this category. Try a different category or reset your progress in the Stats menu"),
+                  dismissButton: .default(Text("Got it!"), action: {
+                      presentationMode.wrappedValue.dismiss()
+                  }))
+        }
     }
 
     func answerTapped(answer: String) {
@@ -108,8 +123,12 @@ struct PlayView: View {
     }
 
     private func goToNextLevel() {
+        guard !store.state.didFinishAllLevels(in: category) else {
+            showAlert = true
+            return
+        }
         interstitial.showAd { didShowAd in
-            var newLevel = store.state.nextLevel
+            var newLevel = store.state.nextLevel(in: category)
             self.correctAnswer = newLevel.answers[0]
             newLevel.result = .none
             newLevel.answers.shuffle()
@@ -126,7 +145,9 @@ struct PlayView_Previews: PreviewProvider {
                               result: .none,
                               category: .lasagna,
                               answers: ["hey", "yo", "bitch", "mama"],
-                              imageName: nil), didBuyRemoveAds: true)
+                              imageName: nil),
+                 category: .bitch,
+                 didBuyRemoveAds: true)
             .environmentObject(Store())
             .environmentObject(CountdownTimer.default)
     }

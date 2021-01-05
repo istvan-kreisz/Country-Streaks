@@ -15,7 +15,8 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: PlayView(level: store.state.nextLevel,
+                NavigationLink(destination: PlayView(level: store.state.nextLevel(in: nil),
+                                                     category: nil,
                                                      didBuyRemoveAds: store.state.didBuyRemoveAds)
                     .environmentObject(store)
                     .environmentObject(CountdownTimer.default),

@@ -23,21 +23,21 @@ struct AppState {
             }
         }
     }
-    
-    var didFinishAllLevels: Bool {
-        !levels.contains(where: { !$0.didComplete })
-    }
 
-    var nextLevel: Level {
-        levels.first(where: { !$0.didComplete }) ?? levels[0]
+    func nextLevel(in category: Category?) -> Level {
+        if let category = category {
+            return levels.first(where: { !$0.didComplete && $0.category == category }) ?? levels.first(where: { $0.category == category })!
+        } else {
+            return levels.first(where: { !$0.didComplete }) ?? levels[0]
+        }
     }
     
-    func nextLevel(in category: Category) -> Level {
-        levels.first(where: { !$0.didComplete && $0.category == category }) ?? levels.first(where: { $0.category == category })!
-    }
-    
-    func didFinishAllLevels(in category: Category) -> Bool {
-        !levels.filter { $0.category == category }.contains { !$0.didComplete }
+    func didFinishAllLevels(in category: Category?) -> Bool {
+        if let category = category {
+            return !levels.filter { $0.category == category }.contains { !$0.didComplete }
+        } else {
+            return !levels.contains(where: { !$0.didComplete })
+        }
     }
     
     init() {

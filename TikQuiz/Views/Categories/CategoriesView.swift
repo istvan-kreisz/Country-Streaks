@@ -12,6 +12,7 @@ struct CategoriesView: View {
     @EnvironmentObject var store: Store
 
     @State var selectedCategory: Category?
+    @State var showAlert = false
 
     var body: some View {
         let showLevel = Binding<Bool>(get: { self.selectedCategory != nil },
@@ -20,9 +21,10 @@ struct CategoriesView: View {
             NavigationBar(title: "Categories", isBackButtonVisible: true)
             if let category = selectedCategory {
                 NavigationLink(destination: PlayView(level: store.state.nextLevel(in: category),
+                                                     category: category,
                                                      didBuyRemoveAds: store.state.didBuyRemoveAds)
-                    .environmentObject(store)
-                    .environmentObject(CountdownTimer.default),
+                        .environmentObject(store)
+                        .environmentObject(CountdownTimer.default),
                     isActive: showLevel,
                     label: { EmptyView() })
             }
@@ -50,11 +52,20 @@ struct CategoriesView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Category complete"),
+                  message: Text("You answered all questions in this category. Try a different category or reset your progress in the Stats menu"),
+                  dismissButton: .default(Text("Got it!")))
+        }
     }
 
     private func categoryTapped(_ category: Category?) {
         guard let selectedCategory = category else { return }
-        self.selectedCategory = selectedCategory
+        if store.state.didFinishAllLevels(in: category) {
+            showAlert = true
+        } else {
+            self.selectedCategory = selectedCategory
+        }
     }
 }
 
