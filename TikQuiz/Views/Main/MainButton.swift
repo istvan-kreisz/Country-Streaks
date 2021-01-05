@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MainMenuButton: View {
+struct MainButton: View {
     let text: String
     let color: Color
     let action: () -> Void
@@ -44,6 +44,6 @@ struct MainMenuButton: View {
 
 struct MainMenuButton_Previews: PreviewProvider {
     static var previews: some View {
-        MainMenuButton(text: "Play", color: .customBlue, action: {})
+        MainButton(text: "Play", color: .customBlue, action: {})
     }
 }

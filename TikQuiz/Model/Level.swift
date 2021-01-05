@@ -30,7 +30,7 @@ enum Category: String, Codable, CaseIterable {
     }
     
     var name: String {
-        "bitch"
+        self.rawValue
     }
     
     var color: Color {

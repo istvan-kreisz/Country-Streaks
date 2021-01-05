@@ -88,12 +88,12 @@ struct PlayView: View {
                     .layoutPriority(1)
                 VStack(spacing: 10) {
                     ForEach(level.answers, id: \.self) { answer in
-                        MainMenuButton(text: answer,
-                                       color: .white,
-                                       fillColor: color(for: answer),
-                                       action: {
-                                           answerTapped(answer: answer)
-                                       })
+                        MainButton(text: answer,
+                                   color: .white,
+                                   fillColor: color(for: answer),
+                                   action: {
+                                       answerTapped(answer: answer)
+                                   })
                     }
                 }
                 .layoutPriority(1)

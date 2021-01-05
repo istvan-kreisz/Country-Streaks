@@ -40,6 +40,10 @@ struct AppState {
         }
     }
     
+    func getStats(for category: Category?) -> (correctCount: Int, wrongCount: Int, notAnsweredCount: Int) {
+        return (0, 0, 0)
+    }
+    
     init() {
         if let resultsData = UserDefaults.standard.data(forKey: Self.levelsKey) {
             levels = (try? JSONDecoder().decode([Level].self, from: resultsData)) ?? []

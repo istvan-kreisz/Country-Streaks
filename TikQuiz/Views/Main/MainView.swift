@@ -46,7 +46,7 @@ struct MainView: View {
                 Spacer()
 
                 VStack(spacing: 15) {
-                    MainMenuButton(text: "Play",
+                    MainButton(text: "Play",
                                    color: .customBlue,
                                    action: {
                                     if store.state.didFinishAllLevels(in: nil) {
@@ -56,13 +56,13 @@ struct MainView: View {
                                     }
                                    })
                         .withDefaultShadow()
-                    MainMenuButton(text: "Categories",
+                    MainButton(text: "Categories",
                                    color: .customYellow,
                                    action: { self.selectedMenuId = 2 })
-                    MainMenuButton(text: "Stats",
+                    MainButton(text: "Stats",
                                    color: .customTurquoise,
                                    action: { self.selectedMenuId = 3 })
-                    MainMenuButton(text: "Settings",
+                    MainButton(text: "Settings",
                                    color: .customRed,
                                    action: { self.selectedMenuId = 4 })
                 }

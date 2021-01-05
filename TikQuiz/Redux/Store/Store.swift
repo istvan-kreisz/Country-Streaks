@@ -47,6 +47,12 @@ final class Store: ObservableObject {
             case .restorePurchases:
                 iapHelper.restorePurchases()
             }
+        case .resetProgress:
+            state.levels = state.levels.map { level in
+                var resetLevel = level
+                resetLevel.result = .none
+                return resetLevel
+            }
         }
     }
 
