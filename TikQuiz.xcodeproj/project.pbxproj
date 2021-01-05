@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1181CC25A52A6D000EF045 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1181CB25A52A6D000EF045 /* StatsView.swift */; };
 		5D14ABAE259C0390003C5E28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABAD259C0390003C5E28 /* AppDelegate.swift */; };
 		5D14ABB0259C0390003C5E28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABAF259C0390003C5E28 /* SceneDelegate.swift */; };
 		5D14ABB2259C0390003C5E28 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABB1259C0390003C5E28 /* MainView.swift */; };
@@ -57,6 +58,7 @@
 		2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TikQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCE26B52571F84C8CB0B15B /* Pods-TikQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikQuiz.debug.xcconfig"; path = "Target Support Files/Pods-TikQuiz/Pods-TikQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		5280B37C7BB2D1E77F9BBBC6 /* Pods-TikQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikQuiz.release.xcconfig"; path = "Target Support Files/Pods-TikQuiz/Pods-TikQuiz.release.xcconfig"; sourceTree = "<group>"; };
+		5D1181CB25A52A6D000EF045 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		5D14ABAA259C0390003C5E28 /* TikQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D14ABAD259C0390003C5E28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D14ABAF259C0390003C5E28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D1181CA25A52A53000EF045 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				5D1181CB25A52A6D000EF045 /* StatsView.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
 		5D14ABA1259C0390003C5E28 = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +260,7 @@
 			children = (
 				5DF149FB259D4F8000A92C7C /* Play */,
 				5DF149F5259D4F6C00A92C7C /* Categories */,
+				5D1181CA25A52A53000EF045 /* Stats */,
 				5DA1E153259D428400CFF764 /* Shared */,
 				5DF149EF259D4F5F00A92C7C /* Settings */,
 				5DA1E14F259D414900CFF764 /* Main */,
@@ -472,6 +483,7 @@
 				5DA1E151259D417900CFF764 /* MainMenuButton.swift in Sources */,
 				5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */,
 				5D14ABDD259C0404003C5E28 /* IAPHelper.swift in Sources */,
+				5D1181CC25A52A6D000EF045 /* StatsView.swift in Sources */,
 				5D14ABFC259C0421003C5E28 /* Extensions.swift in Sources */,
 				5D14ABF9259C0421003C5E28 /* DebugSettings.swift in Sources */,
 				5DA1E159259D428400CFF764 /* Modifiers.swift in Sources */,

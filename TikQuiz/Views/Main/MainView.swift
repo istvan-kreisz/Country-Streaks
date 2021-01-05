@@ -11,6 +11,7 @@ struct MainView: View {
     @EnvironmentObject var store: Store
 
     @State private var selectedMenuId: Int?
+    @State var showAlert = false
 
     var body: some View {
         NavigationView {
@@ -18,15 +19,18 @@ struct MainView: View {
                 NavigationLink(destination: PlayView(level: store.state.nextLevel(in: nil),
                                                      category: nil,
                                                      didBuyRemoveAds: store.state.didBuyRemoveAds)
-                    .environmentObject(store)
-                    .environmentObject(CountdownTimer.default),
+                        .environmentObject(store)
+                        .environmentObject(CountdownTimer.default),
                     tag: 1,
                     selection: self.$selectedMenuId) { EmptyView() }
                 NavigationLink(destination: CategoriesView(),
                                tag: 2,
                                selection: self.$selectedMenuId) { EmptyView() }
-                NavigationLink(destination: SettingsView(),
+                NavigationLink(destination: StatsView(),
                                tag: 3,
+                               selection: self.$selectedMenuId) { EmptyView() }
+                NavigationLink(destination: SettingsView(),
+                               tag: 4,
                                selection: self.$selectedMenuId) { EmptyView() }
                 Spacer()
                 Image("logo")
@@ -41,23 +45,37 @@ struct MainView: View {
 
                 Spacer()
 
-                VStack(spacing: UIScreen.isiPad ? 35 : 26) {
+                VStack(spacing: 15) {
                     MainMenuButton(text: "Play",
                                    color: .customBlue,
-                                   action: { self.selectedMenuId = 1 })
+                                   action: {
+                                    if store.state.didFinishAllLevels(in: nil) {
+                                        showAlert = true
+                                    } else {
+                                        self.selectedMenuId = 1
+                                    }
+                                   })
                         .withDefaultShadow()
                     MainMenuButton(text: "Categories",
                                    color: .customYellow,
                                    action: { self.selectedMenuId = 2 })
+                    MainMenuButton(text: "Stats",
+                                   color: .customTurquoise,
+                                   action: { self.selectedMenuId = 3 })
                     MainMenuButton(text: "Settings",
                                    color: .customRed,
-                                   action: { self.selectedMenuId = 3 })
+                                   action: { self.selectedMenuId = 4 })
                 }
                 Spacer()
             }
             .defaultScreenSetup()
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Game Finished"),
+                  message: Text("You answered all questions. To replay the game, reset your progress in the Stats menu"),
+                  dismissButton: .default(Text("Got it!")))
+        }
     }
 }
 
