@@ -14,6 +14,12 @@ struct StatView: View {
     let notAnsweredCount: Int
     let isFullScreen: Bool
 
+    var stats: [(imageName: String, count: Int, color: Color)] {
+        [("checkmark.circle.fill", correctCount, .customGreen),
+         ("nosign", wrongCount, .customRed),
+         ("questionmark.circle", notAnsweredCount, .customBlue)]
+    }
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -23,11 +29,20 @@ struct StatView: View {
 
             VStack(spacing: 15) {
                 Text(title)
-                    .font(.bold(size: 15))
+                    .font(.bold(size: 20))
                     .foregroundColor(.white)
-                Text(title)
-                    .font(.regular(size: 18))
-                    .foregroundColor(.white)
+                HStack(spacing: 10) {
+                    ForEach(Array(stats), id: \.self.0) { imageName, count, color in
+                        VStack(spacing: 10) {
+                            Image(systemName: imageName)
+                                .font(.bold(size: 18))
+                                .foregroundColor(color)
+                            Text("\(count)")
+                                .font(.regular(size: 13))
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
             }
         }
     }
