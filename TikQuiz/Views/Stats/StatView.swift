@@ -15,9 +15,9 @@ struct StatView: View {
     let isFullScreen: Bool
 
     var stats: [(imageName: String, count: Int, color: Color)] {
-        [("checkmark.circle.fill", correctCount, .customGreen),
+        [("checkmark.circle", correctCount, .customGreen),
          ("nosign", wrongCount, .customRed),
-         ("questionmark.circle", notAnsweredCount, .customBlue)]
+         ("questionmark.circle", notAnsweredCount, .customYellow)]
     }
 
     var body: some View {
@@ -35,8 +35,9 @@ struct StatView: View {
                     ForEach(Array(stats), id: \.self.0) { imageName, count, color in
                         VStack(spacing: 10) {
                             Image(systemName: imageName)
-                                .font(.bold(size: 18))
+                                .font(.medium(size: 18))
                                 .foregroundColor(color)
+                                .opacity(0.8)
                             Text("\(count)")
                                 .font(.regular(size: 13))
                                 .foregroundColor(.white)

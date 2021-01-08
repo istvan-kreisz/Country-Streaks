@@ -41,7 +41,11 @@ struct AppState {
     }
     
     func getStats(for category: Category?) -> (correctCount: Int, wrongCount: Int, notAnsweredCount: Int) {
-        return (0, 0, 0)
+        let levelsInCategory = levels.filter { category == nil ? true : $0.category == category }
+        let correct = levelsInCategory.filter { $0.result == .correct }.count
+        let wrong = levelsInCategory.filter { $0.result == .wrong }.count
+        let notAnswered = levelsInCategory.filter { $0.result == .none }.count
+        return (correct, wrong, notAnswered)
     }
     
     init() {

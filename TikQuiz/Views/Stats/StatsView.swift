@@ -15,24 +15,24 @@ struct StatsView: View {
             NavigationBar(title: "Stats", isBackButtonVisible: true)
             List {
                 StatView(title: "Total",
-                         correctCount: 1,
-                         wrongCount: 2,
-                         notAnsweredCount: 3,
+                         correctCount: store.state.getStats(for: nil).correctCount,
+                         wrongCount: store.state.getStats(for: nil).wrongCount,
+                         notAnsweredCount: store.state.getStats(for: nil).notAnsweredCount,
                          isFullScreen: true)
                     .withDefaultInsets(isRowEnd: false)
                     .listRowBackground(Color.clear)
                 ForEach(0 ... Category.allCases.count / 2 - 1, id: \.self) { rowIndex in
                     HStack {
                         StatView(title: Category.allCases[rowIndex * 2].name,
-                                 correctCount: 1,
-                                 wrongCount: 2,
-                                 notAnsweredCount: 3,
+                                 correctCount: store.state.getStats(for: Category.allCases[rowIndex * 2]).correctCount,
+                                 wrongCount: store.state.getStats(for: Category.allCases[rowIndex * 2]).wrongCount,
+                                 notAnsweredCount: store.state.getStats(for: Category.allCases[rowIndex * 2]).notAnsweredCount,
                                  isFullScreen: false)
                         Spacer()
                         StatView(title: Category.allCases[rowIndex * 2 + 1].name,
-                                 correctCount: 1,
-                                 wrongCount: 2,
-                                 notAnsweredCount: 3,
+                                 correctCount: store.state.getStats(for: Category.allCases[rowIndex * 2 + 1]).correctCount,
+                                 wrongCount: store.state.getStats(for: Category.allCases[rowIndex * 2 + 1]).wrongCount,
+                                 notAnsweredCount: store.state.getStats(for: Category.allCases[rowIndex * 2 + 1]).notAnsweredCount,
                                  isFullScreen: false)
                     }
                     .withDefaultInsets(isRowEnd: rowIndex == Category.allCases.count / 2)
