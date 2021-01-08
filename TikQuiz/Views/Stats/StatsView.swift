@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatsView: View {
     @EnvironmentObject var store: Store
+    @State var showAlert = false
 
     var body: some View {
         VStack {
@@ -41,7 +42,7 @@ struct StatsView: View {
                 MainButton(text: "Reset Progress",
                            color: .customTurquoise,
                            fillColor: .clear,
-                           action: resetProgressTapped)
+                           action: { showAlert = true })
                     .padding(.top, 30)
                     .listRowBackground(Color.clear)
             }
@@ -51,9 +52,17 @@ struct StatsView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Are you sure?"),
+                  message: Text("This will reset all your game progress."),
+                  primaryButton: .cancel(),
+                  secondaryButton: .destructive(Text("Reset"), action: {
+                      resetProgress()
+                  }))
+        }
     }
 
-    func resetProgressTapped() {
+    func resetProgress() {
         store.send(.resetProgress)
     }
 }

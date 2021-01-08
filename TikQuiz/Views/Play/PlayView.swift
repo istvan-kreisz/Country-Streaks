@@ -149,6 +149,5 @@ struct PlayView_Previews: PreviewProvider {
                  category: .bitch,
                  didBuyRemoveAds: true)
             .environmentObject(Store())
-            .environmentObject(CountdownTimer.default)
     }
 }

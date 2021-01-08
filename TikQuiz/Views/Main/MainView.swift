@@ -19,8 +19,7 @@ struct MainView: View {
                 NavigationLink(destination: PlayView(level: store.state.nextLevel(in: nil),
                                                      category: nil,
                                                      didBuyRemoveAds: store.state.didBuyRemoveAds)
-                        .environmentObject(store)
-                        .environmentObject(CountdownTimer.default),
+                        .environmentObject(store),
                     tag: 1,
                     selection: self.$selectedMenuId) { EmptyView() }
                 NavigationLink(destination: CategoriesView(),

@@ -23,8 +23,7 @@ struct CategoriesView: View {
                 NavigationLink(destination: PlayView(level: store.state.nextLevel(in: category),
                                                      category: category,
                                                      didBuyRemoveAds: store.state.didBuyRemoveAds)
-                        .environmentObject(store)
-                        .environmentObject(CountdownTimer.default),
+                        .environmentObject(store),
                     isActive: showLevel,
                     label: { EmptyView() })
             }

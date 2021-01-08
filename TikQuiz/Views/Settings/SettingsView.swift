@@ -20,13 +20,13 @@ struct SettingsView: View {
                                  color: .customGreen,
                                  accessoryView: loadingView())
                     .listRowBackground(Color.clear)
-                    .animateOnTap(actionOnTap: removeAds)
+                    .onTapGesture(perform: removeAds)
                     .withDefaultInsets(isRowEnd: false)
                 SettingsCellView(text: "Restore Purchases",
                                  color: .customYellow,
                                  accessoryView: nil)
                     .listRowBackground(Color.clear)
-                    .animateOnTap(actionOnTap: restorePurchases)
+                    .onTapGesture(perform: restorePurchases)
                     .withDefaultInsets(isRowEnd: false)
             }
             .withDefaultInsets(isRowEnd: false)
@@ -47,8 +47,8 @@ struct SettingsView: View {
         } else {
             return AnyView(
                 Text(store.state.didBuyRemoveAds ? "Purchased" : "$2.99")
-                    .font(.medium(size: 25))
-                    .foregroundColor(.customGreen)
+                    .font(.medium(size: 18))
+                    .foregroundColor(.customYellow)
             )
         }
     }

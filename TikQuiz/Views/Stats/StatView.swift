@@ -31,7 +31,7 @@ struct StatView: View {
                 Text(title)
                     .font(.bold(size: 20))
                     .foregroundColor(.white)
-                HStack(spacing: 10) {
+                HStack(spacing: isFullScreen ? 20 : 10) {
                     ForEach(Array(stats), id: \.self.0) { imageName, count, color in
                         VStack(spacing: 10) {
                             Image(systemName: imageName)

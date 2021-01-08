@@ -22,15 +22,11 @@ struct SettingsCellView: View {
                 .frame(width: 41, height: 41)
                 .background(Color.clear)
 
-            VStack(alignment: .leading, spacing: 10) {
-                Text(text)
-                    .font(.regular(size: 16))
-                    .foregroundColor(.white)
-                Text(text)
-                    .font(.light(size: 14))
-                    .foregroundColor(.white)
-            }
+            Text(text)
+                .font(.regular(size: 18))
+                .foregroundColor(.white)
             Spacer()
+            accessoryView
         }
         .padding(20)
         .frame(height: 80)

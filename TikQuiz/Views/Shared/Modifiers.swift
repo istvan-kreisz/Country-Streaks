@@ -157,36 +157,6 @@ extension View {
     }
 }
 
-struct AnimateOnTap: ViewModifier {
-    
-    @State private var scale: CGFloat = 1.0
-    
-    let actionOnTap: (() -> Void)?
-    
-    init(actionOnTap: (() -> Void)?) {
-        self.actionOnTap = actionOnTap
-    }
-    
-    func body(content: Content) -> some View {
-        content
-            .scaleEffect(scale)
-            .onTapGesture {
-                self.actionOnTap?()
-                self.scale = 1.08
-                Timer.scheduledTimer(withTimeInterval: 0.09, repeats: false) { _ in
-                    self.scale = 1.01
-                }
-        }
-        .animation(Animation.easeIn(duration: 0.09))
-    }
-}
-
-extension View {
-    func animateOnTap(actionOnTap: (() -> Void)?) -> some View {
-        ModifiedContent(content: self, modifier: AnimateOnTap(actionOnTap: actionOnTap))
-    }
-}
-
 extension View {
     func isHidden(_ hidden: Bool, remove: Bool = false) -> some View {
         modifier(HiddenModifier(isHidden: hidden, remove: remove))
