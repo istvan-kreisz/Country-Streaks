@@ -22,14 +22,13 @@ struct NavigationBar: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "arrow.left")
-                        .font(.bold(size: 19))
+                        .font(.bold(size: 22))
                         .foregroundColor(Color.customTurquoise)
                 }
                 .frame(width: 50, height: 50)
             }
             Spacer()
-            Text(self.title)
-                .textCase(.uppercase)
+            Text(self.title.uppercased())
                 .font(.bold(size: 22))
                 .foregroundColor(Color.white)
                 .padding(.leading, isBackButtonVisible ? -50 : 0)

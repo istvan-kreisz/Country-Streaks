@@ -21,6 +21,8 @@ final class Store: ObservableObject {
     init() {
         let launchCount = UserDefaults.standard.integer(forKey: Constants.launchCount)
         if launchCount == 0 { // first launch
+            let i = 3
+            print(i)
         }
         UserDefaults.standard.set(launchCount + 1, forKey: Constants.launchCount)
         iapHelper.delegate = self

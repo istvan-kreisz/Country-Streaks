@@ -27,20 +27,25 @@ struct CategoriesView: View {
                     isActive: showLevel,
                     label: { EmptyView() })
             }
-            List {
+            ScrollView {
                 ForEach(0 ... Category.allCases.count / 2 - 1, id: \.self) { rowIndex in
                     HStack {
+                        Spacer()
                         CategoryView(category: Category.allCases[rowIndex * 2 + 0],
                                      color: Category.allCases[rowIndex * 2 + 0].color) {
                                 categoryTapped(Category.allCases[rowIndex * 2 + 0])
                         }
+                        .layoutPriority(1)
                         Spacer()
+                            .layoutPriority(1)
                         CategoryView(category: Category.allCases[rowIndex * 2 + 1],
                                      color: Category.allCases[rowIndex * 2 + 1].color) {
-                                categoryTapped(Category.allCases[rowIndex * 2 + 0])
+                                categoryTapped(Category.allCases[rowIndex * 2 + 1])
                         }
+                        .layoutPriority(1)
+                        Spacer()
                     }
-                    .withDefaultInsets(isRowEnd: rowIndex == Category.allCases.count / 2)
+                    .withDefaultRowPadding(isLastRow: rowIndex == Category.allCases.count / 2)
                     .listRowBackground(Color.clear)
                 }
             }
@@ -48,6 +53,7 @@ struct CategoriesView: View {
         .defaultScreenSetup()
         .onAppear {
             selectedCategory = nil
+            UITableView.appearance().separatorColor = .clear
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         }

@@ -40,6 +40,14 @@ struct AppState {
         }
     }
     
+    func index(of level: Level, in category: Category?) -> Int {
+        if let category = category {
+            return (levels.filter { $0.category == category }.firstIndex { $0.level == level.level } ?? 0) + 1
+        } else {
+            return level.level
+        }
+    }
+    
     func getStats(for category: Category?) -> (correctCount: Int, wrongCount: Int, notAnsweredCount: Int) {
         let levelsInCategory = levels.filter { category == nil ? true : $0.category == category }
         let correct = levelsInCategory.filter { $0.result == .correct }.count

@@ -53,7 +53,8 @@ struct PlayView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                NavigationBar(title: "Question \(level.level!)", isBackButtonVisible: true)
+                NavigationBar(title: "Question \(store.state.index(of: level, in: category))",
+                              isBackButtonVisible: true)
                 Text(level.category.name)
                     .foregroundColor(.white)
                     .font(.light(size: 13))

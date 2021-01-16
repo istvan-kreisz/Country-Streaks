@@ -12,6 +12,10 @@ struct CategoryView: View {
     let category: Category?
     let color: Color
     let action: () -> Void
+    
+    var size: CGFloat {
+        UIScreen.main.bounds.width < 414 ? 130 : 150
+    }
 
     var body: some View {
         Button(action: {
@@ -22,15 +26,15 @@ struct CategoryView: View {
                         ZStack {
                             Circle()
                                 .foregroundColor(color)
-                                .frame(width: 140, height: 140, alignment: .center)
+                                .frame(width: size, height: size, alignment: .center)
                             Image(category!.imageName)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 90)
+                                .frame(width: size * 0.55)
                                 .foregroundColor(.white)
                                 .padding(.bottom, 5)
                         }
-                        Text("Level " + "\(category!.name)")
+                        Text(category!.name)
                             .font(.regular(size: 15))
                             .foregroundColor(.customYellow)
                         Spacer()

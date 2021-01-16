@@ -19,11 +19,15 @@ struct StatView: View {
          ("nosign", wrongCount, .customRed),
          ("questionmark.circle", notAnsweredCount, .customYellow)]
     }
+    
+    var size: CGFloat {
+        UIScreen.main.bounds.width < 414 ? 140 : 155
+    }
 
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: isFullScreen ? nil : 140, height: 140, alignment: .center)
+                .frame(width: isFullScreen ? nil : size, height: size, alignment: .center)
                 .foregroundColor(Color.white.opacity(0.1))
                 .cornerRadius(15)
 

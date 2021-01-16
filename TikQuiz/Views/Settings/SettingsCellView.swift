@@ -16,12 +16,6 @@ struct SettingsCellView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Image("logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 41, height: 41)
-                .background(Color.clear)
-
             Text(text)
                 .font(.regular(size: 18))
                 .foregroundColor(.white)

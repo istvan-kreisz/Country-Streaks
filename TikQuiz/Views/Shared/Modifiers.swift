@@ -19,7 +19,6 @@ extension View {
 }
 
 struct WithDefaultBackground: ViewModifier {
-    
     func body(content: Content) -> some View {
         ZStack {
             LinearGradient(gradient: .init(colors: [.customGray3, .customGrayBlue]),
@@ -32,7 +31,6 @@ struct WithDefaultBackground: ViewModifier {
 }
 
 struct NavigationbarHidden: ViewModifier {
-    
     func body(content: Content) -> some View {
         content
             .navigationBarTitle("")
@@ -44,12 +42,11 @@ extension View {
     func navigationbarHidden() -> some View {
         ModifiedContent(content: self, modifier: NavigationbarHidden())
     }
-    
+
     func withDefaultBackground() -> some View {
         ModifiedContent(content: self, modifier: WithDefaultBackground())
     }
 }
-
 
 struct Padding: OptionSet {
     let rawValue: Int
@@ -62,13 +59,12 @@ struct Padding: OptionSet {
 }
 
 struct DefaultPadding: ViewModifier {
-    
     let padding: Padding
-        
+
     init(padding: Padding = .all) {
         self.padding = padding
     }
-    
+
     func body(content: Content) -> some View {
         content
             .padding(.top, padding.contains(.top) ? 30 : 0)
@@ -78,20 +74,42 @@ struct DefaultPadding: ViewModifier {
     }
 }
 
+struct DefaultRowPadding: ViewModifier {
+    let insets: UIEdgeInsets
+
+    init(isLastRow: Bool) {
+        self.insets = UIEdgeInsets(top: 15,
+                                   left: 15,
+                                   bottom: isLastRow ? 40 : 15,
+                                   right: 15)
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .padding(.top, insets.top)
+            .padding(.bottom, insets.bottom)
+            .padding(.leading, insets.left)
+            .padding(.trailing, insets.right)
+    }
+}
+
 extension View {
     func withDefaultPadding(padding: Padding) -> some View {
         ModifiedContent(content: self, modifier: DefaultPadding(padding: padding))
     }
+
+    func withDefaultRowPadding(isLastRow: Bool) -> some View {
+        ModifiedContent(content: self, modifier: DefaultRowPadding(isLastRow: isLastRow))
+    }
 }
 
 struct DefaultShadow: ViewModifier {
-    
     let isActive: Bool
-    
+
     init(isActive: Bool) {
         self.isActive = isActive
     }
-    
+
     func body(content: Content) -> some View {
         content
             .shadow(color: isActive ? Color.black.opacity(0.3) : .clear, radius: 7, x: 0, y: 10)
@@ -105,15 +123,14 @@ extension View {
 }
 
 struct DefaultInsets: ViewModifier {
-    
     let isRowEnd: Bool
-    
+
     func body(content: Content) -> some View {
         content
-        .listRowInsets(EdgeInsets(top: 10,
-                                  leading: 10,
-                                  bottom: isRowEnd ? 40 : 10,
-                                  trailing: 10))
+            .listRowInsets(EdgeInsets(top: 10,
+                                      leading: 10,
+                                      bottom: isRowEnd ? 40 : 10,
+                                      trailing: 10))
     }
 }
 
@@ -124,7 +141,6 @@ extension View {
 }
 
 struct CenteredHorizontally: ViewModifier {
-    
     func body(content: Content) -> some View {
         HStack {
             Spacer()
@@ -141,7 +157,6 @@ extension View {
 }
 
 struct CenteredVertically: ViewModifier {
-    
     func body(content: Content) -> some View {
         VStack {
             Spacer()
@@ -164,7 +179,6 @@ extension View {
 }
 
 fileprivate struct HiddenModifier: ViewModifier {
-
     private let isHidden: Bool
     private let remove: Bool
 
@@ -195,7 +209,6 @@ extension View {
 }
 
 fileprivate struct FadedModifier: ViewModifier {
-
     private let isFaded: Bool
 
     init(isFaded: Bool) {

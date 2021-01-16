@@ -15,7 +15,7 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             NavigationBar(title: "Settings", isBackButtonVisible: true)
-            List {
+            ScrollView {
                 SettingsCellView(text: "Remove Ads",
                                  color: .customGreen,
                                  accessoryView: loadingView())
@@ -29,7 +29,7 @@ struct SettingsView: View {
                     .onTapGesture(perform: restorePurchases)
                     .withDefaultInsets(isRowEnd: false)
             }
-            .withDefaultInsets(isRowEnd: false)
+            .withDefaultRowPadding(isLastRow: false)
         }
         .defaultScreenSetup()
         .onAppear() {
