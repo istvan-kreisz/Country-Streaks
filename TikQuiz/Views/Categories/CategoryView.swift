@@ -35,7 +35,7 @@ struct CategoryView: View {
                                 .padding(.bottom, 5)
                         }
                         Text(category!.name)
-                            .font(.regular(size: 15))
+                            .font(.bold(size: 15))
                             .foregroundColor(.customYellow)
                         Spacer()
                     }

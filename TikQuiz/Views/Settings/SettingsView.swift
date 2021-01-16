@@ -47,7 +47,7 @@ struct SettingsView: View {
         } else {
             return AnyView(
                 Text(store.state.didBuyRemoveAds ? "Purchased" : "$2.99")
-                    .font(.medium(size: 18))
+                    .font(.bold(size: 18))
                     .foregroundColor(.customYellow)
             )
         }

@@ -22,7 +22,7 @@ struct NavigationBar: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "arrow.left")
-                        .font(.bold(size: 22))
+                        .font(.bold(size: 24))
                         .foregroundColor(Color.customTurquoise)
                 }
                 .frame(width: 50, height: 50)

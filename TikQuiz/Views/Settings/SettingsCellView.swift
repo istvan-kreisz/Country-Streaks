@@ -17,7 +17,7 @@ struct SettingsCellView: View {
     var body: some View {
         HStack(alignment: .center) {
             Text(text)
-                .font(.regular(size: 18))
+                .font(.bold(size: 18))
                 .foregroundColor(.white)
             Spacer()
             accessoryView

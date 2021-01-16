@@ -12,6 +12,10 @@ struct MainView: View {
 
     @State private var selectedMenuId: Int?
     @State var showAlert = false
+    
+    var logoSize: CGFloat {
+        UIScreen.main.bounds.width < 414 ? 80 : 95
+    }
 
     var body: some View {
         NavigationView {
@@ -35,12 +39,8 @@ struct MainView: View {
                 Image("logo")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 70)
-                    .background(Color.white)
-                Text("Tik Trivia")
-                    .font(.black(size: 40))
-                    .foregroundColor(.white)
-                    .padding(.bottom, 60)
+                    .frame(height: logoSize)
+                    .background(Color.clear)
 
                 Spacer()
 

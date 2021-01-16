@@ -29,7 +29,7 @@ struct MainButton: View {
             HStack {
                 Text(text)
                     .multilineTextAlignment(.center)
-                    .font(.medium(size: 17))
+                    .font(.bold(size: 17))
                     .foregroundColor(.white)
             }
             .padding(.horizontal, 20)
@@ -37,7 +37,7 @@ struct MainButton: View {
             .cornerRadius(10)
             .background(fillColor)
             .overlay(RoundedRectangle(cornerRadius: 10)
-                .stroke(color, lineWidth: 1))
+                .stroke(color, lineWidth: 2))
         }
     }
 }
