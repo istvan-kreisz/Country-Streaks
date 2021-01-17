@@ -24,6 +24,7 @@
 		5D14ABFC259C0421003C5E28 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE5259C0421003C5E28 /* Extensions.swift */; };
 		5D14ABFE259C0421003C5E28 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE7259C0421003C5E28 /* Colors.swift */; };
 		5D14AC19259C0564003C5E28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 5D14AC18259C0564003C5E28 /* Reachability */; };
+		5D41D16325B3D52C00749417 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D41D16225B3D52C00749417 /* questions.json */; };
 		5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E149259D34F300CFF764 /* Interstitial.swift */; };
 		5DA1E151259D417900CFF764 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E150259D417900CFF764 /* MainButton.swift */; };
 		5DA1E157259D428400CFF764 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E154259D428400CFF764 /* Spinner.swift */; };
@@ -76,6 +77,7 @@
 		5D14ABE1259C0421003C5E28 /* DebugSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		5D14ABE5259C0421003C5E28 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5D14ABE7259C0421003C5E28 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5D41D16225B3D52C00749417 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		5DA1E149259D34F300CFF764 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		5DA1E150259D417900CFF764 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		5DA1E154259D428400CFF764 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				5D14ABB3259C0392003C5E28 /* Assets.xcassets */,
 				5D14ABB8259C0392003C5E28 /* LaunchScreen.storyboard */,
 				5D14ABE1259C0421003C5E28 /* DebugSettings.swift */,
+				5D41D16225B3D52C00749417 /* questions.json */,
 				5D14ABE5259C0421003C5E28 /* Extensions.swift */,
 				5D14ABE7259C0421003C5E28 /* Colors.swift */,
 				5D14ABE8259C0421003C5E28 /* Fonts */,
@@ -409,6 +412,7 @@
 				5DF14A1725A078AE00A92C7C /* Rubik-Regular.ttf in Resources */,
 				5DF14A1F25A078AE00A92C7C /* Rubik-BlackItalic.ttf in Resources */,
 				5DF14A2125A078AE00A92C7C /* Rubik-BoldItalic.ttf in Resources */,
+				5D41D16325B3D52C00749417 /* questions.json in Resources */,
 				5DF14A1D25A078AE00A92C7C /* Rubik-SemiBold.ttf in Resources */,
 				5DF14A2225A078AE00A92C7C /* Rubik-Italic.ttf in Resources */,
 				5D14ABB4259C0392003C5E28 /* Assets.xcassets in Resources */,

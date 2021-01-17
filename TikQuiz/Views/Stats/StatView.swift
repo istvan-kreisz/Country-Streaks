@@ -39,11 +39,11 @@ struct StatView: View {
                     ForEach(Array(stats), id: \.self.0) { imageName, count, color in
                         VStack(spacing: 10) {
                             Image(systemName: imageName)
-                                .font(.medium(size: 18))
+                                .font(.bold(size: 19))
                                 .foregroundColor(color)
                                 .opacity(0.8)
                             Text("\(count)")
-                                .font(.regular(size: 13))
+                                .font(.bold(size: 13))
                                 .foregroundColor(.white)
                         }
                     }
