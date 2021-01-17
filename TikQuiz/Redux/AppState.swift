@@ -10,17 +10,47 @@ import Foundation
 
 struct AppState {
     private static let levelsKey = "levels"
+    private static let didBuyRemoveAdsKey = "didBuyRemoveAds"
+
+    var levels: [Level] = []
 
     var didBuyRemoveAds: Bool {
-        get { UserDefaults.standard.bool(forKey: Constants.didBuyRemoveAdsKey) }
-        set { UserDefaults.standard.set(newValue, forKey: Constants.didBuyRemoveAdsKey) }
+        get { UserDefaults.standard.bool(forKey: Self.didBuyRemoveAdsKey) }
+        set { UserDefaults.standard.set(newValue, forKey: Self.didBuyRemoveAdsKey) }
+    }
+    
+    
+    private func result(ofLevelAtIndex index: Int) -> LevelResult {
+        switch UserDefaults.standard.integer(forKey: Self.levelsKey + "\(index)") {
+        case 0:
+            return .none
+        case 1:
+            return .correct
+        default:
+            return .wrong
+        }
     }
 
-    var levels: [Level] {
-        didSet {
-            if let data = try? JSONEncoder().encode(levels) {
-                UserDefaults.standard.set(data, forKey: Self.levelsKey)
-            }
+    private func result(of level: Level) -> LevelResult {
+        let levelIndex = index(of: level, in: nil)
+        return result(ofLevelAtIndex: levelIndex)
+    }
+
+    mutating func set(result: LevelResult, for level: Level) {
+        guard result != .none else { return }
+        let levelIndex = index(of: level, in: nil)
+        UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: Self.levelsKey + "\(levelIndex)")
+        levels[levelIndex].result = result
+    }
+    
+    mutating func resetProgress() {
+        levels = levels.map { level in
+            var newLevel = level
+            newLevel.result = .none
+            return newLevel
+        }
+        levels.enumerated().forEach { index in
+            UserDefaults.standard.set(0, forKey: Self.levelsKey + "\(index)")
         }
     }
 
@@ -31,7 +61,7 @@ struct AppState {
             return levels.first(where: { !$0.didComplete }) ?? levels[0]
         }
     }
-    
+
     func didFinishAllLevels(in category: Category?) -> Bool {
         if let category = category {
             return !levels.filter { $0.category == category }.contains { !$0.didComplete }
@@ -39,15 +69,13 @@ struct AppState {
             return !levels.contains(where: { !$0.didComplete })
         }
     }
-    
+
     func index(of level: Level, in category: Category?) -> Int {
-        if let category = category {
-            return (levels.filter { $0.category == category }.firstIndex { $0.level == level.level } ?? 0) + 1
-        } else {
-            return level.level
-        }
+        levels
+            .filter { category == nil ? true : ($0.category == category) }
+            .firstIndex(of: level) ?? 0
     }
-    
+
     func getStats(for category: Category?) -> (correctCount: Int, wrongCount: Int, notAnsweredCount: Int) {
         let levelsInCategory = levels.filter { category == nil ? true : $0.category == category }
         let correct = levelsInCategory.filter { $0.result == .correct }.count
@@ -55,34 +83,21 @@ struct AppState {
         let notAnswered = levelsInCategory.filter { $0.result == .none }.count
         return (correct, wrong, notAnswered)
     }
-    
+
     init() {
-        if let resultsData = UserDefaults.standard.data(forKey: Self.levelsKey) {
-            levels = (try? JSONDecoder().decode([Level].self, from: resultsData)) ?? []
-        } else {
-            levels = []
-        }
-        if let path = Bundle.main.path(forResource: "levels", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "questions", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let levels = try JSONDecoder().decode([Level].self, from: data)
-                if self.levels.count < levels.count {
-                    for index in self.levels.count...levels.count - 1 {
-                        var newLevel = levels[index]
-                        newLevel.level = index + 1
-                        self.levels.append(newLevel)
+                self.levels = try JSONDecoder().decode([Level].self, from: data)
+                    .enumerated()
+                    .map { index, level in
+                        var newLevel = level
+                        newLevel.result = result(ofLevelAtIndex: index)
+                        return newLevel
                     }
-                    if let data = try? JSONEncoder().encode(levels) {
-                        UserDefaults.standard.set(data, forKey: Self.levelsKey)
-                    }
-                }
             } catch {
                 print(error)
             }
         }
-    }
-
-    private enum Constants {
-        static let didBuyRemoveAdsKey = "didBuyRemoveAds"
     }
 }

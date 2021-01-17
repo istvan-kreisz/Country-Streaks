@@ -37,11 +37,7 @@ final class Store: ObservableObject {
     func send(_ action: AppAction) {
         switch action {
         case let .finishedLevel(level, didGuessRight):
-            if let index = state.levels.firstIndex(where: { $0.level == level.level }) {
-                var savedLevel = state.levels[index]
-                savedLevel.result = didGuessRight ? .correct : .wrong
-                state.levels[index] = savedLevel
-            }
+            state.set(result: didGuessRight ? .correct : .wrong, for: level)
         case .iap(iapAction: let iapAction):
             switch iapAction {
             case .removeAds:
@@ -50,11 +46,7 @@ final class Store: ObservableObject {
                 iapHelper.restorePurchases()
             }
         case .resetProgress:
-            state.levels = state.levels.map { level in
-                var resetLevel = level
-                resetLevel.result = .none
-                return resetLevel
-            }
+            state.resetProgress()
         }
     }
 

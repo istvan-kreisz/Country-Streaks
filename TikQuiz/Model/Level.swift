@@ -10,11 +10,14 @@ import Foundation
 import SwiftUI
 
 enum LevelResult: String, Codable {
-    case none, correct, wrong
-    
+    case none
+    case correct
+    case wrong
+
     var didComplete: Bool {
         switch self {
-        case .correct, .wrong:
+        case .correct,
+             .wrong:
             return true
         case .none:
             return false
@@ -23,56 +26,65 @@ enum LevelResult: String, Codable {
 }
 
 enum Category: String, Codable, CaseIterable {
-    case bitch, lasagna, hmmm, what
-    
+    case trends
+    case people
+
     var imageName: String {
         ""
     }
-    
+
     var name: String {
         self.rawValue
     }
-    
+
     var color: Color {
         switch self {
-        case .bitch:
+        case .trends:
             return .customTurquoise
-        case .lasagna:
+        case .people:
             return .customBlue
-        case .hmmm:
-            return .customYellow
-        case .what:
-            return .customGreen
         }
     }
 }
 
 struct Level {
-    var level: Int!
+    var result: LevelResult = .none
     let question: String
-    var result: LevelResult
+    let answer1: String
+    let answer2: String
+    let answer3: String
+    let answer4: String
+    let attachment: String
     let category: Category
-    var answers: [String]
+
+    lazy var answers: [String] = {
+        [answer1, answer2, answer3, answer4].filter { !$0.isEmpty }
+    }()
 
     var didComplete: Bool {
         result.didComplete
     }
-    
-    var imageName: String?
-    
+
     enum CodingKeys: String, CodingKey {
-        case level, question, result, category, answers, imageName
+        case question
+        case answer1
+        case answer2
+        case answer3
+        case answer4
+        case attachment
+        case category
     }
 }
 
-extension Level: Codable {
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.level = (try values.decodeIfPresent(Int.self, forKey: .level))
-        self.question = try values.decode(String.self, forKey: .question)
-        self.result = (try values.decodeIfPresent(LevelResult.self, forKey: .result)) ?? .none
-        self.category = try values.decode(Category.self, forKey: .category)
-        self.answers = try values.decode([String].self, forKey: .answers)
-        self.imageName = try values.decode(String.self, forKey: .imageName)
+extension Level: Decodable {}
+
+extension Level: Equatable {
+    static func == (lhs: Level, rhs: Level) -> Bool {
+        return lhs.question == rhs.question &&
+            lhs.answer1 == rhs.answer1 &&
+            lhs.answer2 == rhs.answer2 &&
+            lhs.answer3 == rhs.answer3 &&
+            lhs.answer4 == rhs.answer4 &&
+            lhs.attachment == rhs.attachment
     }
 }

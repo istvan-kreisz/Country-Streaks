@@ -50,7 +50,6 @@
 		5DF14A2225A078AE00A92C7C /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A0A25A078A100A92C7C /* Rubik-Italic.ttf */; };
 		5DF14A2325A078AE00A92C7C /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A1125A078A100A92C7C /* Rubik-LightItalic.ttf */; };
 		5DF14A2625A0793900A92C7C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2525A0793900A92C7C /* Fonts.swift */; };
-		5DF14A2C25A103A600A92C7C /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A2B25A103A600A92C7C /* levels.json */; };
 		5DF14A3025A12C8800A92C7C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2F25A12C8700A92C7C /* GameState.swift */; };
 		A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */; };
 /* End PBXBuildFile section */
@@ -103,7 +102,6 @@
 		5DF14A1325A078A100A92C7C /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		5DF14A1425A078A100A92C7C /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		5DF14A2525A0793900A92C7C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		5DF14A2B25A103A600A92C7C /* levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
 		5DF14A2F25A12C8700A92C7C /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,7 +222,6 @@
 				5D14ABE5259C0421003C5E28 /* Extensions.swift */,
 				5D14ABE7259C0421003C5E28 /* Colors.swift */,
 				5D14ABE8259C0421003C5E28 /* Fonts */,
-				5DF14A2B25A103A600A92C7C /* levels.json */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -400,7 +397,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF14A2C25A103A600A92C7C /* levels.json in Resources */,
 				5D14ABBA259C0392003C5E28 /* LaunchScreen.storyboard in Resources */,
 				5DF14A1B25A078AE00A92C7C /* Rubik-ExtraBold.ttf in Resources */,
 				5DF14A1825A078AE00A92C7C /* Rubik-Light.ttf in Resources */,

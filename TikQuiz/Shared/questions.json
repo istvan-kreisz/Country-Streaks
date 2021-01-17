@@ -1,6 +1,6 @@
 [
   {
-    "question": "\"Jonny Jonny ______\"",
+    "question": "\"Jonny Jonny ...\"",
     "answer1": "\"Yes Papa\"",
     "answer2": "\"Who's Johnny\"",
     "answer3": "\"Eating sugar\"",
@@ -117,7 +117,7 @@
     "category": "people"
   },
   {
-    "question": "\"Why you ______\"",
+    "question": "\"Why you ...\"",
     "answer1": "\"so obsessed with me\"",
     "answer2": "\"mean to me\"",
     "answer3": "\"so in love with me\"",
@@ -168,7 +168,7 @@
     "answer3": "Will Smith",
     "answer4": "Addison Rae",
     "attachment": "",
-    "category": "general"
+    "category": "people"
   },
   {
     "question": "“Stand-Up Challenge” is another popular TikTok trend. The challenge song was called “Woah”. Who is its author?",
@@ -235,15 +235,6 @@
   },
   {
     "question": "What's the name of this challenge?",
-    "answer1": "Supalonely",
-    "answer2": "Git Up",
-    "answer3": "Gimme Some",
-    "answer4": "Blinding Lights",
-    "attachment": "supalonely",
-    "category": "trends"
-  },
-  {
-    "question": "What's the name of this challenge?",
     "answer1": "Renegade",
     "answer2": "Savage",
     "answer3": "Git Up",
@@ -306,7 +297,7 @@
     "category": "trends"
   },
   {
-    "question": "\"______, famous relative check.\"",
+    "question": "\"..., famous relative check.\"",
     "answer1": "\"Ayo\"",
     "answer2": "\"Heyy\"",
     "answer3": "\"Guess what\"",
@@ -324,7 +315,7 @@
     "category": "trends"
   },
   {
-    "question": "\"This message lasts two minutes. This is for ______\"",
+    "question": "\"This message lasts two minutes. This is for ...\"",
     "answer1": "\"Rachel\"",
     "answer2": "\"Brittany\"",
     "answer3": "\"Anna\"",
@@ -351,7 +342,7 @@
     "category": "trends"
   },
   {
-    "question": "\"Yeah, that didn't work out. So I decided to have a break from boys, and ______\"",
+    "question": "\"Yeah, that didn't work out. So I decided to have a break from boys, and ...\"",
     "answer1": "\"You'll never guess who I met.\"",
     "answer2": "\"It's been so freeing.\"",
     "answer3": "\"I tried something new.\"",
@@ -360,7 +351,7 @@
     "category": "trends"
   },
   {
-    "question": "\"I'm in the ghetto ______\"",
+    "question": "\"I'm in the ghetto ...\"",
     "answer1": "\"Ra ta ta taaaa!\"",
     "answer2": "\"Urm... good for you...\"",
     "answer3": "\"I'm boutta get my ass beat\"",
@@ -378,7 +369,7 @@
     "category": "trends"
   },
   {
-    "question": "\"Somebody come get her ______\"",
+    "question": "\"Somebody come get her ...\"",
     "answer1": "\"She's dancing like a stripper\"",
     "answer2": "\"She's singing like a stripper\"",
     "answer3": "\"She's here just like a stripper\"",
@@ -387,7 +378,7 @@
     "category": "trends"
   },
   {
-    "question": "\"Feeling blessed, never stressed, ______\"",
+    "question": "\"Feeling blessed, never stressed, ...\"",
     "answer1": "\"got my kicks on with my sunday best\"",
     "answer2": "\"got that sunshine with my sunday best\"",
     "answer3": "\"with all my friends on our sunday best\"",
@@ -486,7 +477,7 @@
     "category": "trends"
   },
   {
-    "question": "\"I know I f*cked up, I'm just a loser / Shouldn't be with ya, ____________\"",
+    "question": "\"I know I f*cked up, I'm just a loser / Shouldn't be with ya, ......\"",
     "answer1": "\"guess i'm a quitter\"",
     "answer2": "\"I should just sit here\"",
     "answer3": "\"wish i could kiss ya\"",
@@ -540,7 +531,7 @@
     "category": "people"
   },
   {
-    "question": "\"Eyes blue like like the Atlantic ______\"",
+    "question": "\"Eyes blue like like the Atlantic ...\"",
     "answer1": "\"and I'm going down like the Titanic\"",
     "answer2": "\"let us travel to the Pacific\"",
     "answer3": "\"so cold can't see your face\"",
@@ -549,7 +540,7 @@
     "category": "trends"
   },
   {
-    "question": "\"Sometimes I don't wanna be happy ______\"",
+    "question": "\"Sometimes I don't wanna be happy ...\"",
     "answer1": "\"don't hold it against me\"",
     "answer2": "\"I just wanna be sad\"",
     "answer3": "\"and wanna go cry I my bed\"",
@@ -558,7 +549,7 @@
     "category": "trends"
   },
   {
-    "question": "\"I told her call me Rocky ______\"",
+    "question": "\"I told her call me Rocky ...\"",
     "answer1": "\"she say she not gon' call me that\"",
     "answer2": "\"she say ok and came over",
     "answer3": "\"she say gonna call me that\"",
@@ -567,7 +558,7 @@
     "category": "trends"
   },
   {
-    "question": "\"Take me to your best friend's house ______\"",
+    "question": "\"Take me to your best friend's house ...\"",
     "answer1": "\"Roll around this roundabout\"",
     "answer2": "\"Let's have fun all day at your house\"",
     "answer3": "\"I don't really care what we do\"",
@@ -612,7 +603,7 @@
     "category": "people"
   },
   {
-    "question": "\"Interior, crocodile, alligator. I drive a Chevrolet ______\"",
+    "question": "\"Interior, crocodile, alligator. I drive a Chevrolet ...\"",
     "answer1": "\"Movie theater\"",
     "answer2": "\"48er\"",
     "answer3": "\"Don't tell your neighbor\"",
@@ -621,7 +612,7 @@
     "category": "trends"
   },
   {
-    "question": "\"Make his pockets ______\"",
+    "question": "\"Make his pockets ...\"",
     "answer1": "\"hurt\"",
     "answer2": "\"full\"",
     "answer3": "\"tight\"",
@@ -630,7 +621,7 @@
     "category": "trends"
   },
   {
-    "question": "\"If I back it up, is it ______?\"",
+    "question": "\"If I back it up, is it ...?\"",
     "answer1": "\"fat enough\"",
     "answer2": "\"in your face\"",
     "answer3": "\"fast enough\"",
@@ -730,87 +721,87 @@
   },
   {
     "question": "What year was Chase Hudson born in?",
-    "answer1": 2002,
-    "answer2": 2000,
-    "answer3": 1999,
-    "answer4": 1997,
+    "answer1": "2002",
+    "answer2": "2000",
+    "answer3": "1999",
+    "answer4": "1997",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Addison Rae born in?",
-    "answer1": 2000,
-    "answer2": 2002,
-    "answer3": 1999,
-    "answer4": 2001,
+    "answer1": "2000",
+    "answer2": "2002",
+    "answer3": "1999",
+    "answer4": "2001",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Dixie D'Amelio born in?",
-    "answer1": 2001,
-    "answer2": 2000,
-    "answer3": 2003,
-    "answer4": 2005,
+    "answer1": "2001",
+    "answer2": "2000",
+    "answer3": "2003",
+    "answer4": "2005",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Loren Gray born in?",
-    "answer1": 2002,
-    "answer2": 2003,
-    "answer3": 1999,
-    "answer4": 2000,
+    "answer1": "2002",
+    "answer2": "2003",
+    "answer3": "1999",
+    "answer4": "2000",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Zoe Laverne born in?",
-    "answer1": 2001,
-    "answer2": 2000,
-    "answer3": 1999,
-    "answer4": 2004,
+    "answer1": "2001",
+    "answer2": "2000",
+    "answer3": "1999",
+    "answer4": "2004",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Holly H born in?",
-    "answer1": 1996,
-    "answer2": 1999,
-    "answer3": 2000,
-    "answer4": 2002,
+    "answer1": "1996",
+    "answer2": "1999",
+    "answer3": "2000",
+    "answer4": "2002",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Lea Elui Ginet born in?",
-    "answer1": 2001,
-    "answer2": 2000,
-    "answer3": 1999,
-    "answer4": 2003,
+    "answer1": "2001",
+    "answer2": "2000",
+    "answer3": "1999",
+    "answer4": "2003",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Danielle Cohn born in?",
-    "answer1": 2004,
-    "answer2": 2003,
-    "answer3": 2002,
-    "answer4": 2001,
+    "answer1": "2004",
+    "answer2": "2003",
+    "answer3": "2002",
+    "answer4": "2001",
     "attachment": "",
     "category": "people"
   },
   {
     "question": "What year was Sophia Diamond born in?",
-    "answer1": 2001,
-    "answer2": 2004,
-    "answer3": 2000,
-    "answer4": 1999,
+    "answer1": "2001",
+    "answer2": "2004",
+    "answer3": "2000",
+    "answer4": "1999",
     "attachment": "",
     "category": "people"
   },
   {
-    "question": "\"Kiki ______\"",
+    "question": "\"Kiki ...\"",
     "answer1": "\"do you love me?\"",
     "answer2": "\"do you want me?\"",
     "answer3": "\"do you hate me?\"",
@@ -819,7 +810,7 @@
     "category": "trends"
   },
   {
-    "question": "\"Party party party ______\"",
+    "question": "\"Party party party ...\"",
     "answer1": "\"pass me a cup/ I’ll take a shot to the head like\"",
     "answer2": "\"pass me a gun / I’ll take a shot to the bed like\"",
     "answer3": "\"pass me a tip / I’ll take a drink to the bed like\"",
@@ -828,7 +819,7 @@
     "category": "trends"
   },
   {
-    "question": "\"This could be us ______\"",
+    "question": "\"This could be us ...\"",
     "answer1": "\"so back to what I was saying!\"",
     "answer2": "\"so back to when I was playing!\"",
     "answer3": "\"so back to who I was faking!\"",
@@ -909,7 +900,7 @@
     "category": "people"
   },
   {
-    "question": "Finish the TikTok: 'The volume inside this bus is ______.",
+    "question": "Finish the TikTok: 'The volume inside this bus is ....",
     "answer1": "Astronomical",
     "answer2": "Awful",
     "answer3": "Really loud",

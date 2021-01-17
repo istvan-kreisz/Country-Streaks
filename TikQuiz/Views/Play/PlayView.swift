@@ -21,9 +21,13 @@ struct PlayView: View {
     @State var category: Category?
 
     @State var showAlert = false
+    
+    var imageSize: CGFloat {
+        UIScreen.main.bounds.width < 414 ? 220 : 330
+    }
 
     init(level: Level, category: Category?, didBuyRemoveAds: Bool) {
-        self._correctAnswer = State<String>(initialValue: level.answers[0])
+        self._correctAnswer = State<String>(initialValue: level.answer1)
         var newLevel = level
         newLevel.result = .none
         newLevel.answers.shuffle()
@@ -53,7 +57,7 @@ struct PlayView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                NavigationBar(title: "Question \(store.state.index(of: level, in: category))",
+                NavigationBar(title: "Question \(store.state.index(of: level, in: category) + 1)",
                               isBackButtonVisible: true)
                 Text(level.category.name)
                     .foregroundColor(.white)
@@ -68,17 +72,17 @@ struct PlayView: View {
                         .font(.regular(size: 20))
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
-                    if let imageName = level.imageName {
+                    if let imageName = level.attachment {
                         Image(imageName)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 180, height: 180)
+                            .frame(width: imageSize, height: imageSize)
                             .foregroundColor(.white)
                             .padding(.bottom, 5)
                             .layoutPriority(1)
                     } else {
                         Rectangle()
-                            .frame(width: 180, height: 180)
+                            .frame(width: imageSize, height: imageSize)
                             .foregroundColor(.clear)
                             .padding(.bottom, 5)
                             .layoutPriority(1)
@@ -141,13 +145,14 @@ struct PlayView: View {
 
 struct PlayView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayView(level: .init(level: 1,
-                              question: "sup?",
-                              result: .none,
-                              category: .lasagna,
-                              answers: ["hey", "yo", "bitch", "mama"],
-                              imageName: nil),
-                 category: .bitch,
+        PlayView(level: .init(question: "sup",
+                              answer1: "nothing",
+                              answer2: "fuck u",
+                              answer3: "sup",
+                              answer4: "bruh",
+                              attachment: "charli",
+                              category: .people),
+                 category: .people,
                  didBuyRemoveAds: true)
             .environmentObject(Store())
     }

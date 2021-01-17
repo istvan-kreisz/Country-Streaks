@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "sayso.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
