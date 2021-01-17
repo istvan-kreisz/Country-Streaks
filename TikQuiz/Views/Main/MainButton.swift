@@ -13,6 +13,10 @@ struct MainButton: View {
     let color: Color
     let action: () -> Void
     let fillColor: Color
+    
+    var width: CGFloat {
+        UIScreen.main.bounds.width < 414 ? 310 : 330
+    }
 
     init(text: String,
          color: Color,
@@ -33,9 +37,9 @@ struct MainButton: View {
                     .foregroundColor(.white)
             }
             .padding(.horizontal, 20)
-            .frame(width: 305, height: 46)
-            .cornerRadius(10)
+            .frame(width: width, height: 50)
             .background(fillColor)
+            .cornerRadius(10)
             .overlay(RoundedRectangle(cornerRadius: 10)
                 .stroke(color, lineWidth: 2))
         }

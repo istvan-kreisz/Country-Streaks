@@ -23,14 +23,16 @@ struct PlayView: View {
     @State var showAlert = false
     
     var imageSize: CGFloat {
-        UIScreen.main.bounds.width < 414 ? 220 : 330
+        UIScreen.main.bounds.width < 414 ? 250 : 315
     }
 
     init(level: Level, category: Category?, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.answer1)
         var newLevel = level
         newLevel.result = .none
-        newLevel.answers.shuffle()
+        if newLevel.answers.count > 2 {
+            newLevel.answers.shuffle()
+        }
         self._category = State<Category?>(initialValue: category)
         self._level = State<Level>(initialValue: newLevel)
         self.interstitial = Interstitial(didBuyRemoveAds: didBuyRemoveAds)
@@ -59,10 +61,16 @@ struct PlayView: View {
             VStack(spacing: 0) {
                 NavigationBar(title: "Question \(store.state.index(of: level, in: category) + 1)",
                               isBackButtonVisible: true)
+                    .layoutPriority(2)
+                Rectangle()
+                    .frame(height: 10)
+                    .foregroundColor(.clear)
+                    .layoutPriority(2)
                 Text(level.category.name)
                     .foregroundColor(.white)
-                    .font(.light(size: 13))
+                    .font(.regular(size: 13))
                     .offset(x: 0, y: -8)
+                    .layoutPriority(1)
                 Spacer(minLength: 22)
                 VStack(spacing: 10) {
                     Text(level.question)

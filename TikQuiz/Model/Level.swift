@@ -30,11 +30,16 @@ enum Category: String, Codable, CaseIterable {
     case people
 
     var imageName: String {
-        ""
+        switch self {
+        case .trends:
+            return "bolt"
+        case .people:
+            return "person"
+        }
     }
 
     var name: String {
-        self.rawValue
+        self.rawValue.capitalized
     }
 
     var color: Color {

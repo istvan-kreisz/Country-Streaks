@@ -53,7 +53,6 @@ final class Interstitial: NSObject {
             return
         }
         guard let root = UIApplication.shared.windows.first?.rootViewController, interstitial.isReady else {
-            print("Not Ready")
             completion(false)
             return
         }

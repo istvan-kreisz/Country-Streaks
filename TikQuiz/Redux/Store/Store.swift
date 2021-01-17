@@ -9,6 +9,7 @@
 import Combine
 import SwiftUI
 import Foundation
+import StoreKit
 
 final class Store: ObservableObject {
     // MARK: Stored properties
@@ -20,9 +21,11 @@ final class Store: ObservableObject {
 
     init() {
         let launchCount = UserDefaults.standard.integer(forKey: Constants.launchCount)
-        if launchCount == 0 { // first launch
-            let i = 3
-            print(i)
+        let stats = state.getStats(for: nil)
+        let finishedLevelsCount = stats.correctCount + stats.wrongCount
+        let didFinishHalf = finishedLevelsCount > state.levels.count / 2
+        if (launchCount >= 5 && finishedLevelsCount > 30) || didFinishHalf {
+            SKStoreReviewController.requestReview()
         }
         UserDefaults.standard.set(launchCount + 1, forKey: Constants.launchCount)
         iapHelper.delegate = self
