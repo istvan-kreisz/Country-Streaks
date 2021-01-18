@@ -30,6 +30,7 @@
 		5DA1E157259D428400CFF764 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E154259D428400CFF764 /* Spinner.swift */; };
 		5DA1E158259D428400CFF764 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E155259D428400CFF764 /* NavigationBar.swift */; };
 		5DA1E159259D428400CFF764 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E156259D428400CFF764 /* Modifiers.swift */; };
+		5DC5275625B564E70067A340 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DC5275525B564E70067A340 /* GoogleService-Info.plist */; };
 		5DF149F2259D4F5F00A92C7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F0259D4F5F00A92C7C /* SettingsView.swift */; };
 		5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */; };
 		5DF149F8259D4F6C00A92C7C /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F6259D4F6C00A92C7C /* CategoriesView.swift */; };
@@ -82,6 +83,7 @@
 		5DA1E154259D428400CFF764 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5DA1E155259D428400CFF764 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		5DA1E156259D428400CFF764 /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		5DC5275525B564E70067A340 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DF149F0259D4F5F00A92C7C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		5DF149F6259D4F6C00A92C7C /* CategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				5D14ABC9259C03EF003C5E28 /* Model */,
 				5D14ABBB259C0392003C5E28 /* Info.plist */,
 				5D14ABB5259C0392003C5E28 /* Preview Content */,
+				5DC5275525B564E70067A340 /* GoogleService-Info.plist */,
 			);
 			path = TikQuiz;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				5D14ABA7259C0390003C5E28 /* Frameworks */,
 				5D14ABA8259C0390003C5E28 /* Resources */,
 				1B625E000B94D57A822A903C /* [CP] Embed Pods Frameworks */,
+				5DC5276725B565D80067A340 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -408,6 +412,7 @@
 				5DF14A1725A078AE00A92C7C /* Rubik-Regular.ttf in Resources */,
 				5DF14A1F25A078AE00A92C7C /* Rubik-BlackItalic.ttf in Resources */,
 				5DF14A2125A078AE00A92C7C /* Rubik-BoldItalic.ttf in Resources */,
+				5DC5275625B564E70067A340 /* GoogleService-Info.plist in Resources */,
 				5D41D16325B3D52C00749417 /* questions.json in Resources */,
 				5DF14A1D25A078AE00A92C7C /* Rubik-SemiBold.ttf in Resources */,
 				5DF14A2225A078AE00A92C7C /* Rubik-Italic.ttf in Resources */,
@@ -437,6 +442,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TikQuiz/Pods-TikQuiz-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5DC5276725B565D80067A340 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		93A746E50EA23CA6F65C64C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -543,7 +567,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMobileAds
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.synchronize()
         }
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        FirebaseApp.configure()
 
         return true
     }
