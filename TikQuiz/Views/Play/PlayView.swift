@@ -23,9 +23,9 @@ struct PlayView: View {
     @State var showAlert = false
     
     var imageSize: CGFloat {
-        UIScreen.main.bounds.width < 414 ? 250 : 315
+        UIScreen.main.bounds.width < 414 ? 200 : 315
     }
-
+    
     init(level: Level, category: Category?, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.answer1)
         var newLevel = level
@@ -57,15 +57,14 @@ struct PlayView: View {
     }
 
     var body: some View {
-        ZStack {
             VStack(spacing: 0) {
                 NavigationBar(title: "Question \(store.state.index(of: level, in: category) + 1)",
                               isBackButtonVisible: true)
                     .layoutPriority(2)
                 Rectangle()
-                    .frame(height: 10)
+                    .frame(height: UIScreen.isiPhone8 ? 5 : 10)
                     .foregroundColor(.clear)
-                    .layoutPriority(2)
+                    .layoutPriority(1)
                 Text(level.category.name)
                     .foregroundColor(.white)
                     .font(.regular(size: 13))
@@ -75,11 +74,12 @@ struct PlayView: View {
                 VStack(spacing: 10) {
                     Text(level.question)
                         .fixedSize(horizontal: false, vertical: true)
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, 10)
                         .foregroundColor(.white)
-                        .font(.regular(size: 20))
+                        .font(.regular(size: UIScreen.isiPhone8 ? 19 : 20))
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
+                        .layoutPriority(1)
                     if let imageName = level.attachment {
                         Image(imageName)
                             .resizable()
@@ -87,7 +87,7 @@ struct PlayView: View {
                             .frame(width: imageSize, height: imageSize)
                             .foregroundColor(.white)
                             .padding(.bottom, 5)
-                            .layoutPriority(1)
+                            .layoutPriority(0)
                     } else {
                         Rectangle()
                             .frame(width: imageSize, height: imageSize)
@@ -110,19 +110,18 @@ struct PlayView: View {
                     }
                 }
                 .layoutPriority(1)
-                Spacer(minLength: 90)
+                Spacer(minLength: 50)
                     .layoutPriority(1)
             }
             .defaultScreenSetup()
-        }
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text(category == nil ? "Game Finished" : "Category complete"),
-                  message: Text(category == nil ?
-                      "You answered all questions. To replay the game, reset your progress in the Stats menu" :
-                      "You answered all questions in this category. Try a different category or reset your progress in the Stats menu"),
-                  dismissButton: .default(Text("Got it!"), action: {
-                      presentationMode.wrappedValue.dismiss()
-                  }))
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text(category == nil ? "Game Finished" : "Category complete"),
+                      message: Text(category == nil ?
+                          "You answered all questions. To replay the game, reset your progress in the Stats menu" :
+                          "You answered all questions in this category. Try a different category or reset your progress in the Stats menu"),
+                      dismissButton: .default(Text("Got it!"), action: {
+                          presentationMode.wrappedValue.dismiss()
+            }))
         }
     }
 
@@ -153,7 +152,7 @@ struct PlayView: View {
 
 struct PlayView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayView(level: .init(question: "sup",
+        PlayView(level: .init(question: "Who is this song by: \"Don't stay awake for too long, don't go to bed / I'll make a cup of coffee for your head\"?",
                               answer1: "nothing",
                               answer2: "fuck u",
                               answer3: "sup",
