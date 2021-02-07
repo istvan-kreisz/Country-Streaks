@@ -25,6 +25,7 @@
 		5D14ABFE259C0421003C5E28 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE7259C0421003C5E28 /* Colors.swift */; };
 		5D14AC19259C0564003C5E28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 5D14AC18259C0564003C5E28 /* Reachability */; };
 		5D41D16325B3D52C00749417 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D41D16225B3D52C00749417 /* questions.json */; };
+		5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */; };
 		5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E149259D34F300CFF764 /* Interstitial.swift */; };
 		5DA1E151259D417900CFF764 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E150259D417900CFF764 /* MainButton.swift */; };
 		5DA1E157259D428400CFF764 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E154259D428400CFF764 /* Spinner.swift */; };
@@ -55,6 +56,16 @@
 		A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5D74B69A25D06A360070ADE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D14ABA2259C0390003C5E28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D14ABA9259C0390003C5E28;
+			remoteInfo = TikQuiz;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TikQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BCE26B52571F84C8CB0B15B /* Pods-TikQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikQuiz.debug.xcconfig"; path = "Target Support Files/Pods-TikQuiz/Pods-TikQuiz.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +89,9 @@
 		5D14ABE5259C0421003C5E28 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5D14ABE7259C0421003C5E28 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5D41D16225B3D52C00749417 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		5D74B69525D06A360070ADE6 /* TikQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TikQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikQuizUITests.swift; sourceTree = "<group>"; };
+		5D74B69925D06A360070ADE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DA1E149259D34F300CFF764 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		5DA1E150259D417900CFF764 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		5DA1E154259D428400CFF764 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
@@ -117,6 +131,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5D74B69225D06A360070ADE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -133,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				5D14ABAC259C0390003C5E28 /* TikQuiz */,
+				5D74B69625D06A360070ADE6 /* TikQuizUITests */,
 				5D14ABAB259C0390003C5E28 /* Products */,
 				6AD4394895CD783749F0FEB7 /* Pods */,
 				D7157FA60BA4E8B47569939D /* Frameworks */,
@@ -143,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				5D14ABAA259C0390003C5E28 /* TikQuiz.app */,
+				5D74B69525D06A360070ADE6 /* TikQuizUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +272,15 @@
 				5DF14A2525A0793900A92C7C /* Fonts.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5D74B69625D06A360070ADE6 /* TikQuizUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */,
+				5D74B69925D06A360070ADE6 /* Info.plist */,
+			);
+			path = TikQuizUITests;
 			sourceTree = "<group>";
 		};
 		5DA1E14C259D34F700CFF764 /* Ads */ = {
@@ -361,6 +393,24 @@
 			productReference = 5D14ABAA259C0390003C5E28 /* TikQuiz.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5D74B69425D06A360070ADE6 /* TikQuizUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D74B69E25D06A360070ADE6 /* Build configuration list for PBXNativeTarget "TikQuizUITests" */;
+			buildPhases = (
+				5D74B69125D06A360070ADE6 /* Sources */,
+				5D74B69225D06A360070ADE6 /* Frameworks */,
+				5D74B69325D06A360070ADE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D74B69B25D06A360070ADE6 /* PBXTargetDependency */,
+			);
+			name = TikQuizUITests;
+			productName = TikQuizUITests;
+			productReference = 5D74B69525D06A360070ADE6 /* TikQuizUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -372,6 +422,10 @@
 				TargetAttributes = {
 					5D14ABA9259C0390003C5E28 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					5D74B69425D06A360070ADE6 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 5D14ABA9259C0390003C5E28;
 					};
 				};
 			};
@@ -392,6 +446,7 @@
 			projectRoot = "";
 			targets = (
 				5D14ABA9259C0390003C5E28 /* TikQuiz */,
+				5D74B69425D06A360070ADE6 /* TikQuizUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -420,6 +475,13 @@
 				5DF14A1C25A078AE00A92C7C /* Rubik-Medium.ttf in Resources */,
 				5DF14A2025A078AE00A92C7C /* Rubik-SemiBoldItalic.ttf in Resources */,
 				5DF14A2325A078AE00A92C7C /* Rubik-LightItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D74B69325D06A360070ADE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +581,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5D74B69125D06A360070ADE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D74B69B25D06A360070ADE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D14ABA9259C0390003C5E28 /* TikQuiz */;
+			targetProxy = 5D74B69A25D06A360070ADE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5D14ABB8259C0392003C5E28 /* LaunchScreen.storyboard */ = {
@@ -697,6 +775,44 @@
 			};
 			name = Release;
 		};
+		5D74B69C25D06A360070ADE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TA366CU42K;
+				INFOPLIST_FILE = TikQuizUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = istvankreisz.TikQuizUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TikQuiz;
+			};
+			name = Debug;
+		};
+		5D74B69D25D06A360070ADE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TA366CU42K;
+				INFOPLIST_FILE = TikQuizUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = istvankreisz.TikQuizUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TikQuiz;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -714,6 +830,15 @@
 			buildConfigurations = (
 				5D14ABBF259C0392003C5E28 /* Debug */,
 				5D14ABC0259C0392003C5E28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D74B69E25D06A360070ADE6 /* Build configuration list for PBXNativeTarget "TikQuizUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D74B69C25D06A360070ADE6 /* Debug */,
+				5D74B69D25D06A360070ADE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
