@@ -26,6 +26,7 @@
 		5D14AC19259C0564003C5E28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 5D14AC18259C0564003C5E28 /* Reachability */; };
 		5D41D16325B3D52C00749417 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D41D16225B3D52C00749417 /* questions.json */; };
 		5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */; };
+		5D74B6AA25D073570070ADE6 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */; };
 		5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E149259D34F300CFF764 /* Interstitial.swift */; };
 		5DA1E151259D417900CFF764 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E150259D417900CFF764 /* MainButton.swift */; };
 		5DA1E157259D428400CFF764 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E154259D428400CFF764 /* Spinner.swift */; };
@@ -92,6 +93,7 @@
 		5D74B69525D06A360070ADE6 /* TikQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TikQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikQuizUITests.swift; sourceTree = "<group>"; };
 		5D74B69925D06A360070ADE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		5DA1E149259D34F300CFF764 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		5DA1E150259D417900CFF764 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		5DA1E154259D428400CFF764 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		5D74B69625D06A360070ADE6 /* TikQuizUITests */ = {
 			isa = PBXGroup;
 			children = (
+				5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */,
 				5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */,
 				5D74B69925D06A360070ADE6 /* Info.plist */,
 			);
@@ -586,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */,
+				5D74B6AA25D073570070ADE6 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

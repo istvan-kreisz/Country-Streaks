@@ -48,6 +48,10 @@ final class Interstitial: NSObject {
     }
     
     func showAd(completion: @escaping (Bool) -> Void) {
+        guard !ProcessInfo.processInfo.arguments.contains("testMode") else {
+            completion(false)
+            return
+        }
         guard !didBuyRemoveAds else {
             completion(false)
             return

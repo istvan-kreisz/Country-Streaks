@@ -10,34 +10,100 @@ import XCTest
 class TikQuizUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
         
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    private func resetProgress(app: XCUIApplication) {
+        app.buttons["Stats"].tap()
+        app.scrollViews.otherElements.buttons["Reset Progress"].tap()
+        app.alerts["Are you sure?"].scrollViews.otherElements.buttons["Reset"].tap()
+        let arrowLeftButton = app.buttons["arrow.left"]
+        arrowLeftButton.tap()
     }
+    
+    private func launchApp() -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchArguments = ["testMode"]
+        setupSnapshot(app)
+        app.launch()
+        return app
+    }
+    
+    private func wait() {
+        let exp = expectation(description: "")
+        wait(for: [exp], timeout: 2.0)
+    }
+    
+    func testMainScreen() throws {
+        _ = launchApp()
+    }
+    
+    func testCategories() throws {
+        let app = launchApp()
+        resetProgress(app: app)
+        XCUIApplication().buttons["Categories"].tap()
+        snapshot("main")
+    }
+    
+    func testStats() throws {
+        let app = launchApp()
+        resetProgress(app: app)
+        XCUIApplication().buttons["Stats"].tap()
+        snapshot("stats")
+    }
+    
+    func testFirstQuestion() throws {
+        let app = launchApp()
+        resetProgress(app: app)
+        XCUIApplication().buttons["Play"].tap()
+        
+        wait()
+        snapshot("firstq")
+    }
+    
+    func testFirstQuestionAnswer() throws {
+        let app = launchApp()
+        resetProgress(app: app)
+        app.buttons["Play"].tap()
+        app.buttons["Loren Gray"].tap()
+        snapshot("firstqans")
+    }
+    
+    func testSecondQuestion() throws {
+        let app = launchApp()
+        resetProgress(app: app)
+        app.buttons["Categories"].tap()
+        app.scrollViews.otherElements.buttons["Trends"].tap()
+        app.buttons["Roxanne"].tap()
+        wait()
+        snapshot("secondq")
+    }
+    
+    func testThirdQuestion() throws {
+        let app = launchApp()
+        resetProgress(app: app)
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        app.buttons["Categories"].tap()
+        app.scrollViews.otherElements.buttons["Trends"].tap()
+        app.buttons["Yummy"].tap()
+        app.buttons["Git Up"].tap()
+        app.buttons["Roxanne"].tap()
+        wait()
+        snapshot("thirdq")
+    }
+    
+    func testFourthQuestion() throws {
+        let app = launchApp()
+        resetProgress(app: app)
+
+        app.buttons["Play"].tap()
+        app.buttons["Charli D'Amelio"].tap()
+        app.buttons["Lil huddy"].tap()
+        app.buttons["Feeling Good"].tap()
+        app.buttons["Git Up"].tap()
+        app.buttons["Roxanne"].tap()
+        
+        wait()
+        snapshot("fourthq")
     }
 }
