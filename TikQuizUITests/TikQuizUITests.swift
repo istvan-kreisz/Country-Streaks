@@ -31,7 +31,10 @@ class TikQuizUITests: XCTestCase {
     
     private func wait() {
         let exp = expectation(description: "")
-        wait(for: [exp], timeout: 2.0)
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
     }
     
     func testMainScreen() throws {
@@ -57,8 +60,8 @@ class TikQuizUITests: XCTestCase {
         resetProgress(app: app)
         XCUIApplication().buttons["Play"].tap()
         
-        wait()
         snapshot("firstq")
+        wait()
     }
     
     func testFirstQuestionAnswer() throws {
@@ -75,8 +78,8 @@ class TikQuizUITests: XCTestCase {
         app.buttons["Categories"].tap()
         app.scrollViews.otherElements.buttons["Trends"].tap()
         app.buttons["Roxanne"].tap()
-        wait()
         snapshot("secondq")
+        wait()
     }
     
     func testThirdQuestion() throws {
@@ -88,8 +91,8 @@ class TikQuizUITests: XCTestCase {
         app.buttons["Yummy"].tap()
         app.buttons["Git Up"].tap()
         app.buttons["Roxanne"].tap()
-        wait()
         snapshot("thirdq")
+        wait()
     }
     
     func testFourthQuestion() throws {
@@ -102,8 +105,7 @@ class TikQuizUITests: XCTestCase {
         app.buttons["Feeling Good"].tap()
         app.buttons["Git Up"].tap()
         app.buttons["Roxanne"].tap()
-        
-        wait()
         snapshot("fourthq")
+        wait()
     }
 }

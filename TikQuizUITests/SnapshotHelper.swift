@@ -24,7 +24,7 @@ func setupSnapshot(_ app: XCUIApplication, waitForAnimations: Bool = true) {
 
 func snapshot(_ name: String, waitForLoadingIndicator: Bool) {
     if waitForLoadingIndicator {
-        Snapshot.snapshot(name)
+        Snapshot.snapshot(name)
     } else {
         Snapshot.snapshot(name, timeWaitingForIdle: 0)
     }
