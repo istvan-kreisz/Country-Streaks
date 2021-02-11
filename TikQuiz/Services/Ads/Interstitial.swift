@@ -32,7 +32,12 @@ final class Interstitial: NSObject {
     
     private var completion: ((Bool) -> Void)?
     
-    lazy var interstitial: GADInterstitial = GADInterstitial(adUnitID: Self.interstitialId)
+    static var interstitial: GADInterstitial = {
+        let interstitial = GADInterstitial(adUnitID: interstitialId)
+        let request = GADRequest()
+        interstitial.load(request)
+        return interstitial
+    }()
     
     init(didBuyRemoveAds: Bool) {
         self.didBuyRemoveAds = didBuyRemoveAds
@@ -40,11 +45,20 @@ final class Interstitial: NSObject {
         loadInterstitial()
     }
     
+    private var rootViewController: UIViewController? {
+        UIApplication.shared.windows.first?.rootViewController
+    }
+    
     func loadInterstitial() {
         guard !didBuyRemoveAds else { return }
-        let request = GADRequest()
-        self.interstitial.load(request)
-        self.interstitial.delegate = self
+        if Self.interstitial.hasBeenUsed {
+            Self.interstitial = GADInterstitial(adUnitID: Self.interstitialId)
+            let request = GADRequest()
+            Self.interstitial.load(request)
+        }
+        if Self.interstitial.delegate == nil {
+            Self.interstitial.delegate = self
+        }
     }
     
     func showAd(completion: @escaping (Bool) -> Void) {
@@ -56,7 +70,7 @@ final class Interstitial: NSObject {
             completion(false)
             return
         }
-        guard let root = UIApplication.shared.windows.first?.rootViewController, interstitial.isReady else {
+        guard let root = rootViewController, Self.interstitial.isReady else {
             completion(false)
             return
         }
@@ -67,7 +81,7 @@ final class Interstitial: NSObject {
         }
         if adsShowCount % 5 == 1 {
             self.completion = completion
-            self.interstitial.present(fromRootViewController: root)
+            Self.interstitial.present(fromRootViewController: root)
         } else {
             completion(false)
         }
@@ -77,7 +91,6 @@ final class Interstitial: NSObject {
 extension Interstitial: GADInterstitialDelegate {
     
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        self.interstitial = GADInterstitial(adUnitID: Self.interstitialId)
         loadInterstitial()
     }
     
