@@ -18,8 +18,7 @@ struct AppState {
         get { UserDefaults.standard.bool(forKey: Self.didBuyRemoveAdsKey) }
         set { UserDefaults.standard.set(newValue, forKey: Self.didBuyRemoveAdsKey) }
     }
-    
-    
+
     private func result(ofLevelAtIndex index: Int) -> LevelResult {
         switch UserDefaults.standard.integer(forKey: Self.levelsKey + "\(index)") {
         case 0:
@@ -42,14 +41,14 @@ struct AppState {
         UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: Self.levelsKey + "\(levelIndex)")
         levels[levelIndex].result = result
     }
-    
+
     mutating func resetProgress() {
         levels = levels.map { level in
             var newLevel = level
             newLevel.result = .none
             return newLevel
         }
-        levels.enumerated().forEach { index in
+        levels.enumerated().forEach { index, _ in
             UserDefaults.standard.set(0, forKey: Self.levelsKey + "\(index)")
         }
     }
