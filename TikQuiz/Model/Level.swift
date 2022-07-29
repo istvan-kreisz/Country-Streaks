@@ -25,59 +25,30 @@ enum LevelResult: String, Codable {
     }
 }
 
-enum Category: String, Codable, CaseIterable {
-    case trends
-    case people
-
-    var imageName: String {
-        switch self {
-        case .trends:
-            return "bolt"
-        case .people:
-            return "person"
-        }
-    }
-
-    var name: String {
-        self.rawValue.capitalized
-    }
-
-    var color: Color {
-        switch self {
-        case .trends:
-            return .customTurquoise
-        case .people:
-            return .customBlue
-        }
-    }
+enum Country: String, Codable {
+    case ALB
 }
 
 struct Level {
     var result: LevelResult = .none
-    let question: String
-    let answer1: String
-    let answer2: String
-    let answer3: String
-    let answer4: String
-    let attachment: String
-    let category: Category
+    let country: Country
+    let index: Int
+    
+    var attachment: String {
+        "\(country.rawValue)\(index).jpg"
+    }
 
-    lazy var answers: [String] = {
-        [answer1, answer2, answer3, answer4].filter { !$0.isEmpty }
-    }()
+    var answers: [String] {
+        [country.rawValue]
+    }
 
     var didComplete: Bool {
         result.didComplete
     }
 
     enum CodingKeys: String, CodingKey {
-        case question
-        case answer1
-        case answer2
-        case answer3
-        case answer4
-        case attachment
-        case category
+        case country
+        case index
     }
 }
 
@@ -85,11 +56,6 @@ extension Level: Decodable {}
 
 extension Level: Equatable {
     static func == (lhs: Level, rhs: Level) -> Bool {
-        return lhs.question == rhs.question &&
-            lhs.answer1 == rhs.answer1 &&
-            lhs.answer2 == rhs.answer2 &&
-            lhs.answer3 == rhs.answer3 &&
-            lhs.answer4 == rhs.answer4 &&
-            lhs.attachment == rhs.attachment
+        lhs.country == rhs.country && lhs.index == rhs.index
     }
 }

@@ -10,7 +10,7 @@ import StoreKit
 import Reachability
 import Combine
 
-protocol IAPHelperDelegate: class {
+protocol IAPHelperDelegate: AnyObject {
     func didBuyRemoveAds()
 }
 

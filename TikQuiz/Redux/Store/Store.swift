@@ -21,10 +21,9 @@ final class Store: ObservableObject {
 
     init() {
         let launchCount = UserDefaults.standard.integer(forKey: Constants.launchCount)
-        let stats = state.getStats(for: nil)
+        let stats = state.getStats()
         let finishedLevelsCount = stats.correctCount + stats.wrongCount
-        let didFinishHalf = finishedLevelsCount > state.levels.count / 2
-        if (launchCount >= 5 && finishedLevelsCount > 30) || didFinishHalf {
+        if launchCount >= 3 && finishedLevelsCount > 50 {
             SKStoreReviewController.requestReview()
         }
         UserDefaults.standard.set(launchCount + 1, forKey: Constants.launchCount)

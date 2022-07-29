@@ -12,7 +12,7 @@ struct MainView: View {
 
     @State private var selectedMenuId: Int?
     @State var showAlert = false
-    
+
     var logoSize: CGFloat {
         UIScreen.main.bounds.width < 414 ? 80 : 95
     }
@@ -20,20 +20,15 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: PlayView(level: store.state.nextLevel(in: nil),
-                                                     category: nil,
-                                                     didBuyRemoveAds: store.state.didBuyRemoveAds)
-                        .environmentObject(store),
+                NavigationLink(destination: PlayView(level: store.state.nextLevel(), didBuyRemoveAds: store.state.didBuyRemoveAds)
+                    .environmentObject(store),
                     tag: 1,
                     selection: self.$selectedMenuId) { EmptyView() }
-                NavigationLink(destination: CategoriesView(),
+                NavigationLink(destination: StatsView(),
                                tag: 2,
                                selection: self.$selectedMenuId) { EmptyView() }
-                NavigationLink(destination: StatsView(),
-                               tag: 3,
-                               selection: self.$selectedMenuId) { EmptyView() }
                 NavigationLink(destination: SettingsView(),
-                               tag: 4,
+                               tag: 3,
                                selection: self.$selectedMenuId) { EmptyView() }
                 Spacer()
                 Image("logo")
@@ -46,24 +41,18 @@ struct MainView: View {
 
                 VStack(spacing: 15) {
                     MainButton(text: "Play",
-                                   color: .customBlue,
-                                   action: {
-                                    if store.state.didFinishAllLevels(in: nil) {
-                                        showAlert = true
-                                    } else {
-                                        self.selectedMenuId = 1
-                                    }
-                                   })
+                               color: .customBlue,
+                               action: { self.selectedMenuId = 1 })
                         .withDefaultShadow()
                     MainButton(text: "Categories",
-                                   color: .customYellow,
-                                   action: { self.selectedMenuId = 2 })
+                               color: .customYellow,
+                               action: { self.selectedMenuId = 2 })
                     MainButton(text: "Stats",
-                                   color: .customTurquoise,
-                                   action: { self.selectedMenuId = 3 })
+                               color: .customTurquoise,
+                               action: { self.selectedMenuId = 3 })
                     MainButton(text: "Settings",
-                                   color: .customRed,
-                                   action: { self.selectedMenuId = 4 })
+                               color: .customRed,
+                               action: { self.selectedMenuId = 4 })
                 }
                 Spacer()
             }

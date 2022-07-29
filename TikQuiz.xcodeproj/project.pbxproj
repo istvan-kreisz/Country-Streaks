@@ -35,8 +35,6 @@
 		5DC5275625B564E70067A340 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DC5275525B564E70067A340 /* GoogleService-Info.plist */; };
 		5DF149F2259D4F5F00A92C7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F0259D4F5F00A92C7C /* SettingsView.swift */; };
 		5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */; };
-		5DF149F8259D4F6C00A92C7C /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F6259D4F6C00A92C7C /* CategoriesView.swift */; };
-		5DF149F9259D4F6C00A92C7C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F7259D4F6C00A92C7C /* CategoryView.swift */; };
 		5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149FC259D4F9100A92C7C /* PlayView.swift */; };
 		5DF14A1525A078A900A92C7C /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A0D25A078A100A92C7C /* Rubik-Black.ttf */; };
 		5DF14A1725A078AE00A92C7C /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF14A1325A078A100A92C7C /* Rubik-Regular.ttf */; };
@@ -102,8 +100,6 @@
 		5DC5275525B564E70067A340 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DF149F0259D4F5F00A92C7C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
-		5DF149F6259D4F6C00A92C7C /* CategoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
-		5DF149F7259D4F6C00A92C7C /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		5DF149FC259D4F9100A92C7C /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		5DF14A0725A078A100A92C7C /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		5DF14A0825A078A100A92C7C /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
@@ -298,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				5DF149FB259D4F8000A92C7C /* Play */,
-				5DF149F5259D4F6C00A92C7C /* Categories */,
 				5D1181CA25A52A53000EF045 /* Stats */,
 				5DA1E153259D428400CFF764 /* Shared */,
 				5DF149EF259D4F5F00A92C7C /* Settings */,
@@ -333,15 +328,6 @@
 				5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		5DF149F5259D4F6C00A92C7C /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				5DF149F6259D4F6C00A92C7C /* CategoriesView.swift */,
-				5DF149F7259D4F6C00A92C7C /* CategoryView.swift */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		5DF149FB259D4F8000A92C7C /* Play */ = {
@@ -567,7 +553,6 @@
 				5DF14A2625A0793900A92C7C /* Fonts.swift in Sources */,
 				5DA1E158259D428400CFF764 /* NavigationBar.swift in Sources */,
 				5D14ABD6259C03FB003C5E28 /* Store.swift in Sources */,
-				5DF149F9259D4F6C00A92C7C /* CategoryView.swift in Sources */,
 				5DA1E151259D417900CFF764 /* MainButton.swift in Sources */,
 				5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */,
 				5D14ABDD259C0404003C5E28 /* IAPHelper.swift in Sources */,
@@ -580,7 +565,6 @@
 				5D14ABCD259C03EF003C5E28 /* Level.swift in Sources */,
 				5DF14A3025A12C8800A92C7C /* GameState.swift in Sources */,
 				5D14ABB2259C0390003C5E28 /* MainView.swift in Sources */,
-				5DF149F8259D4F6C00A92C7C /* CategoriesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,7 +732,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.istvankreisz.TikQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -772,7 +756,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.istvankreisz.TikQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

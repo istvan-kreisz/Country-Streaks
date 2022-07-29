@@ -31,13 +31,13 @@ struct AppState {
     }
 
     private func result(of level: Level) -> LevelResult {
-        let levelIndex = index(of: level, in: nil)
+        let levelIndex = index(of: level)
         return result(ofLevelAtIndex: levelIndex)
     }
 
     mutating func set(result: LevelResult, for level: Level) {
         guard result != .none else { return }
-        let levelIndex = index(of: level, in: nil)
+        let levelIndex = index(of: level)
         UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: Self.levelsKey + "\(levelIndex)")
         levels[levelIndex].result = result
     }
@@ -53,33 +53,22 @@ struct AppState {
         }
     }
 
-    func nextLevel(in category: Category?) -> Level {
-        if let category = category {
-            return levels.first(where: { !$0.didComplete && $0.category == category }) ?? levels.first(where: { $0.category == category })!
-        } else {
-            return levels.first(where: { !$0.didComplete }) ?? levels[0]
-        }
+    func nextLevel() -> Level {
+        levels.first(where: { !$0.didComplete }) ?? levels[0]
     }
 
-    func didFinishAllLevels(in category: Category?) -> Bool {
-        if let category = category {
-            return !levels.filter { $0.category == category }.contains { !$0.didComplete }
-        } else {
-            return !levels.contains(where: { !$0.didComplete })
-        }
+    func didFinishAllLevels() -> Bool {
+        !levels.contains(where: { !$0.didComplete })
     }
 
-    func index(of level: Level, in category: Category?) -> Int {
-        levels
-            .filter { category == nil ? true : ($0.category == category) }
-            .firstIndex(of: level) ?? 0
+    func index(of level: Level) -> Int {
+        levels.firstIndex(of: level) ?? 0
     }
 
-    func getStats(for category: Category?) -> (correctCount: Int, wrongCount: Int, notAnsweredCount: Int) {
-        let levelsInCategory = levels.filter { category == nil ? true : $0.category == category }
-        let correct = levelsInCategory.filter { $0.result == .correct }.count
-        let wrong = levelsInCategory.filter { $0.result == .wrong }.count
-        let notAnswered = levelsInCategory.filter { $0.result == .none }.count
+    func getStats() -> (correctCount: Int, wrongCount: Int, notAnsweredCount: Int) {
+        let correct = levels.filter { $0.result == .correct }.count
+        let wrong = levels.filter { $0.result == .wrong }.count
+        let notAnswered = levels.filter { $0.result == .none }.count
         return (correct, wrong, notAnswered)
     }
 
