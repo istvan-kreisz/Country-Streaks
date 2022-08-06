@@ -9,7 +9,6 @@
 import Foundation
 
 struct AppState {
-    private static let levelsKey = "levels"
     private static let didBuyRemoveAdsKey = "didBuyRemoveAds"
 
     var levels: [Level] = []
@@ -19,8 +18,8 @@ struct AppState {
         set { UserDefaults.standard.set(newValue, forKey: Self.didBuyRemoveAdsKey) }
     }
 
-    private func result(ofLevelAtIndex index: Int) -> LevelResult {
-        switch UserDefaults.standard.integer(forKey: Self.levelsKey + "\(index)") {
+    private func result(of level: Level) -> LevelResult {
+        switch UserDefaults.standard.integer(forKey: level.levelId) {
         case 0:
             return .none
         case 1:
@@ -31,14 +30,13 @@ struct AppState {
     }
 
     private func result(of level: Level) -> LevelResult {
-        let levelIndex = index(of: level)
-        return result(ofLevelAtIndex: levelIndex)
+        result(of: level)
     }
 
     mutating func set(result: LevelResult, for level: Level) {
         guard result != .none else { return }
+        UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: level.levelId)
         let levelIndex = index(of: level)
-        UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: Self.levelsKey + "\(levelIndex)")
         levels[levelIndex].result = result
     }
 
@@ -73,7 +71,7 @@ struct AppState {
     }
 
     init() {
-        if let path = Bundle.main.path(forResource: "questions", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "screenshots", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 self.levels = try JSONDecoder().decode([Level].self, from: data)

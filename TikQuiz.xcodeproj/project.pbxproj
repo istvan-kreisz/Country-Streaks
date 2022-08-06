@@ -24,7 +24,6 @@
 		5D14ABFC259C0421003C5E28 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE5259C0421003C5E28 /* Extensions.swift */; };
 		5D14ABFE259C0421003C5E28 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE7259C0421003C5E28 /* Colors.swift */; };
 		5D14AC19259C0564003C5E28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 5D14AC18259C0564003C5E28 /* Reachability */; };
-		5D41D16325B3D52C00749417 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D41D16225B3D52C00749417 /* questions.json */; };
 		5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */; };
 		5D74B6AA25D073570070ADE6 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */; };
 		5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E149259D34F300CFF764 /* Interstitial.swift */; };
@@ -33,6 +32,8 @@
 		5DA1E158259D428400CFF764 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E155259D428400CFF764 /* NavigationBar.swift */; };
 		5DA1E159259D428400CFF764 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E156259D428400CFF764 /* Modifiers.swift */; };
 		5DC5275625B564E70067A340 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DC5275525B564E70067A340 /* GoogleService-Info.plist */; };
+		5DD08B46289E73DD004C8687 /* screenshots.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD08B45289E73DD004C8687 /* screenshots.json */; };
+		5DD08B48289E747D004C8687 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD08B47289E747D004C8687 /* Country.swift */; };
 		5DF149F2259D4F5F00A92C7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F0259D4F5F00A92C7C /* SettingsView.swift */; };
 		5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */; };
 		5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149FC259D4F9100A92C7C /* PlayView.swift */; };
@@ -87,7 +88,6 @@
 		5D14ABE1259C0421003C5E28 /* DebugSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		5D14ABE5259C0421003C5E28 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5D14ABE7259C0421003C5E28 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		5D41D16225B3D52C00749417 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		5D74B69525D06A360070ADE6 /* TikQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TikQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikQuizUITests.swift; sourceTree = "<group>"; };
 		5D74B69925D06A360070ADE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		5DA1E155259D428400CFF764 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		5DA1E156259D428400CFF764 /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		5DC5275525B564E70067A340 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5DD08B45289E73DD004C8687 /* screenshots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = screenshots.json; sourceTree = "<group>"; };
+		5DD08B47289E747D004C8687 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		5DF149F0259D4F5F00A92C7C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		5DF149FC259D4F9100A92C7C /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				5D14ABCB259C03EF003C5E28 /* Level.swift */,
+				5DD08B47289E747D004C8687 /* Country.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,7 +245,7 @@
 				5D14ABB3259C0392003C5E28 /* Assets.xcassets */,
 				5D14ABB8259C0392003C5E28 /* LaunchScreen.storyboard */,
 				5D14ABE1259C0421003C5E28 /* DebugSettings.swift */,
-				5D41D16225B3D52C00749417 /* questions.json */,
+				5DD08B45289E73DD004C8687 /* screenshots.json */,
 				5D14ABE5259C0421003C5E28 /* Extensions.swift */,
 				5D14ABE7259C0421003C5E28 /* Colors.swift */,
 				5D14ABE8259C0421003C5E28 /* Fonts */,
@@ -450,6 +453,7 @@
 				5DF14A1825A078AE00A92C7C /* Rubik-Light.ttf in Resources */,
 				5D14ABB7259C0392003C5E28 /* Preview Assets.xcassets in Resources */,
 				5DF14A1A25A078AE00A92C7C /* Rubik-MediumItalic.ttf in Resources */,
+				5DD08B46289E73DD004C8687 /* screenshots.json in Resources */,
 				5DF14A1525A078A900A92C7C /* Rubik-Black.ttf in Resources */,
 				5DF14A1E25A078AE00A92C7C /* Rubik-ExtraBoldItalic.ttf in Resources */,
 				5DF14A1925A078AE00A92C7C /* Rubik-Bold.ttf in Resources */,
@@ -457,7 +461,6 @@
 				5DF14A1F25A078AE00A92C7C /* Rubik-BlackItalic.ttf in Resources */,
 				5DF14A2125A078AE00A92C7C /* Rubik-BoldItalic.ttf in Resources */,
 				5DC5275625B564E70067A340 /* GoogleService-Info.plist in Resources */,
-				5D41D16325B3D52C00749417 /* questions.json in Resources */,
 				5DF14A1D25A078AE00A92C7C /* Rubik-SemiBold.ttf in Resources */,
 				5DF14A2225A078AE00A92C7C /* Rubik-Italic.ttf in Resources */,
 				5D14ABB4259C0392003C5E28 /* Assets.xcassets in Resources */,
@@ -546,6 +549,7 @@
 				5D14ABAE259C0390003C5E28 /* AppDelegate.swift in Sources */,
 				5D14ABFE259C0421003C5E28 /* Colors.swift in Sources */,
 				5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */,
+				5DD08B48289E747D004C8687 /* Country.swift in Sources */,
 				5DA1E157259D428400CFF764 /* Spinner.swift in Sources */,
 				5D14ABB0259C0390003C5E28 /* SceneDelegate.swift in Sources */,
 				5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */,

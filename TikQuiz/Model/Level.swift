@@ -25,30 +25,36 @@ enum LevelResult: String, Codable {
     }
 }
 
-enum Country: String, Codable {
-    case ALB
-}
-
 struct Level {
     var result: LevelResult = .none
     let country: Country
-    let index: Int
-    
+    let lat: Int
+    let lng: Int
+
     var attachment: String {
-        "\(country.rawValue)\(index).jpg"
+        "img_\(lat),\(lng).jpg"
     }
 
     var answers: [String] {
-        [country.rawValue]
+        [country.name] +
+            Country.allCases
+            .filter { $0 != country }
+            .randomElements(count: 3)
+            .map(\.name)
     }
 
     var didComplete: Bool {
         result.didComplete
     }
 
+    var levelId: String {
+        "level_\(lat),\(lng)"
+    }
+
     enum CodingKeys: String, CodingKey {
         case country
-        case index
+        case lat
+        case lng
     }
 }
 
@@ -56,6 +62,8 @@ extension Level: Decodable {}
 
 extension Level: Equatable {
     static func == (lhs: Level, rhs: Level) -> Bool {
-        lhs.country == rhs.country && lhs.index == rhs.index
+        lhs.country == rhs.country
+            && lhs.lat == rhs.lat
+            && lhs.lng == rhs.lng
     }
 }
