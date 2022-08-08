@@ -50,56 +50,43 @@ struct PlayView: View {
         }
     }
 
+    func countryButton(answer: String) -> some View {
+        MainButton(text: answer,
+                   color: .white,
+                   fillColor: color(for: answer),
+                   action: {
+                       answerTapped(answer: answer)
+                   })
+    }
+
     var body: some View {
-        VStack(spacing: 0) {
-            NavigationBar(title: "", isBackButtonVisible: true)
-                .layoutPriority(2)
-            Rectangle()
-                .frame(height: UIScreen.isiPhone8 ? 5 : 10)
-                .foregroundColor(.clear)
-                .layoutPriority(1)
-            Spacer(minLength: 22)
+        ZStack {
+            Image(level.attachment)
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
+                .foregroundColor(.white)
+                .padding(.bottom, 5)
+                .layoutPriority(0)
+
             VStack(spacing: 10) {
-                Text("Quess the country!")
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.horizontal, 10)
-                    .foregroundColor(.white)
-                    .font(.regular(size: UIScreen.isiPhone8 ? 19 : 20))
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(6)
-                    .layoutPriority(1)
-                if let imageName = level.attachment {
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: imageSize, height: imageSize)
-                        .foregroundColor(.white)
-                        .padding(.bottom, 5)
-                        .layoutPriority(0)
-                } else {
-                    Rectangle()
-                        .frame(width: imageSize, height: imageSize)
-                        .foregroundColor(.clear)
-                        .padding(.bottom, 5)
-                        .layoutPriority(1)
+                NavigationBar(title: "Quess the country!", isBackButtonVisible: true)
+                    .layoutPriority(2)
+
+                Spacer()
+
+                VStack {
+                    HStack {
+                        countryButton(answer: level.answers[0])
+                        countryButton(answer: level.answers[1])
+                    }
+                    HStack {
+                        countryButton(answer: level.answers[2])
+                        countryButton(answer: level.answers[3])
+                    }
                 }
             }
             .layoutPriority(1)
-            Spacer(minLength: 20)
-                .layoutPriority(1)
-            VStack(spacing: 10) {
-                ForEach(level.answers, id: \.self) { answer in
-                    MainButton(text: answer,
-                               color: .white,
-                               fillColor: color(for: answer),
-                               action: {
-                                   answerTapped(answer: answer)
-                               })
-                }
-            }
-            .layoutPriority(1)
-            Spacer(minLength: 50)
-                .layoutPriority(1)
         }
         .defaultScreenSetup()
     }
@@ -118,24 +105,15 @@ struct PlayView: View {
             var newLevel = store.state.nextLevel()
             self.correctAnswer = newLevel.country.name
             newLevel.result = .none
-//            newLevel.answers.shuffle()
             self.level = newLevel
             self.answerIndex = -1
         }
     }
 }
 
-// struct PlayView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlayView(level: .init(question: "Who is this song by: \"Don't stay awake for too long, don't go to bed / I'll make a cup of coffee for your head\"?",
-//                              answer1: "nothing",
-//                              answer2: "fuck u",
-//                              answer3: "sup",
-//                              answer4: "bruh",
-//                              attachment: "charli",
-//                              category: .people),
-//                 category: .people,
-//                 didBuyRemoveAds: true)
-//            .environmentObject(Store())
-//    }
-// }
+struct PlayView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlayView(level: .init(country: .AND, lat: 1.2, lng: 2.3), didBuyRemoveAds: true)
+            .environmentObject(Store())
+    }
+}

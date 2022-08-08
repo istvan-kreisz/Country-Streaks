@@ -36,14 +36,14 @@ struct Level {
         "img_\(lat),\(lng)"
     }
 
-    lazy var answers: [String] = {
+    var answers: [String] {
         let seed = UInt64((abs(lat) + abs(lng)) * 100_000)
         let randomGenerator = GKMersenneTwisterRandomSource.init(seed: seed)
         var answers = Country.allCases.filter { $0 != country }.randomElements(count: 3, generator: randomGenerator).map(\.name)
         let correctIndex = randomGenerator.nextInt(upperBound: 4)
         answers.insert(country.name, at: correctIndex)
         return answers
-    }()
+    }
 
     var didComplete: Bool {
         result.didComplete
