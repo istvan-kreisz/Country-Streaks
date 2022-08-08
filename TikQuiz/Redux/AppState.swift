@@ -10,9 +10,25 @@ import Foundation
 
 struct AppState {
     private static let didBuyRemoveAdsKey = "didBuyRemoveAds"
+    private static let currentStreak = "currentStreak"
+    private static let bestStreak = "bestStreak"
 
     var levels: [Level] = []
-
+    var currentStreak: Int {
+        didSet {
+            UserDefaults.standard.set(currentStreak, forKey: Self.currentStreak)
+            if currentStreak > bestStreak {
+                bestStreak = currentStreak
+            }
+        }
+    }
+    
+    var bestStreak: Int {
+        didSet {
+            UserDefaults.standard.set(bestStreak, forKey: Self.bestStreak)
+        }
+    }
+    
     var didBuyRemoveAds: Bool {
         get { UserDefaults.standard.bool(forKey: Self.didBuyRemoveAdsKey) }
         set { UserDefaults.standard.set(newValue, forKey: Self.didBuyRemoveAdsKey) }
@@ -34,6 +50,11 @@ struct AppState {
         UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: level.levelId)
         let levelIndex = index(of: level)
         levels[levelIndex].result = result
+        if result == .correct {
+            currentStreak += 1
+        } else {
+            currentStreak = 0
+        }
     }
 
     mutating func resetProgress() {
@@ -67,6 +88,9 @@ struct AppState {
     }
 
     init() {
+        self.currentStreak = UserDefaults.standard.integer(forKey: Self.currentStreak)
+        self.bestStreak = UserDefaults.standard.integer(forKey: Self.bestStreak)
+        
         if let path = Bundle.main.path(forResource: "screenshots", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)

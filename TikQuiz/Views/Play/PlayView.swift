@@ -72,6 +72,25 @@ struct PlayView: View {
             VStack(spacing: 10) {
                 NavigationBar(title: "Quess the country!", isBackButtonVisible: true)
                     .layoutPriority(2)
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text("Current")
+                            .font(.bold(size: 15))
+                            .foregroundColor(Color.white)
+                        Text("\(store.state.currentStreak)")
+                            .font(.bold(size: 18))
+                            .foregroundColor(Color.white)
+                    }
+                    VStack {
+                        Text("Best")
+                            .font(.bold(size: 15))
+                            .foregroundColor(Color.white)
+                        Text("\(store.state.bestStreak)")
+                            .font(.bold(size: 18))
+                            .foregroundColor(Color.white)
+                    }
+                }
 
                 Spacer()
 
