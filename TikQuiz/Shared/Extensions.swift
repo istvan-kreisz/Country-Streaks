@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameplayKit
 
 extension UIScreen {
     static let screenWidth = UIScreen.main.bounds.size.width
@@ -60,10 +61,16 @@ extension Array {
 }
 
 extension Array where Element: Equatable {
-    func randomElements(count: Int) -> [Element] {
+    func randomElements(count: Int, generator: GKMersenneTwisterRandomSource?) -> [Element] {
         var elements: [Element] = []
         while elements.count < count {
-            if let element = self.randomElement() {
+            if let generator = generator {
+                let index = generator.nextInt(upperBound: self.count)
+                let element = self[index]
+                if !elements.contains(element) {
+                    elements.append(element)
+                }
+            } else if let element = self.randomElement() {
                 if !elements.contains(element) {
                     elements.append(element)
                 }

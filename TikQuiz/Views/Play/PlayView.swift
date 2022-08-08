@@ -21,16 +21,13 @@ struct PlayView: View {
     @State var showAlert = false
 
     var imageSize: CGFloat {
-        UIScreen.main.bounds.width < 414 ? 200 : 315
+        UIScreen.main.bounds.width < 414 ? 400 : 600
     }
 
     init(level: Level, didBuyRemoveAds: Bool) {
-        self._correctAnswer = State<String>(initialValue: level.country.rawValue)
+        self._correctAnswer = State<String>(initialValue: level.country.name)
         var newLevel = level
         newLevel.result = .none
-        if newLevel.answers.count > 2 {
-//            newLevel.answers.shuffle()
-        }
         self._level = State<Level>(initialValue: newLevel)
         self.interstitial = Interstitial(didBuyRemoveAds: didBuyRemoveAds)
     }
@@ -119,7 +116,7 @@ struct PlayView: View {
     private func goToNextLevel() {
         interstitial.showAd { didShowAd in
             var newLevel = store.state.nextLevel()
-            self.correctAnswer = newLevel.answers[0]
+            self.correctAnswer = newLevel.country.name
             newLevel.result = .none
 //            newLevel.answers.shuffle()
             self.level = newLevel

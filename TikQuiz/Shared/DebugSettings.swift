@@ -22,4 +22,9 @@ struct DebugSettings {
         guard let value = ProcessInfo.processInfo.environment["shortTimer"] else { return false }
         return Bool(value) ?? false
     }
+    
+    var dontShowAds: Bool {
+        guard let value = ProcessInfo.processInfo.environment["dontShowAds"] else { return false }
+        return Bool(value) ?? false
+    }
 }
