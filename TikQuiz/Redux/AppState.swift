@@ -29,10 +29,6 @@ struct AppState {
         }
     }
 
-    private func result(of level: Level) -> LevelResult {
-        result(of: level)
-    }
-
     mutating func set(result: LevelResult, for level: Level) {
         guard result != .none else { return }
         UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: level.levelId)
@@ -46,17 +42,17 @@ struct AppState {
             newLevel.result = .none
             return newLevel
         }
-        levels.enumerated().forEach { index, _ in
-            UserDefaults.standard.set(0, forKey: Self.levelsKey + "\(index)")
+        levels.forEach { level in
+            UserDefaults.standard.set(0, forKey: level.levelId)
         }
+    }
+
+    func didFinishAllLevels() -> Bool {
+        levels.filter { $0.result == .none }.isEmpty
     }
 
     func nextLevel() -> Level {
         levels.first(where: { !$0.didComplete }) ?? levels[0]
-    }
-
-    func didFinishAllLevels() -> Bool {
-        !levels.contains(where: { !$0.didComplete })
     }
 
     func index(of level: Level) -> Int {
@@ -78,10 +74,12 @@ struct AppState {
                     .enumerated()
                     .map { index, level in
                         var newLevel = level
-                        newLevel.result = result(ofLevelAtIndex: index)
+                        newLevel.result = result(of: level)
                         return newLevel
                     }
+                    .shuffled()
             } catch {
+                print(">>> decoding error")
                 print(error)
             }
         }

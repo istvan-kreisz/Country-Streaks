@@ -42,17 +42,20 @@ struct MainView: View {
                 VStack(spacing: 15) {
                     MainButton(text: "Play",
                                color: .customBlue,
-                               action: { self.selectedMenuId = 1 })
+                               action: {
+                                   if store.state.didFinishAllLevels() {
+                                       showAlert = true
+                                   } else {
+                                       self.selectedMenuId = 1
+                                   }
+                               })
                         .withDefaultShadow()
-                    MainButton(text: "Categories",
-                               color: .customYellow,
-                               action: { self.selectedMenuId = 2 })
                     MainButton(text: "Stats",
                                color: .customTurquoise,
-                               action: { self.selectedMenuId = 3 })
+                               action: { self.selectedMenuId = 2 })
                     MainButton(text: "Settings",
                                color: .customRed,
-                               action: { self.selectedMenuId = 4 })
+                               action: { self.selectedMenuId = 3 })
                 }
                 Spacer()
             }

@@ -28,11 +28,11 @@ enum LevelResult: String, Codable {
 struct Level {
     var result: LevelResult = .none
     let country: Country
-    let lat: Int
-    let lng: Int
+    let lat: Double
+    let lng: Double
 
     var attachment: String {
-        "img_\(lat),\(lng).jpg"
+        "img_\(lat),\(lng)"
     }
 
     var answers: [String] {
