@@ -25,8 +25,13 @@ struct MainView: View {
                     CircleButton(iconName: "settings-button") {
                         self.selectedMenuId = 3
                     }
-                    CircleButton(iconName: "discord-button") {
-                        // todo: finish
+                    CircleButton(iconName: store.state.didClickDiscordButton ? "discord-button" : "discord-button-active") {
+                        if !store.state.didClickDiscordButton {
+                            store.state.didClickDiscordButton = true
+                        }
+                        if let url = URL(string: "https://discord.gg/uCN465Ehc9") {
+                            UIApplication.shared.open(url)
+                        }
                     }
                 }
                 .leftAligned()

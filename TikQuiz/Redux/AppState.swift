@@ -12,6 +12,7 @@ struct AppState {
     private static let didBuyRemoveAdsKey = "didBuyRemoveAds"
     private static let currentStreak = "currentStreak"
     private static let bestStreak = "bestStreak"
+    private static let didClickDiscordButton = "didClickDiscordButton"
 
     var levels: [Level] = []
     var currentStreak: Int {
@@ -32,6 +33,11 @@ struct AppState {
     var didBuyRemoveAds: Bool {
         get { UserDefaults.standard.bool(forKey: Self.didBuyRemoveAdsKey) }
         set { UserDefaults.standard.set(newValue, forKey: Self.didBuyRemoveAdsKey) }
+    }
+    
+    var didClickDiscordButton: Bool {
+        get { UserDefaults.standard.bool(forKey: Self.didClickDiscordButton) }
+        set { UserDefaults.standard.set(newValue, forKey: Self.didClickDiscordButton) }
     }
 
     private func result(of level: Level) -> LevelResult {
