@@ -59,7 +59,7 @@ struct WithBackgroundColor: ViewModifier {
     }
 }
 
-//struct WithTellTip: ViewModifier {
+// struct WithTellTip: ViewModifier {
 //    let text: String
 //    let didTap: () -> Void
 //
@@ -83,7 +83,7 @@ struct WithBackgroundColor: ViewModifier {
 //            Spacer()
 //        }
 //    }
-//}
+// }
 
 struct WithAlert: ViewModifier {
     @Binding var alert: (String, String)?
@@ -117,9 +117,7 @@ extension View {
 
     func withDefaultBackground() -> some View {
         ZStack {
-            LinearGradient(gradient: .init(colors: [.customGray3, .customGrayBlue]),
-                           startPoint: .top,
-                           endPoint: .bottom)
+            Color.customBlue
                 .edgesIgnoringSafeArea(.all)
             self
         }

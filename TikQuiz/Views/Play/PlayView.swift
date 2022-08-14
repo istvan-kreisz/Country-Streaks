@@ -39,7 +39,7 @@ struct PlayView: View {
             if answer == correctAnswer {
                 return .customGreen
             } else {
-                return .customRed
+                return .customOrange
             }
         } else {
             if answer == correctAnswer {

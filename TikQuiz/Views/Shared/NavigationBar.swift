@@ -23,7 +23,7 @@ struct NavigationBar: View {
                 }) {
                     Image(systemName: "arrow.left")
                         .font(.bold(size: 24))
-                        .foregroundColor(Color.customTurquoise)
+                        .foregroundColor(Color.customBlue)
                 }
                 .frame(width: 50, height: 50)
             }

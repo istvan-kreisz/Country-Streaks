@@ -16,7 +16,7 @@ struct StatView: View {
 
     var stats: [(imageName: String, count: Int, color: Color)] {
         [("checkmark.circle", correctCount, .customGreen),
-         ("nosign", wrongCount, .customRed),
+         ("nosign", wrongCount, .customOrange),
          ("questionmark.circle", notAnsweredCount, .customYellow)]
     }
     

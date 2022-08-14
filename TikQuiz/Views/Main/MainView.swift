@@ -31,7 +31,7 @@ struct MainView: View {
                                tag: 3,
                                selection: self.$selectedMenuId) { EmptyView() }
                 Spacer()
-                CircleButton(color: .orange, iconName: "logo", tapped: {})
+                CircleButton(color: .orange, iconName: "arrow-back", tapped: {})
                 Image("logo")
                     .resizable()
                     .scaledToFit()
@@ -42,7 +42,7 @@ struct MainView: View {
 
                 VStack(spacing: 15) {
                     MainButton(text: "Play",
-                               color: .customBlue,
+                               color: .blue,
                                action: {
                                    if store.state.didFinishAllLevels() {
                                        showAlert = true
@@ -51,10 +51,10 @@ struct MainView: View {
                                    }
                                })
                     MainButton(text: "Stats",
-                               color: .customTurquoise,
+                               color: .green,
                                action: { self.selectedMenuId = 2 })
                     MainButton(text: "Settings",
-                               color: .customRed,
+                               color: .yellow,
                                action: { self.selectedMenuId = 3 })
                 }
                 Spacer()

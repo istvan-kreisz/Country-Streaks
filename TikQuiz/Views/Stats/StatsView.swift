@@ -22,7 +22,7 @@ struct StatsView: View {
                          isFullScreen: true)
                     .withDefaultRowPadding(isLastRow: false)
                 MainButton(text: "Reset Progress",
-                           color: .customTurquoise,
+                           color: .customGreen,
                            fillColor: .clear,
                            action: { showAlert = true })
                     .padding(.top, 30)
