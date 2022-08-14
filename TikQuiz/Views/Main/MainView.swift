@@ -18,7 +18,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack(spacing: .init(adaptiveSize: 6)) {
+                VStack(spacing: .init(adaptiveSize: 10)) {
                     CircleButton(iconName: "stats-button") {
                         selectedMenuId = 2
                     }
@@ -53,7 +53,6 @@ struct MainView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: logoWidth)
-                        .background(Color.clear)
 
                     PlayButton {
                         if store.state.didFinishAllLevels() {

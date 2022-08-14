@@ -19,7 +19,6 @@ struct CircleButton: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: size, height: size)
-                .background(Color.clear)
         }
     }
 }

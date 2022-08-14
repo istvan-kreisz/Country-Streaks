@@ -19,7 +19,6 @@ struct PlayButton: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: width)
-                .background(Color.clear)
         }
     }
 }

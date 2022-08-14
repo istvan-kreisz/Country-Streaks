@@ -53,52 +53,54 @@ struct PlayView: View {
     func countryButton(answer: String) -> some View {
         MainButton(text: answer,
                    fillColor: color(for: answer),
-                   width: .init(adaptiveSize: 220),
+                   width: .init(adaptiveSize: 250),
                    action: {
                        answerTapped(answer: answer)
                    })
     }
 
     var body: some View {
-        ZStack {
-            Image(level.attachment)
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
-            
-
-            VStack(spacing: 10) {
-                ZStack {
-                    NavigationBar(title: "", isBackButtonVisible: true)
-                        .layoutPriority(2)
-                    VStack {
-                        Text("Current")
-                            .font(.bold(size: 15))
-                            .foregroundColor(Color.white)
-                        Text("\(store.state.currentStreak)")
-                            .font(.bold(size: 18))
-                            .foregroundColor(Color.white)
-                    }
-                    .topAligned()
-                    .rightAligned()
+        VStack(spacing: 10) {
+            ZStack {
+                NavigationBar(title: "", isBackButtonVisible: true)
+                    .layoutPriority(2)
+                VStack {
+                    Text("Current Streak")
+                        .font(.bold(size: .init(adaptiveSize: 18)))
+                        .foregroundColor(Color.white)
+                    Text("\(store.state.currentStreak)")
+                        .font(.bold(size: .init(adaptiveSize: 20)))
+                        .foregroundColor(Color.white)
                 }
-                
-                Spacer()
+                .padding(.horizontal, 12)
+                .padding(.vertical, 5)
+                .background(Color.customOrange.opacity(0.6))
+                .cornerRadius(10)
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
+                .topAligned()
+                .rightAligned()
+            }
 
-                VStack(spacing: .init(adaptiveSize: 10)) {
-                    HStack(spacing: .init(adaptiveSize: 25)) {
-                        countryButton(answer: level.answers[0])
-                        countryButton(answer: level.answers[1])
-                    }
-                    HStack(spacing: .init(adaptiveSize: 25)) {
-                        countryButton(answer: level.answers[2])
-                        countryButton(answer: level.answers[3])
-                    }
+            Spacer()
+
+            VStack(spacing: .init(adaptiveSize: 10)) {
+                HStack(spacing: .init(adaptiveSize: 25)) {
+                    countryButton(answer: level.answers[0])
+                    countryButton(answer: level.answers[1])
+                }
+                HStack(spacing: .init(adaptiveSize: 25)) {
+                    countryButton(answer: level.answers[2])
+                    countryButton(answer: level.answers[3])
                 }
             }
-            .layoutPriority(1)
         }
+        .layoutPriority(1)
+        .background(Image(level.attachment)
+            .resizable()
+            .scaledToFill()
+            .edgesIgnoringSafeArea(.all)
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight + 30)
+            .padding(.bottom, -23))
         .defaultScreenSetup(addBottomPadding: false)
     }
 

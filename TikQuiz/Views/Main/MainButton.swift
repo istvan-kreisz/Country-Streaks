@@ -18,7 +18,7 @@ struct MainButton: View {
     let action: () -> Void
     
     
-    init(text: String, fontSize: CGFloat = .init(adaptiveSize: 25), fillColor: Color = .clear, width: CGFloat? = nil, action: @escaping () -> Void) {
+    init(text: String, fontSize: CGFloat = .init(adaptiveSize: 22), fillColor: Color = .clear, width: CGFloat? = nil, action: @escaping () -> Void) {
         self.text = text
         self.fontSize = fontSize
         self.fillColor = fillColor

@@ -26,7 +26,6 @@ struct StatView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: medalSize)
-                        .background(Color.clear)
                 }
             }
 
