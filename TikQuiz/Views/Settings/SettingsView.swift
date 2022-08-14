@@ -32,10 +32,6 @@ struct SettingsView: View {
             .withDefaultRowPadding(isLastRow: false)
         }
         .defaultScreenSetup()
-        .onAppear() {
-            UITableView.appearance().backgroundColor = UIColor.clear
-            UITableViewCell.appearance().backgroundColor = UIColor.clear
-        }
     }
     
     func loadingView() -> AnyView {

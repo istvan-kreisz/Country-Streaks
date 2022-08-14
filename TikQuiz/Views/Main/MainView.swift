@@ -43,23 +43,21 @@ struct MainView: View {
                     NavigationLink(destination: SettingsView(),
                                    tag: 3,
                                    selection: self.$selectedMenuId) { EmptyView() }
-                    
-                    VStack {
-                        Image("logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: logoWidth)
-                            .background(Color.clear)
-                        
-                        PlayButton {
-                            if store.state.didFinishAllLevels() {
-                                showAlert = true
-                            } else {
-                                self.selectedMenuId = 1
-                            }
+
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: logoWidth)
+                        .background(Color.clear)
+
+                    PlayButton {
+                        if store.state.didFinishAllLevels() {
+                            showAlert = true
+                        } else {
+                            self.selectedMenuId = 1
                         }
-                        .padding(.top, .init(adaptiveSize: 40))
                     }
+                    .padding(.top, .init(adaptiveSize: 40))
 
                     Spacer()
                 }

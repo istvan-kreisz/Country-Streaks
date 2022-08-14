@@ -16,27 +16,19 @@ struct NavigationBar: View {
     let isBackButtonVisible: Bool
     
     var body: some View {
-        HStack {
+        ZStack {
             if isBackButtonVisible {
-                Button(action: {
+                CircleButton(iconName: "back-button") {
                     self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "arrow.left")
-                        .font(.bold(size: 24))
-                        .foregroundColor(Color.customBlue)
                 }
-                .frame(width: 50, height: 50)
+                .leftAligned()
             }
-            Spacer()
             Text(self.title.uppercased())
-                .font(.bold(size: 22))
+                .font(.bold(size: .init(adaptiveSize: 40)))
                 .foregroundColor(Color.white)
-                .padding(.leading, isBackButtonVisible ? -50 : 0)
-                .frame(maxWidth: UIScreen.screenWidth - 180 + (isBackButtonVisible ? 0 : 130))
                 .lineLimit(1)
-            Spacer()
+                .centeredHorizontally()
         }
-        .withDefaultPadding(padding: [.leading, .trailing])
     }
 }
 
