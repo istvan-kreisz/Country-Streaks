@@ -20,7 +20,6 @@ struct StatView: View {
                 Text("Best streak: \(bestStreakCount)")
                     .font(.semiBold(size: .init(adaptiveSize: 20)))
                     .foregroundColor(.white)
-                // todo: test
                 if let medal = Medal(bestStreakCount: bestStreakCount) {
                     Image(medal.imageName)
                         .resizable()

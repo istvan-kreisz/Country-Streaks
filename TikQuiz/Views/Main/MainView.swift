@@ -69,6 +69,13 @@ struct MainView: View {
             .homeScreenSetup()
         }
         .navigationViewStyle(.stack)
+        .onAppear {
+            Timer.scheduledTimer(withTimeInterval: 1.4, repeats: false) { _ in
+                StoreReviewHelper.checkAndAskForReview {
+                    self.selectedMenuId == nil
+                }
+            }
+        }
         // todo: test alert
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Game Finished"),

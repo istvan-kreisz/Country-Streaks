@@ -18,23 +18,19 @@ struct StoreReviewHelper {
         UserDefaults.standard.set(currentValue + 1, forKey: Self.appOpenedCountKey)
     }
 
-    static func checkAndAskForReview() {
+    static func checkAndAskForReview(canDisplayRequestReviewModal: () -> Bool) {
         let appOpenCount = UserDefaults.standard.integer(forKey: Self.appOpenedCountKey)
-
-        switch appOpenCount {
-        case 20,
-             50:
-            StoreReviewHelper().requestReview()
-        case _ where appOpenCount % 70 == 0:
-            StoreReviewHelper().requestReview()
-        default:
-            print("App run count is : \(appOpenCount)")
+        print("App run count is: \(appOpenCount)")
+        if appOpenCount >= 7 {
+            StoreReviewHelper().requestReview(canDisplayRequestReviewModal: canDisplayRequestReviewModal)
         }
     }
 
-    private func requestReview() {
-        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-            SKStoreReviewController.requestReview(in: scene)
+    private func requestReview(canDisplayRequestReviewModal: () -> Bool) {
+        if canDisplayRequestReviewModal() {
+            if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
         }
     }
 }

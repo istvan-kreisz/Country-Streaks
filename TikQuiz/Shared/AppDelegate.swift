@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.removePersistentDomain(forName: domain)
             UserDefaults.standard.synchronize()
         }
+        StoreReviewHelper.incrementAppOpenedCount()
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         FirebaseApp.configure()

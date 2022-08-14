@@ -9,7 +9,6 @@
 import Combine
 import SwiftUI
 import Foundation
-import StoreKit
 
 final class Store: ObservableObject {
     // MARK: Stored properties
@@ -22,14 +21,6 @@ final class Store: ObservableObject {
     static let shared = Store()
 
     private init() {
-        let launchCount = UserDefaults.standard.integer(forKey: Constants.launchCount)
-        let stats = state.getStats()
-        let finishedLevelsCount = stats.correctCount + stats.wrongCount
-        if launchCount >= 3 && finishedLevelsCount > 50 {
-            // todo: fix
-            SKStoreReviewController.requestReview()
-        }
-        UserDefaults.standard.set(launchCount + 1, forKey: Constants.launchCount)
         iapHelper.delegate = self
 
         iapHelper.objectWillChange
@@ -53,10 +44,6 @@ final class Store: ObservableObject {
         case .resetProgress:
             state.resetProgress()
         }
-    }
-
-    private enum Constants {
-        static let launchCount = "launchCount"
     }
 }
 
