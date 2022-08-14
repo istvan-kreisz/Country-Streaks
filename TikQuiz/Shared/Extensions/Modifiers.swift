@@ -30,8 +30,8 @@ struct DefaultPadding: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .padding(.top, padding.contains(.top) ? 10 : 0)
-            .padding(.bottom, padding.contains(.bottom) ? 30 : 0)
+            .padding(.top, padding.contains(.top) ? Styles.verticalMargin : 0)
+            .padding(.bottom, padding.contains(.bottom) ? Styles.verticalMargin : 0)
             .padding(.leading, padding.contains(.leading) ? Styles.horizontalMargin : 0)
             .padding(.trailing, padding.contains(.trailing) ? Styles.horizontalMargin : 0)
     }
@@ -106,6 +106,13 @@ extension View {
             .navigationbarHidden()
             .withDefaultBackground()
     }
+    
+    func homeScreenSetup() -> some View {
+        self
+            .modifier(DefaultPadding(padding: [.top, .leading, .trailing]))
+            .navigationbarHidden()
+            .withHomeScreenBackground()
+    }
 }
 
 extension View {
@@ -118,6 +125,19 @@ extension View {
     func withDefaultBackground() -> some View {
         ZStack {
             Color.customBlue
+                .edgesIgnoringSafeArea(.all)
+            self
+        }
+    }
+    
+    func withHomeScreenBackground() -> some View {
+        ZStack {
+            Color.customBlue
+                .edgesIgnoringSafeArea(.all)
+            Image("background")
+                .resizable()
+                .scaledToFill()
+                .frame(width: UIScreen.screenWidth)
                 .edgesIgnoringSafeArea(.all)
             self
         }
@@ -156,38 +176,6 @@ extension View {
 extension View {
     func withDefaultInsets(isLastRow: Bool) -> some View {
         ModifiedContent(content: self, modifier: DefaultRowPadding(isLastRow: isLastRow))
-    }
-}
-
-struct CenteredHorizontally: ViewModifier {
-    func body(content: Content) -> some View {
-        HStack {
-            Spacer()
-            content
-            Spacer()
-        }
-    }
-}
-
-extension View {
-    func centeredHorizontally() -> some View {
-        ModifiedContent(content: self, modifier: CenteredHorizontally())
-    }
-}
-
-struct CenteredVertically: ViewModifier {
-    func body(content: Content) -> some View {
-        VStack {
-            Spacer()
-            content
-            Spacer()
-        }
-    }
-}
-
-extension View {
-    func centeredVertically() -> some View {
-        ModifiedContent(content: self, modifier: CenteredVertically())
     }
 }
 
@@ -238,5 +226,51 @@ fileprivate struct FadedModifier: ViewModifier {
         content
             .disabled(isFaded)
             .opacity(isFaded ? 0.05 : 1.0)
+    }
+}
+
+extension View {
+    func leftAligned(spacing: CGFloat? = nil) -> some View {
+        HStack(spacing: spacing) {
+            self
+            Spacer()
+        }
+    }
+
+    func rightAligned(spacing: CGFloat? = nil) -> some View {
+        HStack(spacing: spacing) {
+            Spacer()
+            self
+        }
+    }
+
+    func topAligned(spacing: CGFloat? = nil) -> some View {
+        VStack(spacing: spacing) {
+            self
+            Spacer()
+        }
+    }
+
+    func bottomAligned(spacing: CGFloat? = nil) -> some View {
+        VStack(spacing: spacing) {
+            Spacer()
+            self
+        }
+    }
+
+    func centeredVertically(spacing: CGFloat? = nil) -> some View {
+        VStack(spacing: spacing) {
+            Spacer()
+            self
+            Spacer()
+        }
+    }
+
+    func centeredHorizontally(spacing: CGFloat? = nil) -> some View {
+        HStack(spacing: spacing) {
+            Spacer()
+            self
+            Spacer()
+        }
     }
 }

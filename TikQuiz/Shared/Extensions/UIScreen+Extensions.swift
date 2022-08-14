@@ -13,12 +13,16 @@ extension UIScreen {
     static let screenHeight = UIScreen.main.bounds.size.height
     static let screenSize = UIScreen.main.bounds.size
 
-    static var isiPhone8: Bool {
-        screenHeight < 668
-    }
+//    static var isiPhone8: Bool {
+//        screenHeight < 668
+//    }
     
     static var isSmallScreen: Bool {
-        screenWidth <= 375
+        screenWidth <= 667
+    }
+    
+    static var isIphone: Bool {
+        screenWidth <= 926
     }
 
     enum ScreenType {

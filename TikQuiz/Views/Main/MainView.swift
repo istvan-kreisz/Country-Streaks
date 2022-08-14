@@ -13,53 +13,58 @@ struct MainView: View {
     @State private var selectedMenuId: Int?
     @State var showAlert = false
 
-    var logoSize: CGFloat {
-        UIScreen.main.bounds.width < 414 ? 80 : 95
-    }
+    var logoWidth: CGFloat = .init(adaptiveSize: 370)
 
     var body: some View {
         NavigationView {
-            VStack {
-                NavigationLink(destination: PlayView(level: store.state.nextLevel(), didBuyRemoveAds: store.state.didBuyRemoveAds)
-                    .environmentObject(store),
-                    tag: 1,
-                    selection: self.$selectedMenuId) { EmptyView() }
-                NavigationLink(destination: StatsView(),
-                               tag: 2,
-                               selection: self.$selectedMenuId) { EmptyView() }
-                NavigationLink(destination: SettingsView(),
-                               tag: 3,
-                               selection: self.$selectedMenuId) { EmptyView() }
-                Spacer()
-                CircleButton(color: .orange, iconName: "arrow-back", tapped: {})
-                Image("logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: logoSize)
-                    .background(Color.clear)
-
-                Spacer()
-
-                VStack(spacing: 15) {
-                    MainButton(text: "Play",
-                               color: .blue,
-                               action: {
-                                   if store.state.didFinishAllLevels() {
-                                       showAlert = true
-                                   } else {
-                                       self.selectedMenuId = 1
-                                   }
-                               })
-                    MainButton(text: "Stats",
-                               color: .green,
-                               action: { self.selectedMenuId = 2 })
-                    MainButton(text: "Settings",
-                               color: .yellow,
-                               action: { self.selectedMenuId = 3 })
+            ZStack {
+                VStack(spacing: .init(adaptiveSize: 6)) {
+                    CircleButton(iconName: "stats-button") {
+                        self.selectedMenuId = 2
+                    }
+                    CircleButton(iconName: "settings-button") {
+                        self.selectedMenuId = 3
+                    }
+                    CircleButton(iconName: "discord-button") {
+                        // todo: finish
+                    }
                 }
-                Spacer()
+                .leftAligned()
+                .topAligned()
+
+                VStack {
+                    NavigationLink(destination: PlayView(level: store.state.nextLevel(), didBuyRemoveAds: store.state.didBuyRemoveAds)
+                        .environmentObject(store),
+                        tag: 1,
+                        selection: self.$selectedMenuId) { EmptyView() }
+                    NavigationLink(destination: StatsView(),
+                                   tag: 2,
+                                   selection: self.$selectedMenuId) { EmptyView() }
+                    NavigationLink(destination: SettingsView(),
+                                   tag: 3,
+                                   selection: self.$selectedMenuId) { EmptyView() }
+                    
+                    VStack {
+                        Image("logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: logoWidth)
+                            .background(Color.clear)
+                        
+                        PlayButton {
+                            if store.state.didFinishAllLevels() {
+                                showAlert = true
+                            } else {
+                                self.selectedMenuId = 1
+                            }
+                        }
+                        .padding(.top, .init(adaptiveSize: 40))
+                    }
+
+                    Spacer()
+                }
             }
-            .defaultScreenSetup()
+            .homeScreenSetup()
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .alert(isPresented: $showAlert) {

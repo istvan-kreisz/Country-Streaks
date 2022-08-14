@@ -45,6 +45,8 @@
 		5D80467E28A90FFC007ED2F0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80467D28A90FFC007ED2F0 /* RoundedButton.swift */; };
 		5D80468028A913D9007ED2F0 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80467F28A913D9007ED2F0 /* Array+Extensions.swift */; };
 		5D80468228A91401007ED2F0 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80468128A91401007ED2F0 /* UIScreen+Extensions.swift */; };
+		5D80468428A93257007ED2F0 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80468328A93256007ED2F0 /* PlayButton.swift */; };
+		5D80468628A9340C007ED2F0 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80468528A9340C007ED2F0 /* CGFloat+Extensions.swift */; };
 		5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E149259D34F300CFF764 /* Interstitial.swift */; };
 		5DA1E151259D417900CFF764 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E150259D417900CFF764 /* MainButton.swift */; };
 		5DA1E157259D428400CFF764 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E154259D428400CFF764 /* Spinner.swift */; };
@@ -115,6 +117,8 @@
 		5D80467D28A90FFC007ED2F0 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		5D80467F28A913D9007ED2F0 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		5D80468128A91401007ED2F0 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
+		5D80468328A93256007ED2F0 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		5D80468528A9340C007ED2F0 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		5DA1E149259D34F300CFF764 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		5DA1E150259D417900CFF764 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		5DA1E154259D428400CFF764 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 				5D80467B28A90FAD007ED2F0 /* Modifiers.swift */,
 				5D80467F28A913D9007ED2F0 /* Array+Extensions.swift */,
 				5D80468128A91401007ED2F0 /* UIScreen+Extensions.swift */,
+				5D80468528A9340C007ED2F0 /* CGFloat+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			children = (
 				5DA1E150259D417900CFF764 /* MainButton.swift */,
 				5D14ABB1259C0390003C5E28 /* MainView.swift */,
+				5D80468328A93256007ED2F0 /* PlayButton.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 			files = (
 				5D80467A28A90F31007ED2F0 /* Styles.swift in Sources */,
 				5D80467528A90F0D007ED2F0 /* List+Extensions.swift in Sources */,
+				5D80468628A9340C007ED2F0 /* CGFloat+Extensions.swift in Sources */,
 				5D14ABD5259C03FB003C5E28 /* AppAction.swift in Sources */,
 				5D14ABAE259C0390003C5E28 /* AppDelegate.swift in Sources */,
 				5D80466928A90DE3007ED2F0 /* StoreReviewHelper.swift in Sources */,
@@ -587,6 +594,7 @@
 				5D14ABF9259C0421003C5E28 /* DebugSettings.swift in Sources */,
 				5D80467628A90F0D007ED2F0 /* NSMutableAttributedString+Extensions.swift in Sources */,
 				5D14ABD4259C03FB003C5E28 /* AppState.swift in Sources */,
+				5D80468428A93257007ED2F0 /* PlayButton.swift in Sources */,
 				5D80467C28A90FAD007ED2F0 /* Modifiers.swift in Sources */,
 				5D14ABCD259C03EF003C5E28 /* Level.swift in Sources */,
 				5DF14A3025A12C8800A92C7C /* GameState.swift in Sources */,
