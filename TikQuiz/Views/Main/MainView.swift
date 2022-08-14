@@ -76,7 +76,6 @@ struct MainView: View {
                 }
             }
         }
-        // todo: test alert
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Game Finished"),
                   message: Text("You completed all levels. To replay the game, reset your progress in the Stats menu"),

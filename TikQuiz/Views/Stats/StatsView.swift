@@ -31,7 +31,7 @@ struct StatsView: View {
         .defaultScreenSetup()
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Are you sure?"),
-                  message: Text("This will reset all your game progress."),
+                  message: Text("This will reset all your game progress, except for your best streak count."),
                   primaryButton: .cancel(),
                   secondaryButton: .destructive(Text("Reset"), action: {
                       resetProgress()

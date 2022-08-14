@@ -8,7 +8,6 @@
 import Foundation
 import StoreKit
 
-// todo: implement
 
 struct StoreReviewHelper {
     private static let appOpenedCountKey = "appOpenedCount"
