@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PlayView: View {
+    static var imageToShare: UIImage?
+
     private let medalSize: CGFloat = .init(adaptiveSize: 60)
 
     @Environment(\.presentationMode) var presentationMode
@@ -23,6 +25,7 @@ struct PlayView: View {
 
     @State var isShowingGameOverModal = true
     @State var hideButtons = false
+    @State var isShareSheetPresented = false
 
     init(level: Level, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.country.name)
@@ -93,10 +96,10 @@ struct PlayView: View {
         }
     }
     
-    var resultView: some View {
+    func resultView(width: CGFloat = 500) -> some View {
         VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
             Text("Streak Over".uppercased())
-                .font(.system(size: .init(adaptiveSize: 40), weight: .semibold, design: .default))
+                .font(.system(size: .init(adaptiveSize: width == 500 ? 40 : 30), weight: .semibold, design: .default))
                 .italic()
                 .foregroundColor(.customYellow)
             HStack(alignment: .top, spacing: 55) {
@@ -136,7 +139,7 @@ struct PlayView: View {
             }
         }
         .padding(.vertical, .init(adaptiveSize: 20))
-        .frame(width: .init(adaptiveSize: 500))
+        .frame(width: .init(adaptiveSize: width))
         .background(Color.customBlue.opacity(0.9))
         .cornerRadius(30)
     }
@@ -165,15 +168,16 @@ struct PlayView: View {
 
             ZStack {
                 VStack(alignment: .center, spacing: .init(adaptiveSize: 25)) {
-                    resultView
+                    resultView()
 
                     HStack(spacing: 20) {
                         MainButton(text: "OK", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
                             presentationMode.wrappedValue.dismiss()
                         }
                         MainButton(text: "SHARE", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
-                            let image = resultView.snapshot()
-                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                            Self.imageToShare = nil
+                            Self.imageToShare = resultView(width: 350).snapshot()
+                            isShareSheetPresented = true
                         }
                     }
                 }
@@ -190,6 +194,11 @@ struct PlayView: View {
             hideButtons.toggle()
         }
         .defaultScreenSetup(addBottomPadding: false)
+        .sheet(isPresented: $isShareSheetPresented) {
+            if let image = Self.imageToShare?.pngData() {
+                ShareSheetView(activityItems: [image as Any, "Can you beat my streak in World Streaks?"])
+            }
+        }
     }
 
     func answerTapped(answer: String) {

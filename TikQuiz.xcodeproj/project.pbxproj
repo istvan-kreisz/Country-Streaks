@@ -57,6 +57,7 @@
 		5DA1E158259D428400CFF764 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E155259D428400CFF764 /* NavigationBar.swift */; };
 		5DD08B46289E73DD004C8687 /* screenshots.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD08B45289E73DD004C8687 /* screenshots.json */; };
 		5DD08B48289E747D004C8687 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD08B47289E747D004C8687 /* Country.swift */; };
+		5DE0E88728A9A09A00662C0C /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0E88628A9A09A00662C0C /* ShareSheetView.swift */; };
 		5DF149F2259D4F5F00A92C7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F0259D4F5F00A92C7C /* SettingsView.swift */; };
 		5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */; };
 		5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149FC259D4F9100A92C7C /* PlayView.swift */; };
@@ -128,6 +129,7 @@
 		5DA1E155259D428400CFF764 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		5DD08B45289E73DD004C8687 /* screenshots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = screenshots.json; sourceTree = "<group>"; };
 		5DD08B47289E747D004C8687 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		5DE0E88628A9A09A00662C0C /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
 		5DF149F0259D4F5F00A92C7C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		5DF149FC259D4F9100A92C7C /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				5DF149FC259D4F9100A92C7C /* PlayView.swift */,
+				5DE0E88628A9A09A00662C0C /* ShareSheetView.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				5D14ABF9259C0421003C5E28 /* DebugSettings.swift in Sources */,
 				5D80467628A90F0D007ED2F0 /* NSMutableAttributedString+Extensions.swift in Sources */,
 				5D14ABD4259C03FB003C5E28 /* AppState.swift in Sources */,
+				5DE0E88728A9A09A00662C0C /* ShareSheetView.swift in Sources */,
 				5D80468428A93257007ED2F0 /* PlayButton.swift in Sources */,
 				5D80467C28A90FAD007ED2F0 /* Modifiers.swift in Sources */,
 				5D14ABCD259C03EF003C5E28 /* Level.swift in Sources */,
