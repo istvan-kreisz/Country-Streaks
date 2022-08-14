@@ -31,6 +31,7 @@ struct MainView: View {
                                tag: 3,
                                selection: self.$selectedMenuId) { EmptyView() }
                 Spacer()
+                CircleButton(color: .orange, iconName: "logo", tapped: {})
                 Image("logo")
                     .resizable()
                     .scaledToFit()
@@ -49,7 +50,6 @@ struct MainView: View {
                                        self.selectedMenuId = 1
                                    }
                                })
-                        .withDefaultShadow()
                     MainButton(text: "Stats",
                                color: .customTurquoise,
                                action: { self.selectedMenuId = 2 })

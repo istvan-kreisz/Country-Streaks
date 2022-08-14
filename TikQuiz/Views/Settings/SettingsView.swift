@@ -21,13 +21,13 @@ struct SettingsView: View {
                                  accessoryView: loadingView())
                     .listRowBackground(Color.clear)
                     .onTapGesture(perform: removeAds)
-                    .withDefaultInsets(isRowEnd: false)
+                    .withDefaultInsets(isLastRow: false)
                 SettingsCellView(text: "Restore Purchases",
                                  color: .customYellow,
                                  accessoryView: nil)
                     .listRowBackground(Color.clear)
                     .onTapGesture(perform: restorePurchases)
-                    .withDefaultInsets(isRowEnd: false)
+                    .withDefaultInsets(isLastRow: false)
             }
             .withDefaultRowPadding(isLastRow: false)
         }
