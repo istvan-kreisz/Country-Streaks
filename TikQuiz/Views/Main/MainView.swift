@@ -39,7 +39,7 @@ struct MainView: View {
 
                 VStack {
                     NavigationLink(destination: PlayView(level: store.state.nextLevel(), didBuyRemoveAds: store.state.didBuyRemoveAds)
-                        .environmentObject(store),
+                        .environmentObject(Store.shared),
                         tag: 1,
                         selection: $selectedMenuId) { EmptyView() }
                     NavigationLink(destination: StatsView(),
@@ -77,12 +77,5 @@ struct MainView: View {
                       selectedMenuId = 2
                   }))
         }
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-            .environmentObject(Store())
     }
 }

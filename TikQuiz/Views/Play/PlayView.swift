@@ -67,7 +67,7 @@ struct PlayView: View {
                 Text("Current Streak")
                     .font(.bold(size: .init(adaptiveSize: 18)))
                     .foregroundColor(Color.white)
-                Text("\(store.state.currentStreak)")
+                Text("\(Store.shared.state.currentStreak)")
                     .font(.bold(size: .init(adaptiveSize: 20)))
                     .foregroundColor(Color.white)
             }
@@ -91,6 +91,54 @@ struct PlayView: View {
                 .centeredHorizontally()
                 .padding(.top, -10)
         }
+    }
+    
+    var resultView: some View {
+        VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
+            Text("Streak Over".uppercased())
+                .font(.system(size: .init(adaptiveSize: 40), weight: .semibold, design: .default))
+                .italic()
+                .foregroundColor(.customYellow)
+            HStack(alignment: .top, spacing: 55) {
+                VStack(alignment: .trailing, spacing: 5) {
+                    VStack(alignment: .trailing, spacing: 3) {
+                        Text("Score")
+                            .font(.bold(size: .init(adaptiveSize: 24)))
+                            .foregroundColor(Color.white)
+                        Text("\(finalResult ?? 0)")
+                            .font(.bold(size: .init(adaptiveSize: 24)))
+                            .foregroundColor(Color.white)
+                    }
+                    VStack(alignment: .trailing, spacing: 3) {
+                        Text("Best")
+                            .font(.bold(size: .init(adaptiveSize: 24)))
+                            .foregroundColor(Color.white)
+                        Text("\(Store.shared.state.bestStreak)")
+                            .font(.bold(size: .init(adaptiveSize: 24)))
+                            .foregroundColor(Color.white)
+                    }
+                }
+                VStack {
+                    Text("Medal")
+                        .font(.bold(size: .init(adaptiveSize: 24)))
+                        .foregroundColor(Color.white)
+
+                    if let medal = Medal(bestStreakCount: finalResult ?? 0) {
+                        Image(medal.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: medalSize, height: medalSize)
+                    } else {
+                        Circle().stroke(Color.white, lineWidth: 2)
+                            .frame(width: medalSize + 4, height: medalSize + 4)
+                    }
+                }
+            }
+        }
+        .padding(.vertical, .init(adaptiveSize: 20))
+        .frame(width: .init(adaptiveSize: 500))
+        .background(Color.customBlue.opacity(0.9))
+        .cornerRadius(30)
     }
 
     var body: some View {
@@ -117,59 +165,15 @@ struct PlayView: View {
 
             ZStack {
                 VStack(alignment: .center, spacing: .init(adaptiveSize: 25)) {
-                    VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
-                        Text("Streak Over".uppercased())
-                            .font(.system(size: .init(adaptiveSize: 40), weight: .semibold, design: .default))
-                            .italic()
-                            .foregroundColor(.customYellow)
-                        HStack(alignment: .top, spacing: 55) {
-                            VStack(alignment: .trailing, spacing: 5) {
-                                VStack(alignment: .trailing, spacing: 3) {
-                                    Text("Score")
-                                        .font(.bold(size: .init(adaptiveSize: 24)))
-                                        .foregroundColor(Color.white)
-                                    Text("\(finalResult ?? 0)")
-                                        .font(.bold(size: .init(adaptiveSize: 24)))
-                                        .foregroundColor(Color.white)
-                                }
-                                VStack(alignment: .trailing, spacing: 3) {
-                                    Text("Best")
-                                        .font(.bold(size: .init(adaptiveSize: 24)))
-                                        .foregroundColor(Color.white)
-                                    Text("\(store.state.bestStreak)")
-                                        .font(.bold(size: .init(adaptiveSize: 24)))
-                                        .foregroundColor(Color.white)
-                                }
-                            }
-                            VStack {
-                                Text("Medal")
-                                    .font(.bold(size: .init(adaptiveSize: 24)))
-                                    .foregroundColor(Color.white)
-
-                                if let medal = Medal(bestStreakCount: finalResult ?? 0) {
-                                    Image(medal.imageName)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: medalSize, height: medalSize)
-                                } else {
-                                    Circle().stroke(Color.white, lineWidth: 2)
-                                        .frame(width: medalSize + 4, height: medalSize + 4)
-                                }
-                            }
-                        }
-                    }
-                    .padding(.vertical, .init(adaptiveSize: 20))
-                    .frame(width: .init(adaptiveSize: 500))
-                    .background(Color.customBlue.opacity(0.9))
-                    .cornerRadius(30)
+                    resultView
 
                     HStack(spacing: 20) {
                         MainButton(text: "OK", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
                             presentationMode.wrappedValue.dismiss()
                         }
                         MainButton(text: "SHARE", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
-//                            let image = self.snapshot()
-//                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                            let image = resultView.snapshot()
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         }
                     }
                 }
@@ -191,8 +195,8 @@ struct PlayView: View {
     func answerTapped(answer: String) {
         let answerIndex = level.answers.firstIndex(of: answer)!
         self.answerIndex = answerIndex
-        let currentStreak = store.state.currentStreak
-        store.send(.finishedLevel(level: level, didGuessRight: answer == correctAnswer))
+        let currentStreak = Store.shared.state.currentStreak
+        Store.shared.send(.finishedLevel(level: level, didGuessRight: answer == correctAnswer))
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
             if answer == correctAnswer {
                 self.goToNextLevel()
@@ -204,7 +208,7 @@ struct PlayView: View {
 
     private func goToNextLevel() {
         interstitial.showAd { didShowAd in
-            var newLevel = store.state.nextLevel()
+            var newLevel = Store.shared.state.nextLevel()
             self.correctAnswer = newLevel.country.name
             newLevel.result = .none
             self.level = newLevel

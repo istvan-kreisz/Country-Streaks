@@ -43,10 +43,3 @@ struct StatsView: View {
         store.send(.resetProgress)
     }
 }
-
-struct StatsView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatsView()
-            .environmentObject(Store())
-    }
-}

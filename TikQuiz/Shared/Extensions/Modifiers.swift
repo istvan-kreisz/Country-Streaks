@@ -275,7 +275,7 @@ extension View {
 
 extension View {
     func snapshot() -> UIImage {
-        let controller = UIHostingController(rootView: self)
+        let controller = UIHostingController(rootView: self.edgesIgnoringSafeArea(.all))
         let view = controller.view
 
         let targetSize = controller.view.intrinsicContentSize

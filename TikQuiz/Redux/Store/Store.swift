@@ -18,8 +18,10 @@ final class Store: ObservableObject {
     @Published var state = AppState()
 
     private var cancellables: Set<AnyCancellable> = []
+    
+    static let shared = Store()
 
-    init() {
+    private init() {
         let launchCount = UserDefaults.standard.integer(forKey: Constants.launchCount)
         let stats = state.getStats()
         let finishedLevelsCount = stats.correctCount + stats.wrongCount
