@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum Styles {
-    static let horizontalMargin: CGFloat = .init(adaptiveSize: 19)
+    static let horizontalMargin: CGFloat = .init(adaptiveSize: 10)
     static let verticalMargin: CGFloat = .init(adaptiveSize: 30)
 //    static let inputFieldHeight: CGFloat = 42
 //    static let inputFieldHeightLarge: CGFloat = 120

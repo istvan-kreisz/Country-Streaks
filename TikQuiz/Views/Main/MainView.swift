@@ -20,10 +20,10 @@ struct MainView: View {
             ZStack {
                 VStack(spacing: .init(adaptiveSize: 6)) {
                     CircleButton(iconName: "stats-button") {
-                        self.selectedMenuId = 2
+                        selectedMenuId = 2
                     }
                     CircleButton(iconName: "settings-button") {
-                        self.selectedMenuId = 3
+                        selectedMenuId = 3
                     }
                     CircleButton(iconName: store.state.didClickDiscordButton ? "discord-button" : "discord-button-active") {
                         if !store.state.didClickDiscordButton {
@@ -41,13 +41,13 @@ struct MainView: View {
                     NavigationLink(destination: PlayView(level: store.state.nextLevel(), didBuyRemoveAds: store.state.didBuyRemoveAds)
                         .environmentObject(store),
                         tag: 1,
-                        selection: self.$selectedMenuId) { EmptyView() }
+                        selection: $selectedMenuId) { EmptyView() }
                     NavigationLink(destination: StatsView(),
                                    tag: 2,
-                                   selection: self.$selectedMenuId) { EmptyView() }
+                                   selection: $selectedMenuId) { EmptyView() }
                     NavigationLink(destination: SettingsView(),
                                    tag: 3,
-                                   selection: self.$selectedMenuId) { EmptyView() }
+                                   selection: $selectedMenuId) { EmptyView() }
 
                     Image("logo")
                         .resizable()
@@ -59,7 +59,7 @@ struct MainView: View {
                         if store.state.didFinishAllLevels() {
                             showAlert = true
                         } else {
-                            self.selectedMenuId = 1
+                            selectedMenuId = 1
                         }
                     }
                     .padding(.top, .init(adaptiveSize: 40))
@@ -69,11 +69,14 @@ struct MainView: View {
             }
             .homeScreenSetup()
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
+        // todo: test alert
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Game Finished"),
-                  message: Text("You answered all questions. To replay the game, reset your progress in the Stats menu"),
-                  dismissButton: .default(Text("Got it!")))
+                  message: Text("You completed all levels. To replay the game, reset your progress in the Stats menu"),
+                  primaryButton: .cancel(Text("Got it!")), secondaryButton: .default(Text("Open Stats Menu"), action: {
+                      selectedMenuId = 2
+                  }))
         }
     }
 }

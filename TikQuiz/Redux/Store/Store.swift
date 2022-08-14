@@ -24,6 +24,7 @@ final class Store: ObservableObject {
         let stats = state.getStats()
         let finishedLevelsCount = stats.correctCount + stats.wrongCount
         if launchCount >= 3 && finishedLevelsCount > 50 {
+            // todo: fix
             SKStoreReviewController.requestReview()
         }
         UserDefaults.standard.set(launchCount + 1, forKey: Constants.launchCount)

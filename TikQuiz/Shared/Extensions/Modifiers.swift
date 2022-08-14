@@ -106,7 +106,7 @@ extension View {
             .navigationbarHidden()
             .withDefaultBackground()
     }
-    
+
     func homeScreenSetup() -> some View {
         self
             .modifier(DefaultPadding(padding: [.top, .leading, .trailing]))
@@ -123,24 +123,22 @@ extension View {
     }
 
     func withDefaultBackground() -> some View {
-        ZStack {
+        self.background(ZStack {
             Color.customBlue
                 .edgesIgnoringSafeArea(.all)
-            self
-        }
+        })
     }
-    
+
     func withHomeScreenBackground() -> some View {
-        ZStack {
+        self.background(ZStack {
             Color.customBlue
                 .edgesIgnoringSafeArea(.all)
             Image("background")
                 .resizable()
                 .scaledToFill()
-                .frame(width: UIScreen.screenWidth)
                 .edgesIgnoringSafeArea(.all)
-            self
-        }
+                .frame(width: UIScreen.screenWidth)
+        })
     }
 }
 
@@ -148,10 +146,10 @@ struct DefaultRowPadding: ViewModifier {
     let insets: UIEdgeInsets
 
     init(isLastRow: Bool) {
-        self.insets = UIEdgeInsets(top: 15,
-                                   left: 15,
-                                   bottom: isLastRow ? 40 : 15,
-                                   right: 15)
+        self.insets = UIEdgeInsets(top: .init(adaptiveSize: 7),
+                                   left: 0,
+                                   bottom: isLastRow ? .init(adaptiveSize: 20) : .init(adaptiveSize: 7),
+                                   right: 0)
     }
 
     func body(content: Content) -> some View {
