@@ -34,18 +34,18 @@ struct PlayView: View {
 
     func color(for answer: String) -> Color {
         if answerIndex == -1 {
-            return .clear
+            return Color.customBlue.opacity(0.4)
         } else if level.answers.firstIndex(of: answer) == answerIndex {
             if answer == correctAnswer {
                 return .customGreen
             } else {
-                return .customOrange
+                return .customRed
             }
         } else {
             if answer == correctAnswer {
                 return .customGreen
             } else {
-                return .clear
+                return Color.customBlue.opacity(0.4)
             }
         }
     }
@@ -53,6 +53,7 @@ struct PlayView: View {
     func countryButton(answer: String) -> some View {
         MainButton(text: answer,
                    fillColor: color(for: answer),
+                   width: .init(adaptiveSize: 220),
                    action: {
                        answerTapped(answer: answer)
                    })
@@ -62,17 +63,15 @@ struct PlayView: View {
         ZStack {
             Image(level.attachment)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
-                .foregroundColor(.white)
-                .padding(.bottom, 5)
-                .layoutPriority(0)
+            
 
             VStack(spacing: 10) {
-                NavigationBar(title: "Quess the country!", isBackButtonVisible: true)
-                    .layoutPriority(2)
-                HStack {
-                    Spacer()
+                ZStack {
+                    NavigationBar(title: "", isBackButtonVisible: true)
+                        .layoutPriority(2)
                     VStack {
                         Text("Current")
                             .font(.bold(size: 15))
@@ -81,24 +80,18 @@ struct PlayView: View {
                             .font(.bold(size: 18))
                             .foregroundColor(Color.white)
                     }
-                    VStack {
-                        Text("Best")
-                            .font(.bold(size: 15))
-                            .foregroundColor(Color.white)
-                        Text("\(store.state.bestStreak)")
-                            .font(.bold(size: 18))
-                            .foregroundColor(Color.white)
-                    }
+                    .topAligned()
+                    .rightAligned()
                 }
-
+                
                 Spacer()
 
-                VStack {
-                    HStack {
+                VStack(spacing: .init(adaptiveSize: 10)) {
+                    HStack(spacing: .init(adaptiveSize: 25)) {
                         countryButton(answer: level.answers[0])
                         countryButton(answer: level.answers[1])
                     }
-                    HStack {
+                    HStack(spacing: .init(adaptiveSize: 25)) {
                         countryButton(answer: level.answers[2])
                         countryButton(answer: level.answers[3])
                     }
@@ -106,7 +99,7 @@ struct PlayView: View {
             }
             .layoutPriority(1)
         }
-        .defaultScreenSetup()
+        .defaultScreenSetup(addBottomPadding: false)
     }
 
     func answerTapped(answer: String) {
@@ -126,12 +119,5 @@ struct PlayView: View {
             self.level = newLevel
             self.answerIndex = -1
         }
-    }
-}
-
-struct PlayView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayView(level: .init(country: .AND, lat: 1.2, lng: 2.3), didBuyRemoveAds: true)
-            .environmentObject(Store())
     }
 }

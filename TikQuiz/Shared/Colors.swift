@@ -15,6 +15,7 @@ extension Color {
     static var customOrange = Color("orange")
     static var customPurple = Color("purple")
     static var customYellow = Color("yellow")
+    static var customRed = Color("red")
 }
 
 //extension UIColor {

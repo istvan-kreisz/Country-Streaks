@@ -1,5 +1,5 @@
 //
-//  MainMenuButton.swift
+//  MainButton.swift
 //  FillTheShape
 //
 //  Created by István Kreisz on 4/12/20.
@@ -14,13 +14,15 @@ struct MainButton: View {
     let text: String
     let fontSize: CGFloat
     let fillColor: Color
+    let width: CGFloat?
     let action: () -> Void
     
     
-    init(text: String, fontSize: CGFloat = .init(adaptiveSize: 25), fillColor: Color = .clear, action: @escaping () -> Void) {
+    init(text: String, fontSize: CGFloat = .init(adaptiveSize: 25), fillColor: Color = .clear, width: CGFloat? = nil, action: @escaping () -> Void) {
         self.text = text
         self.fontSize = fontSize
         self.fillColor = fillColor
+        self.width = width
         self.action = action
     }
 
@@ -34,6 +36,7 @@ struct MainButton: View {
             }
             .padding(.horizontal, 23)
             .padding(.vertical, 8)
+            .frame(width: width)
             .background(fillColor)
             .cornerRadius(10)
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 3))
