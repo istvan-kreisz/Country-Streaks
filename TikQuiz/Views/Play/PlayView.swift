@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct PlayView: View {
     static var imageToShare: UIImage?
@@ -206,6 +207,7 @@ struct PlayView: View {
         self.answerIndex = answerIndex
         let currentStreak = Store.shared.state.currentStreak
         Store.shared.send(.finishedLevel(level: level, didGuessRight: answer == correctAnswer))
+        AVAudioPlayer.playSound(sound: "\(answer == correctAnswer ? "correct" : "wrong")-guess", type: "wav")
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
             if answer == correctAnswer {
                 self.goToNextLevel()

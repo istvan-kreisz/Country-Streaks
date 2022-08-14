@@ -59,6 +59,9 @@
 		5DD08B48289E747D004C8687 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD08B47289E747D004C8687 /* Country.swift */; };
 		5DE0E88728A9A09A00662C0C /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0E88628A9A09A00662C0C /* ShareSheetView.swift */; };
 		5DE0E88928A9ADCA00662C0C /* SKStoreReviewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0E88828A9ADCA00662C0C /* SKStoreReviewController+Extensions.swift */; };
+		5DE0E88B28A9BB5700662C0C /* AVAudioPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0E88A28A9BB5700662C0C /* AVAudioPlayer+Extensions.swift */; };
+		5DE0E88E28A9BB7700662C0C /* wrong-guess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0E88C28A9BB7600662C0C /* wrong-guess.wav */; };
+		5DE0E88F28A9BB7700662C0C /* correct-guess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0E88D28A9BB7700662C0C /* correct-guess.wav */; };
 		5DF149F2259D4F5F00A92C7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F0259D4F5F00A92C7C /* SettingsView.swift */; };
 		5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */; };
 		5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149FC259D4F9100A92C7C /* PlayView.swift */; };
@@ -132,6 +135,9 @@
 		5DD08B47289E747D004C8687 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		5DE0E88628A9A09A00662C0C /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
 		5DE0E88828A9ADCA00662C0C /* SKStoreReviewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKStoreReviewController+Extensions.swift"; sourceTree = "<group>"; };
+		5DE0E88A28A9BB5700662C0C /* AVAudioPlayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioPlayer+Extensions.swift"; sourceTree = "<group>"; };
+		5DE0E88C28A9BB7600662C0C /* wrong-guess.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "wrong-guess.wav"; sourceTree = "<group>"; };
+		5DE0E88D28A9BB7700662C0C /* correct-guess.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "correct-guess.wav"; sourceTree = "<group>"; };
 		5DF149F0259D4F5F00A92C7C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		5DF149FC259D4F9100A92C7C /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
@@ -271,6 +277,8 @@
 				5D14ABE1259C0421003C5E28 /* DebugSettings.swift */,
 				5DD08B45289E73DD004C8687 /* screenshots.json */,
 				5D14ABE7259C0421003C5E28 /* Colors.swift */,
+				5DE0E88D28A9BB7700662C0C /* correct-guess.wav */,
+				5DE0E88C28A9BB7600662C0C /* wrong-guess.wav */,
 				5D14ABE8259C0421003C5E28 /* Fonts */,
 			);
 			path = Shared;
@@ -316,6 +324,7 @@
 				5D80468128A91401007ED2F0 /* UIScreen+Extensions.swift */,
 				5D80468528A9340C007ED2F0 /* CGFloat+Extensions.swift */,
 				5DE0E88828A9ADCA00662C0C /* SKStoreReviewController+Extensions.swift */,
+				5DE0E88A28A9BB5700662C0C /* AVAudioPlayer+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -493,9 +502,11 @@
 				5D75884528A90ADD00F4F60C /* Dosis-ExtraBold.ttf in Resources */,
 				5D75884A28A90ADD00F4F60C /* Dosis-Medium.ttf in Resources */,
 				5D80468A28A96245007ED2F0 /* GoogleService-Info.plist in Resources */,
+				5DE0E88F28A9BB7700662C0C /* correct-guess.wav in Resources */,
 				5DD08B46289E73DD004C8687 /* screenshots.json in Resources */,
 				5D75884428A90ADD00F4F60C /* Dosis-Regular.ttf in Resources */,
 				5D75884628A90ADD00F4F60C /* Dosis-Bold.ttf in Resources */,
+				5DE0E88E28A9BB7700662C0C /* wrong-guess.wav in Resources */,
 				5D75884728A90ADD00F4F60C /* Dosis-Light.ttf in Resources */,
 				5D75884828A90ADD00F4F60C /* Dosis-SemiBold.ttf in Resources */,
 			);
@@ -557,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE0E88B28A9BB5700662C0C /* AVAudioPlayer+Extensions.swift in Sources */,
 				5D80467A28A90F31007ED2F0 /* Styles.swift in Sources */,
 				5D80468628A9340C007ED2F0 /* CGFloat+Extensions.swift in Sources */,
 				5D14ABD5259C03FB003C5E28 /* AppAction.swift in Sources */,
