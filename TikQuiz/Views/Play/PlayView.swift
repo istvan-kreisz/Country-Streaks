@@ -22,6 +22,7 @@ struct PlayView: View {
     @State var correctAnswer: String
 
     @State var isShowingGameOverModal = true
+    @State var hideButtons = false
 
     init(level: Level, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.country.name)
@@ -58,30 +59,46 @@ struct PlayView: View {
                    })
     }
 
+    var mainView: some View {
+        ZStack {
+            NavigationBar(title: "", isBackButtonVisible: true)
+                .layoutPriority(2)
+            VStack {
+                Text("Current Streak")
+                    .font(.bold(size: .init(adaptiveSize: 18)))
+                    .foregroundColor(Color.white)
+                Text("\(store.state.currentStreak)")
+                    .font(.bold(size: .init(adaptiveSize: 20)))
+                    .foregroundColor(Color.white)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 5)
+            .background(Color.customOrange.opacity(0.6))
+            .cornerRadius(10)
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
+            .topAligned()
+            .rightAligned()
+
+            Text("Double tap the screen to hide buttons")
+                .font(.bold(size: .init(adaptiveSize: 14)))
+                .foregroundColor(Color.white)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 3)
+                .background(Color.customGreen.opacity(0.6))
+                .cornerRadius(5)
+                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.white, lineWidth: 2))
+                .topAligned()
+                .centeredHorizontally()
+                .padding(.top, -10)
+        }
+    }
+
     var body: some View {
-        let hideUI = Binding<Bool>(get: { finalResult != nil }, set: { _ in })
+        let hideUI = Binding<Bool>(get: { finalResult != nil || hideButtons }, set: { _ in })
 
         ZStack {
             VStack(spacing: 10) {
-                ZStack {
-                    NavigationBar(title: "", isBackButtonVisible: true)
-                        .layoutPriority(2)
-                    VStack {
-                        Text("Current Streak")
-                            .font(.bold(size: .init(adaptiveSize: 18)))
-                            .foregroundColor(Color.white)
-                        Text("\(store.state.currentStreak)")
-                            .font(.bold(size: .init(adaptiveSize: 20)))
-                            .foregroundColor(Color.white)
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 5)
-                    .background(Color.customOrange.opacity(0.6))
-                    .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
-                    .topAligned()
-                    .rightAligned()
-                }
+                mainView
 
                 Spacer()
 
@@ -97,7 +114,7 @@ struct PlayView: View {
                 }
             }
             .isHidden(hideUI.wrappedValue)
-            
+
             ZStack {
                 VStack(alignment: .center, spacing: .init(adaptiveSize: 25)) {
                     VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
@@ -150,7 +167,10 @@ struct PlayView: View {
                         MainButton(text: "OK", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
                             presentationMode.wrappedValue.dismiss()
                         }
-                        MainButton(text: "SHARE", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {}
+                        MainButton(text: "SHARE", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
+//                            let image = self.snapshot()
+//                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                        }
                     }
                 }
             }
@@ -162,6 +182,9 @@ struct PlayView: View {
             .edgesIgnoringSafeArea(.all)
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight + 30)
             .padding(.bottom, -23))
+        .onTapGesture(count: 2) {
+            hideButtons.toggle()
+        }
         .defaultScreenSetup(addBottomPadding: false)
     }
 
