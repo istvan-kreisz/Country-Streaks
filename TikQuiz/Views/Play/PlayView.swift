@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlayView: View {
-    private let medalSize: CGFloat = .init(adaptiveSize: 71)
+    private let medalSize: CGFloat = .init(adaptiveSize: 60)
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var store: Store
@@ -59,6 +59,8 @@ struct PlayView: View {
     }
 
     var body: some View {
+        let hideUI = Binding<Bool>(get: { finalResult != nil }, set: { _ in })
+
         ZStack {
             VStack(spacing: 10) {
                 ZStack {
@@ -94,6 +96,8 @@ struct PlayView: View {
                     }
                 }
             }
+            .isHidden(hideUI.wrappedValue)
+            
             ZStack {
                 VStack(alignment: .center, spacing: .init(adaptiveSize: 25)) {
                     VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
@@ -102,7 +106,7 @@ struct PlayView: View {
                             .italic()
                             .foregroundColor(.customYellow)
                         HStack(alignment: .top, spacing: 55) {
-                            VStack {
+                            VStack(alignment: .trailing, spacing: 5) {
                                 VStack(alignment: .trailing, spacing: 3) {
                                     Text("Score")
                                         .font(.bold(size: .init(adaptiveSize: 24)))
@@ -129,7 +133,7 @@ struct PlayView: View {
                                     Image(medal.imageName)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: medalSize)
+                                        .frame(width: medalSize, height: medalSize)
                                 } else {
                                     Circle().stroke(Color.white, lineWidth: 2)
                                         .frame(width: medalSize + 4, height: medalSize + 4)
@@ -143,7 +147,9 @@ struct PlayView: View {
                     .cornerRadius(30)
 
                     HStack(spacing: 20) {
-                        MainButton(text: "OK", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {}
+                        MainButton(text: "OK", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                         MainButton(text: "SHARE", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {}
                     }
                 }
@@ -162,9 +168,14 @@ struct PlayView: View {
     func answerTapped(answer: String) {
         let answerIndex = level.answers.firstIndex(of: answer)!
         self.answerIndex = answerIndex
+        let currentStreak = store.state.currentStreak
         store.send(.finishedLevel(level: level, didGuessRight: answer == correctAnswer))
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-            self.goToNextLevel()
+            if answer == correctAnswer {
+                self.goToNextLevel()
+            } else {
+                finalResult = currentStreak
+            }
         }
     }
 

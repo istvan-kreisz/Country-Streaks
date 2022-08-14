@@ -15,9 +15,9 @@ enum Medal {
     
     init?(bestStreakCount: Int) {
         if bestStreakCount >= 5 {
-            if bestStreakCount >= 20 {
-                if bestStreakCount >= 50 {
-                    if bestStreakCount >= 100 {
+            if bestStreakCount >= 10 {
+                if bestStreakCount >= 25 {
+                    if bestStreakCount >= 50 {
                         self = .diamond
                     } else {
                         self = .gold
