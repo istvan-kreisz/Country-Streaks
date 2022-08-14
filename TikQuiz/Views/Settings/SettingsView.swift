@@ -39,7 +39,7 @@ struct SettingsView: View {
             return AnyView(Spinner(isAnimating: isLoading,
                                    style: .medium))
         } else {
-            return AnyView(Text(store.state.didBuyRemoveAds ? "Purchased" : "$2.99")
+            return AnyView(Text(store.state.didBuyRemoveAds ? "Purchased" : Store.shared.iapHelper.removeAdsPrice)
                 .font(.bold(size: .init(adaptiveSize: 20)))
                 .foregroundColor(.customYellow))
         }

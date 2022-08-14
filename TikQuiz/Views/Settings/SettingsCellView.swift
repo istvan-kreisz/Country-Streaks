@@ -28,11 +28,3 @@ struct SettingsCellView: View {
         .cornerRadius(15)
     }
 }
-
-struct SettingsCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsCellView(text: "Remove Ads",
-                         color: .white,
-                         accessoryView: nil)
-    }
-}
