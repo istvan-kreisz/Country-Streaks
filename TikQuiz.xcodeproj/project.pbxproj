@@ -23,6 +23,9 @@
 		5D14ABF9259C0421003C5E28 /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE1259C0421003C5E28 /* DebugSettings.swift */; };
 		5D14ABFE259C0421003C5E28 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE7259C0421003C5E28 /* Colors.swift */; };
 		5D14AC19259C0564003C5E28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 5D14AC18259C0564003C5E28 /* Reachability */; };
+		5D4CC0FE28A9662E0098917F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4CC0FD28A9662E0098917F /* FirebaseAnalytics */; };
+		5D4CC10028A9662E0098917F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4CC0FF28A9662E0098917F /* FirebaseAnalyticsSwift */; };
+		5D4CC10228A9662E0098917F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4CC10128A9662E0098917F /* FirebaseCrashlytics */; };
 		5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */; };
 		5D74B6AA25D073570070ADE6 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */; };
 		5D75884428A90ADD00F4F60C /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D75883D28A90ADC00F4F60C /* Dosis-Regular.ttf */; };
@@ -36,7 +39,6 @@
 		5D80467228A90F0D007ED2F0 /* Result+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80466B28A90F0C007ED2F0 /* Result+Extensions.swift */; };
 		5D80467328A90F0D007ED2F0 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80466C28A90F0C007ED2F0 /* Binding+Extensions.swift */; };
 		5D80467428A90F0D007ED2F0 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80466D28A90F0C007ED2F0 /* Collection+Extensions.swift */; };
-		5D80467528A90F0D007ED2F0 /* List+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80466E28A90F0C007ED2F0 /* List+Extensions.swift */; };
 		5D80467628A90F0D007ED2F0 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80466F28A90F0D007ED2F0 /* NSMutableAttributedString+Extensions.swift */; };
 		5D80467728A90F0D007ED2F0 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80467028A90F0D007ED2F0 /* String+Extensions.swift */; };
 		5D80467828A90F0D007ED2F0 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80467128A90F0D007ED2F0 /* Sequence+Extensions.swift */; };
@@ -48,18 +50,17 @@
 		5D80468428A93257007ED2F0 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80468328A93256007ED2F0 /* PlayButton.swift */; };
 		5D80468628A9340C007ED2F0 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80468528A9340C007ED2F0 /* CGFloat+Extensions.swift */; };
 		5D80468828A94F55007ED2F0 /* Medal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80468728A94F55007ED2F0 /* Medal.swift */; };
+		5D80468A28A96245007ED2F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D80468928A96245007ED2F0 /* GoogleService-Info.plist */; };
 		5DA1E14A259D34F300CFF764 /* Interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E149259D34F300CFF764 /* Interstitial.swift */; };
 		5DA1E151259D417900CFF764 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E150259D417900CFF764 /* MainButton.swift */; };
 		5DA1E157259D428400CFF764 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E154259D428400CFF764 /* Spinner.swift */; };
 		5DA1E158259D428400CFF764 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E155259D428400CFF764 /* NavigationBar.swift */; };
-		5DC5275625B564E70067A340 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DC5275525B564E70067A340 /* GoogleService-Info.plist */; };
 		5DD08B46289E73DD004C8687 /* screenshots.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD08B45289E73DD004C8687 /* screenshots.json */; };
 		5DD08B48289E747D004C8687 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD08B47289E747D004C8687 /* Country.swift */; };
 		5DF149F2259D4F5F00A92C7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F0259D4F5F00A92C7C /* SettingsView.swift */; };
 		5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */; };
 		5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149FC259D4F9100A92C7C /* PlayView.swift */; };
 		5DF14A2625A0793900A92C7C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2525A0793900A92C7C /* Fonts.swift */; };
-		5DF14A3025A12C8800A92C7C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2F25A12C8700A92C7C /* GameState.swift */; };
 		A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,7 +110,6 @@
 		5D80466B28A90F0C007ED2F0 /* Result+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Extensions.swift"; sourceTree = "<group>"; };
 		5D80466C28A90F0C007ED2F0 /* Binding+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
 		5D80466D28A90F0C007ED2F0 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
-		5D80466E28A90F0C007ED2F0 /* List+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "List+Extensions.swift"; sourceTree = "<group>"; };
 		5D80466F28A90F0D007ED2F0 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		5D80467028A90F0D007ED2F0 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		5D80467128A90F0D007ED2F0 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
@@ -121,18 +121,17 @@
 		5D80468328A93256007ED2F0 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		5D80468528A9340C007ED2F0 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		5D80468728A94F55007ED2F0 /* Medal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medal.swift; sourceTree = "<group>"; };
+		5D80468928A96245007ED2F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DA1E149259D34F300CFF764 /* Interstitial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interstitial.swift; sourceTree = "<group>"; };
 		5DA1E150259D417900CFF764 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		5DA1E154259D428400CFF764 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5DA1E155259D428400CFF764 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		5DC5275525B564E70067A340 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DD08B45289E73DD004C8687 /* screenshots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = screenshots.json; sourceTree = "<group>"; };
 		5DD08B47289E747D004C8687 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		5DF149F0259D4F5F00A92C7C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		5DF149FC259D4F9100A92C7C /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		5DF14A2525A0793900A92C7C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		5DF14A2F25A12C8700A92C7C /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +139,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4CC10028A9662E0098917F /* FirebaseAnalyticsSwift in Frameworks */,
 				5D14AC19259C0564003C5E28 /* Reachability in Frameworks */,
+				5D4CC10228A9662E0098917F /* FirebaseCrashlytics in Frameworks */,
 				A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */,
+				5D4CC0FE28A9662E0098917F /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +195,8 @@
 				5D14ABCF259C03FB003C5E28 /* Redux */,
 				5D14ABC9259C03EF003C5E28 /* Model */,
 				5D14ABBB259C0392003C5E28 /* Info.plist */,
+				5D80468928A96245007ED2F0 /* GoogleService-Info.plist */,
 				5D14ABB5259C0392003C5E28 /* Preview Content */,
-				5DC5275525B564E70067A340 /* GoogleService-Info.plist */,
 			);
 			path = TikQuiz;
 			sourceTree = "<group>";
@@ -301,7 +303,6 @@
 				5D80467928A90F31007ED2F0 /* Styles.swift */,
 				5D80466C28A90F0C007ED2F0 /* Binding+Extensions.swift */,
 				5D80466D28A90F0C007ED2F0 /* Collection+Extensions.swift */,
-				5D80466E28A90F0C007ED2F0 /* List+Extensions.swift */,
 				5D80466F28A90F0D007ED2F0 /* NSMutableAttributedString+Extensions.swift */,
 				5D80466B28A90F0C007ED2F0 /* Result+Extensions.swift */,
 				5D80467128A90F0D007ED2F0 /* Sequence+Extensions.swift */,
@@ -365,7 +366,6 @@
 		5DF149FB259D4F8000A92C7C /* Play */ = {
 			isa = PBXGroup;
 			children = (
-				5DF14A2F25A12C8700A92C7C /* GameState.swift */,
 				5DF149FC259D4F9100A92C7C /* PlayView.swift */,
 			);
 			path = Play;
@@ -399,8 +399,7 @@
 				5D14ABA6259C0390003C5E28 /* Sources */,
 				5D14ABA7259C0390003C5E28 /* Frameworks */,
 				5D14ABA8259C0390003C5E28 /* Resources */,
-				1B625E000B94D57A822A903C /* [CP] Embed Pods Frameworks */,
-				5DC5276725B565D80067A340 /* ShellScript */,
+				234B2368E62E5B4EFB91263C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -409,6 +408,9 @@
 			name = TikQuiz;
 			packageProductDependencies = (
 				5D14AC18259C0564003C5E28 /* Reachability */,
+				5D4CC0FD28A9662E0098917F /* FirebaseAnalytics */,
+				5D4CC0FF28A9662E0098917F /* FirebaseAnalyticsSwift */,
+				5D4CC10128A9662E0098917F /* FirebaseCrashlytics */,
 			);
 			productName = TikQuiz;
 			productReference = 5D14ABAA259C0390003C5E28 /* TikQuiz.app */;
@@ -461,6 +463,7 @@
 			mainGroup = 5D14ABA1259C0390003C5E28;
 			packageReferences = (
 				5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */,
+				5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 5D14ABAB259C0390003C5E28 /* Products */;
 			projectDirPath = "";
@@ -477,17 +480,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D14ABB4259C0392003C5E28 /* Assets.xcassets in Resources */,
 				5D75884928A90ADD00F4F60C /* Dosis-ExtraLight.ttf in Resources */,
 				5D14ABBA259C0392003C5E28 /* LaunchScreen.storyboard in Resources */,
 				5D14ABB7259C0392003C5E28 /* Preview Assets.xcassets in Resources */,
 				5D75884528A90ADD00F4F60C /* Dosis-ExtraBold.ttf in Resources */,
 				5D75884A28A90ADD00F4F60C /* Dosis-Medium.ttf in Resources */,
+				5D80468A28A96245007ED2F0 /* GoogleService-Info.plist in Resources */,
 				5DD08B46289E73DD004C8687 /* screenshots.json in Resources */,
 				5D75884428A90ADD00F4F60C /* Dosis-Regular.ttf in Resources */,
 				5D75884628A90ADD00F4F60C /* Dosis-Bold.ttf in Resources */,
-				5DC5275625B564E70067A340 /* GoogleService-Info.plist in Resources */,
 				5D75884728A90ADD00F4F60C /* Dosis-Light.ttf in Resources */,
-				5D14ABB4259C0392003C5E28 /* Assets.xcassets in Resources */,
 				5D75884828A90ADD00F4F60C /* Dosis-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,7 +505,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B625E000B94D57A822A903C /* [CP] Embed Pods Frameworks */ = {
+		234B2368E62E5B4EFB91263C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -518,25 +521,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TikQuiz/Pods-TikQuiz-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		5DC5276725B565D80067A340 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		93A746E50EA23CA6F65C64C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -568,7 +552,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D80467A28A90F31007ED2F0 /* Styles.swift in Sources */,
-				5D80467528A90F0D007ED2F0 /* List+Extensions.swift in Sources */,
 				5D80468628A9340C007ED2F0 /* CGFloat+Extensions.swift in Sources */,
 				5D14ABD5259C03FB003C5E28 /* AppAction.swift in Sources */,
 				5D14ABAE259C0390003C5E28 /* AppDelegate.swift in Sources */,
@@ -601,7 +584,6 @@
 				5D80468428A93257007ED2F0 /* PlayButton.swift in Sources */,
 				5D80467C28A90FAD007ED2F0 /* Modifiers.swift in Sources */,
 				5D14ABCD259C03EF003C5E28 /* Level.swift in Sources */,
-				5DF14A3025A12C8800A92C7C /* GameState.swift in Sources */,
 				5D80467728A90F0D007ED2F0 /* String+Extensions.swift in Sources */,
 				5D80467228A90F0D007ED2F0 /* Result+Extensions.swift in Sources */,
 				5D14ABB2259C0390003C5E28 /* MainView.swift in Sources */,
@@ -883,6 +865,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -890,6 +880,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
+		};
+		5D4CC0FD28A9662E0098917F /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5D4CC0FF28A9662E0098917F /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		5D4CC10128A9662E0098917F /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

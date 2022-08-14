@@ -7,6 +7,4 @@ target 'TikQuiz' do
 
   # Pods for TikQuiz
   pod 'Google-Mobile-Ads-SDK'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Crashlytics'
 end
