@@ -14,26 +14,21 @@ struct StatsView: View {
     var body: some View {
         VStack {
             NavigationBar(title: "Stats", isBackButtonVisible: true)
-            ScrollView {
-                StatView(title: "Total",
-                         correctCount: store.state.getStats().correctCount,
-                         wrongCount: store.state.getStats().wrongCount,
-                         notAnsweredCount: store.state.getStats().notAnsweredCount,
-                         isFullScreen: true)
-                    .withDefaultRowPadding(isLastRow: false)
-                MainButton(text: "Reset Progress",
-                           color: .customGreen,
-                           fillColor: .clear,
-                           action: { showAlert = true })
-                    .padding(.top, 30)
-                    .listRowBackground(Color.clear)
-            }
+            Spacer()
+            
+
+            StatView(bestStreakCount: store.state.bestStreak,
+                     correctCount: store.state.getStats().correctCount,
+                     wrongCount: store.state.getStats().wrongCount)
+                .withDefaultRowPadding(isLastRow: false)
+            Spacer()
+            MainButton(text: "Reset Progress",
+                       fillColor: .clear,
+                       action: { showAlert = true })
+                .padding(.top, 30)
+                .listRowBackground(Color.clear)
         }
         .defaultScreenSetup()
-        .onAppear {
-            UITableView.appearance().backgroundColor = UIColor.clear
-            UITableViewCell.appearance().backgroundColor = UIColor.clear
-        }
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Are you sure?"),
                   message: Text("This will reset all your game progress."),

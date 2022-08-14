@@ -8,53 +8,35 @@
 import SwiftUI
 
 struct StatView: View {
-    let title: String
+    private let medalSize: CGFloat = .init(adaptiveSize: 20)
+
+    let bestStreakCount: Int
     let correctCount: Int
     let wrongCount: Int
-    let notAnsweredCount: Int
-    let isFullScreen: Bool
-
-    var stats: [(imageName: String, count: Int, color: Color)] {
-        [("checkmark.circle", correctCount, .customGreen),
-         ("nosign", wrongCount, .customOrange),
-         ("questionmark.circle", notAnsweredCount, .customYellow)]
-    }
-    
-    var size: CGFloat {
-        UIScreen.main.bounds.width < 414 ? 140 : 155
-    }
 
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: isFullScreen ? nil : size, height: size, alignment: .center)
-                .foregroundColor(Color.white.opacity(0.1))
-                .cornerRadius(15)
-
-            VStack(spacing: 15) {
-                Text(title)
-                    .font(.bold(size: 20))
+        VStack(spacing: 15) {
+            HStack {
+                Text("Best streak: \(bestStreakCount)")
+                    .font(.semiBold(size: .init(adaptiveSize: 20)))
                     .foregroundColor(.white)
-                HStack(spacing: isFullScreen ? 20 : 10) {
-                    ForEach(Array(stats), id: \.self.0) { imageName, count, color in
-                        VStack(spacing: 10) {
-                            Image(systemName: imageName)
-                                .font(.bold(size: 19))
-                                .foregroundColor(color)
-                                .opacity(0.8)
-                            Text("\(count)")
-                                .font(.bold(size: 13))
-                                .foregroundColor(.white)
-                        }
-                    }
+                // todo: test
+                if let medal = Medal(bestStreakCount: bestStreakCount) {
+                    Image(medal.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: medalSize)
+                        .background(Color.clear)
                 }
             }
-        }
-    }
-}
 
-struct StatView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatView(title: "title", correctCount: 1, wrongCount: 2, notAnsweredCount: 3, isFullScreen: false)
+            Text("Correct guesses: \(correctCount)")
+                .font(.semiBold(size: .init(adaptiveSize: 20)))
+                .foregroundColor(.white)
+
+            Text("Wrong guesses: \(wrongCount)")
+                .font(.semiBold(size: .init(adaptiveSize: 20)))
+                .foregroundColor(.white)
+        }
     }
 }

@@ -102,7 +102,7 @@ struct WithAlert: ViewModifier {
 extension View {
     func defaultScreenSetup() -> some View {
         self
-            .modifier(DefaultPadding(padding: [.top, .leading, .trailing]))
+            .modifier(DefaultPadding(padding: [.top, .leading, .trailing, .bottom]))
             .navigationbarHidden()
             .withDefaultBackground()
     }

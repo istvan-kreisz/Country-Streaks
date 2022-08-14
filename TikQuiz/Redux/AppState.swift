@@ -25,9 +25,8 @@ struct AppState {
     }
     
     var bestStreak: Int {
-        didSet {
-            UserDefaults.standard.set(bestStreak, forKey: Self.bestStreak)
-        }
+        get { UserDefaults.standard.integer(forKey: Self.bestStreak) }
+        set { UserDefaults.standard.set(newValue, forKey: Self.bestStreak) }
     }
     
     var didBuyRemoveAds: Bool {
@@ -86,16 +85,14 @@ struct AppState {
         levels.firstIndex(of: level) ?? 0
     }
 
-    func getStats() -> (correctCount: Int, wrongCount: Int, notAnsweredCount: Int) {
+    func getStats() -> (correctCount: Int, wrongCount: Int) {
         let correct = levels.filter { $0.result == .correct }.count
         let wrong = levels.filter { $0.result == .wrong }.count
-        let notAnswered = levels.filter { $0.result == .none }.count
-        return (correct, wrong, notAnswered)
+        return (correct, wrong)
     }
 
     init() {
         self.currentStreak = UserDefaults.standard.integer(forKey: Self.currentStreak)
-        self.bestStreak = UserDefaults.standard.integer(forKey: Self.bestStreak)
         
         if let path = Bundle.main.path(forResource: "screenshots", ofType: "json") {
             do {

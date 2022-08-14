@@ -9,25 +9,17 @@
 import SwiftUI
 
 struct MainButton: View {
+    private let height: CGFloat = .init(adaptiveSize: 42)
+    
     let text: String
-    let color: Color
-    let action: () -> Void
+    let fontSize: CGFloat
     let fillColor: Color
+    let action: () -> Void
     
-    var width: CGFloat {
-        UIScreen.main.bounds.width < 414 ? 310 : 330
-    }
     
-    var height: CGFloat {
-        UIScreen.main.bounds.width < 414 ? 42 : 50
-    }
-
-    init(text: String,
-         color: Color,
-         fillColor: Color = .clear,
-         action: @escaping () -> Void) {
+    init(text: String, fontSize: CGFloat = .init(adaptiveSize: 25), fillColor: Color = .clear, action: @escaping () -> Void) {
         self.text = text
-        self.color = color
+        self.fontSize = fontSize
         self.fillColor = fillColor
         self.action = action
     }
@@ -37,21 +29,14 @@ struct MainButton: View {
             HStack {
                 Text(text)
                     .multilineTextAlignment(.center)
-                    .font(.bold(size: 17))
+                    .font(.bold(size: .init(adaptiveSize: fontSize)))
                     .foregroundColor(.white)
             }
-            .padding(.horizontal, 20)
-            .frame(width: width, height: height)
+            .padding(.horizontal, 23)
+            .padding(.vertical, 8)
             .background(fillColor)
             .cornerRadius(10)
-            .overlay(RoundedRectangle(cornerRadius: 10)
-                .stroke(color, lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 3))
         }
-    }
-}
-
-struct MainMenuButton_Previews: PreviewProvider {
-    static var previews: some View {
-        MainButton(text: "Play", color: .customBlue, action: {})
     }
 }

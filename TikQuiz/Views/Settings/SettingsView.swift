@@ -9,9 +9,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
     @EnvironmentObject var store: Store
-        
+
     var body: some View {
         VStack {
             NavigationBar(title: "Settings", isBackButtonVisible: true)
@@ -33,34 +32,24 @@ struct SettingsView: View {
         }
         .defaultScreenSetup()
     }
-    
+
     func loadingView() -> AnyView {
         let isLoading = store.iapHelper.loadingState.value
         if isLoading {
             return AnyView(Spinner(isAnimating: isLoading,
-                                   style: .medium)
-            )
+                                   style: .medium))
         } else {
-            return AnyView(
-                Text(store.state.didBuyRemoveAds ? "Purchased" : "$2.99")
-                    .font(.bold(size: 18))
-                    .foregroundColor(.customYellow)
-            )
+            return AnyView(Text(store.state.didBuyRemoveAds ? "Purchased" : "$2.99")
+                .font(.bold(size: .init(adaptiveSize: 20)))
+                .foregroundColor(.customYellow))
         }
     }
-    
+
     private func removeAds() {
         store.send(.iap(iapAction: .removeAds))
     }
-    
+
     private func restorePurchases() {
         store.send(.iap(iapAction: .restorePurchases))
-    }
-}
-
-struct SettingsScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-        .environmentObject(Store())
     }
 }

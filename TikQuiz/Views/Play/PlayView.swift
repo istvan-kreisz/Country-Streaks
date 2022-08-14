@@ -52,7 +52,6 @@ struct PlayView: View {
 
     func countryButton(answer: String) -> some View {
         MainButton(text: answer,
-                   color: .white,
                    fillColor: color(for: answer),
                    action: {
                        answerTapped(answer: answer)

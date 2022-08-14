@@ -17,9 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.removePersistentDomain(forName: domain)
             UserDefaults.standard.synchronize()
         }
-        UITableView.appearance().backgroundColor = UIColor.clear
-        UITableViewCell.appearance().backgroundColor = UIColor.clear
-
+        
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         FirebaseApp.configure()
 
