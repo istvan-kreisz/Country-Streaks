@@ -25,6 +25,7 @@ struct PlayView: View {
     @State var isShowingGameOverModal = true
     @State var hideButtons = false
     @State var isShareSheetPresented = false
+    @State var userInteractionEnabled = true
 
     init(level: Level, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.country.name)
@@ -162,6 +163,7 @@ struct PlayView: View {
                         countryButton(answer: level.answers[3])
                     }
                 }
+                .disabled(!userInteractionEnabled)
             }
             .isHidden(hideUI.wrappedValue)
 
@@ -201,6 +203,7 @@ struct PlayView: View {
     }
 
     func answerTapped(answer: String) {
+        userInteractionEnabled = false
         let answerIndex = level.answers.firstIndex(of: answer)!
         self.answerIndex = answerIndex
         let currentStreak = Store.shared.state.currentStreak
@@ -218,10 +221,11 @@ struct PlayView: View {
     private func goToNextLevel() {
         AdManager.shared.showAd { didShowAd in
             var newLevel = Store.shared.state.nextLevel()
-            self.correctAnswer = newLevel.country.name
+            correctAnswer = newLevel.country.name
             newLevel.result = .none
-            self.level = newLevel
-            self.answerIndex = -1
+            level = newLevel
+            answerIndex = -1
+            userInteractionEnabled = true
         }
     }
 }
