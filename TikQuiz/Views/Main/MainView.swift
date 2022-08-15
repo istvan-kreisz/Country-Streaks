@@ -33,6 +33,14 @@ struct MainView: View {
                             UIApplication.shared.open(url)
                         }
                     }
+                    CircleButton(iconName: store.state.didClickHnswButton ? "hnsw-button" : "hnsw-button-active") {
+                        if !store.state.didClickHnswButton {
+                            store.state.didClickHnswButton = true
+                        }
+                        if let url = URL(string: "https://hideandseek.world") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
                 }
                 .leftAligned()
                 .topAligned()

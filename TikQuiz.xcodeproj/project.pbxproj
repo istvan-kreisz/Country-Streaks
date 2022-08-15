@@ -62,11 +62,11 @@
 		5DE0E88B28A9BB5700662C0C /* AVAudioPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0E88A28A9BB5700662C0C /* AVAudioPlayer+Extensions.swift */; };
 		5DE0E88E28A9BB7700662C0C /* wrong-guess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0E88C28A9BB7600662C0C /* wrong-guess.wav */; };
 		5DE0E88F28A9BB7700662C0C /* correct-guess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0E88D28A9BB7700662C0C /* correct-guess.wav */; };
+		5DE0E89228A9BF9B00662C0C /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 5DE0E89128A9BF9B00662C0C /* GoogleMobileAds */; };
 		5DF149F2259D4F5F00A92C7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F0259D4F5F00A92C7C /* SettingsView.swift */; };
 		5DF149F3259D4F5F00A92C7C /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149F1259D4F5F00A92C7C /* SettingsCellView.swift */; };
 		5DF149FD259D4F9100A92C7C /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF149FC259D4F9100A92C7C /* PlayView.swift */; };
 		5DF14A2625A0793900A92C7C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14A2525A0793900A92C7C /* Fonts.swift */; };
-		A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TikQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BCE26B52571F84C8CB0B15B /* Pods-TikQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikQuiz.debug.xcconfig"; path = "Target Support Files/Pods-TikQuiz/Pods-TikQuiz.debug.xcconfig"; sourceTree = "<group>"; };
-		5280B37C7BB2D1E77F9BBBC6 /* Pods-TikQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TikQuiz.release.xcconfig"; path = "Target Support Files/Pods-TikQuiz/Pods-TikQuiz.release.xcconfig"; sourceTree = "<group>"; };
 		5D1181CB25A52A6D000EF045 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		5D1181D025A52D1B000EF045 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		5D14ABAA259C0390003C5E28 /* TikQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,10 +146,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE0E89228A9BF9B00662C0C /* GoogleMobileAds in Frameworks */,
 				5D4CC10028A9662E0098917F /* FirebaseAnalyticsSwift in Frameworks */,
 				5D14AC19259C0564003C5E28 /* Reachability in Frameworks */,
 				5D4CC10228A9662E0098917F /* FirebaseCrashlytics in Frameworks */,
-				A110FFAEACF4B91C767CF8AA /* Pods_TikQuiz.framework in Frameworks */,
 				5D4CC0FE28A9662E0098917F /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,7 +180,6 @@
 				5D74B69625D06A360070ADE6 /* TikQuizUITests */,
 				5D14ABAB259C0390003C5E28 /* Products */,
 				6AD4394895CD783749F0FEB7 /* Pods */,
-				D7157FA60BA4E8B47569939D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -389,18 +385,8 @@
 		6AD4394895CD783749F0FEB7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4BCE26B52571F84C8CB0B15B /* Pods-TikQuiz.debug.xcconfig */,
-				5280B37C7BB2D1E77F9BBBC6 /* Pods-TikQuiz.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		D7157FA60BA4E8B47569939D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2128B8D3A39B2A5B755C944F /* Pods_TikQuiz.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,11 +396,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D14ABBE259C0392003C5E28 /* Build configuration list for PBXNativeTarget "TikQuiz" */;
 			buildPhases = (
-				93A746E50EA23CA6F65C64C4 /* [CP] Check Pods Manifest.lock */,
 				5D14ABA6259C0390003C5E28 /* Sources */,
 				5D14ABA7259C0390003C5E28 /* Frameworks */,
 				5D14ABA8259C0390003C5E28 /* Resources */,
-				234B2368E62E5B4EFB91263C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -426,6 +410,7 @@
 				5D4CC0FD28A9662E0098917F /* FirebaseAnalytics */,
 				5D4CC0FF28A9662E0098917F /* FirebaseAnalyticsSwift */,
 				5D4CC10128A9662E0098917F /* FirebaseCrashlytics */,
+				5DE0E89128A9BF9B00662C0C /* GoogleMobileAds */,
 			);
 			productName = TikQuiz;
 			productReference = 5D14ABAA259C0390003C5E28 /* TikQuiz.app */;
@@ -477,8 +462,9 @@
 			);
 			mainGroup = 5D14ABA1259C0390003C5E28;
 			packageReferences = (
-				5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */,
+				5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
 				5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */,
 			);
 			productRefGroup = 5D14ABAB259C0390003C5E28 /* Products */;
 			projectDirPath = "";
@@ -520,48 +506,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		234B2368E62E5B4EFB91263C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TikQuiz/Pods-TikQuiz-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TikQuiz/Pods-TikQuiz-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TikQuiz/Pods-TikQuiz-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		93A746E50EA23CA6F65C64C4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TikQuiz-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5D14ABA6259C0390003C5E28 /* Sources */ = {
@@ -759,7 +703,6 @@
 		};
 		5D14ABBF259C0392003C5E28 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BCE26B52571F84C8CB0B15B /* Pods-TikQuiz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -784,7 +727,6 @@
 		};
 		5D14ABC0259C0392003C5E28 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5280B37C7BB2D1E77F9BBBC6 /* Pods-TikQuiz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -877,7 +819,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+		5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
 			requirement = {
@@ -893,12 +835,20 @@
 				minimumVersion = 9.4.1;
 			};
 		};
+		5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		5D14AC18259C0564003C5E28 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */;
+			package = 5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
 			productName = Reachability;
 		};
 		5D4CC0FD28A9662E0098917F /* FirebaseAnalytics */ = {
@@ -915,6 +865,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		5DE0E89128A9BF9B00662C0C /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

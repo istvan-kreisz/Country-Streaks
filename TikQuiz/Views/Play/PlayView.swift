@@ -16,8 +16,6 @@ struct PlayView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var store: Store
 
-    let interstitial: Interstitial
-
     @State var level: Level
     @State var answerIndex: Int = -1
     @State var finalResult: Int?
@@ -33,7 +31,7 @@ struct PlayView: View {
         var newLevel = level
         newLevel.result = .none
         self._level = State<Level>(initialValue: newLevel)
-        self.interstitial = Interstitial(didBuyRemoveAds: didBuyRemoveAds)
+        AdManager.shared.didBuyRemoveAds = didBuyRemoveAds
     }
 
     func color(for answer: String) -> Color {
@@ -218,7 +216,7 @@ struct PlayView: View {
     }
 
     private func goToNextLevel() {
-        interstitial.showAd { didShowAd in
+        AdManager.shared.showAd { didShowAd in
             var newLevel = Store.shared.state.nextLevel()
             self.correctAnswer = newLevel.country.name
             newLevel.result = .none
