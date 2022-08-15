@@ -12,7 +12,7 @@ extension CGFloat {
     init(adaptiveSize: CGFloat) {
         if UIScreen.isIphone {
             if UIScreen.isSmallScreen {
-                self.init(adaptiveSize * 0.8)
+                self.init(adaptiveSize * 1.0)
             } else {
                 self.init(adaptiveSize)
             }

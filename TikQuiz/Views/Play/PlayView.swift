@@ -227,13 +227,14 @@ struct PlayView: View {
             .scaledToFill()
             .edgesIgnoringSafeArea(.all)
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight + 30)
-            .padding(.bottom, -23))
+            .padding(.bottom, UIScreen.hasNotch ? -28 : -10))
         .onTapGesture(count: 2) {
             if !hideHideButtonsHint {
                 hideHideButtonsHint = true
             }
             hideButtons.toggle()
         }
+        .padding(.bottom, 10)
         .defaultScreenSetup(addBottomPadding: false)
         .sheet(isPresented: $isShareSheetPresented) {
             if let image = Self.imageToShare?.pngData() {
