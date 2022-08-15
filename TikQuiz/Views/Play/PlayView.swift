@@ -28,6 +28,7 @@ struct PlayView: View {
     @State var isShareSheetPresented = false
     @State var userInteractionEnabled = true
     @State var showSkipLevelModal = false
+    @State var isNewRecord = false
 
     init(level: Level, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.country.name)
@@ -106,7 +107,6 @@ struct PlayView: View {
             .topAligned()
             .rightAligned()
 
-
             Text("Double tap the screen to hide buttons")
                 .font(.bold(size: .init(adaptiveSize: 14)))
                 .foregroundColor(Color.white)
@@ -139,9 +139,21 @@ struct PlayView: View {
                             .foregroundColor(Color.white)
                     }
                     VStack(alignment: .trailing, spacing: 3) {
-                        Text("Best")
-                            .font(.bold(size: .init(adaptiveSize: 24)))
-                            .foregroundColor(Color.white)
+                        HStack(alignment: .center, spacing: 3) {
+                            if isNewRecord {
+                                Text("NEW")
+                                    .font(.bold(size: .init(adaptiveSize: 15)))
+                                    .foregroundColor(Color.white)
+                                    .padding(.horizontal, 4)
+                                    .padding(.vertical, 1)
+                                    .background(Color.customRed)
+                                    .cornerRadius(5)
+                            }
+
+                            Text("Best")
+                                .font(.bold(size: .init(adaptiveSize: 24)))
+                                .foregroundColor(Color.white)
+                        }
                         Text("\(Store.shared.state.bestStreak)")
                             .font(.bold(size: .init(adaptiveSize: 24)))
                             .foregroundColor(Color.white)
@@ -169,7 +181,7 @@ struct PlayView: View {
         .background(Color.customBlue.opacity(0.9))
         .cornerRadius(30)
     }
-    
+
     func skipLevelModal() -> some View {
         VStack(alignment: .center, spacing: .init(adaptiveSize: 70)) {
             Text("Watch an ad to skip this level!")
@@ -191,7 +203,6 @@ struct PlayView: View {
         .background(Color.customBlue.opacity(0.9))
         .cornerRadius(30)
     }
-
 
     var body: some View {
         let hideUI = Binding<Bool>(get: { finalResult != nil || hideButtons }, set: { _ in })
@@ -233,7 +244,7 @@ struct PlayView: View {
                 }
             }
             .opacity(finalResult != nil ? 1 : 0)
-            
+
             skipLevelModal()
                 .opacity(showSkipLevelModal ? 1 : 0)
         }
@@ -263,10 +274,14 @@ struct PlayView: View {
         let answerIndex = level.answers.firstIndex(of: answer)!
         self.answerIndex = answerIndex
         let currentStreak = Store.shared.state.currentStreak
-        Store.shared.send(.finishedLevel(level: level, result: answer == correctAnswer ? .correct : .wrong))
-        AVAudioPlayer.playSound(sound: "\(answer == correctAnswer ? "correct" : "wrong")-guess", type: "wav")
+        let isCorrect = answer == correctAnswer
+        if isCorrect, currentStreak == Store.shared.state.bestStreak {
+            isNewRecord = true
+        }
+        Store.shared.send(.finishedLevel(level: level, result: isCorrect ? .correct : .wrong))
+        AVAudioPlayer.playSound(sound: "\(isCorrect ? "correct" : "wrong")-guess", type: "wav")
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-            if answer == correctAnswer {
+            if isCorrect {
                 self.goToNextLevel()
             } else {
                 finalResult = currentStreak

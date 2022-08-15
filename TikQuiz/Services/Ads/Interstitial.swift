@@ -55,7 +55,7 @@ final class AdManager: NSObject {
         UIApplication.shared.windows.first?.rootViewController
     }
 
-    func loadVideoAd() {
+    func loadVideoAd(shouldRetryIfFailed: Bool = true) {
         guard videoAd == nil else { return }
 
         let request = GADRequest()
@@ -64,6 +64,11 @@ final class AdManager: NSObject {
                            completionHandler: { [weak self] ad, error in
                                if let error = error {
                                    print("Failed to load rewarded ad with error: \(error.localizedDescription)")
+                                   if shouldRetryIfFailed {
+                                       Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
+                                           self?.loadVideoAd(shouldRetryIfFailed: false)
+                                       }
+                                   }
                                    return
                                }
                                self?.videoAd = ad
@@ -71,7 +76,7 @@ final class AdManager: NSObject {
                            })
     }
 
-    func loadInterstitial() {
+    func loadInterstitial(shouldRetryIfFailed: Bool = true) {
         guard !didBuyRemoveAds, interstitial == nil else { return }
 
         let request = GADRequest()
@@ -80,6 +85,11 @@ final class AdManager: NSObject {
                                completionHandler: { [weak self] ad, error in
                                    if let error = error {
                                        print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                                       if shouldRetryIfFailed {
+                                           Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
+                                               self?.loadInterstitial(shouldRetryIfFailed: false)
+                                           }
+                                       }
                                        return
                                    }
                                    self?.interstitial = ad
