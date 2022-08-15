@@ -64,7 +64,7 @@
          <EnvironmentVariable
             key = "dontShowAds"
             value = "true"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "resetDatabaseOnLaunch"

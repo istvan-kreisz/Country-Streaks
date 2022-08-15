@@ -137,7 +137,7 @@ extension View {
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-                .frame(width: UIScreen.screenWidth)
+                .frame(height: UIScreen.screenHeight)
         })
     }
 }

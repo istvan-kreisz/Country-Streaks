@@ -69,7 +69,7 @@ struct MainView: View {
                             selectedMenuId = 1
                         }
                     }
-                    .padding(.top, .init(adaptiveSize: 40))
+                    .padding(.top, .init(adaptiveSize: 37))
 
                     Spacer()
                 }
