@@ -118,7 +118,7 @@ final class AdManager: NSObject {
             completion()
             return
         }
-        if adsShowCount.isMultiple(of: 5) {
+        if adsShowCount.isMultiple(of: 6) {
             self.interStitialCompletion = completion
             self.interstitial?.present(fromRootViewController: rootViewController)
         } else {
