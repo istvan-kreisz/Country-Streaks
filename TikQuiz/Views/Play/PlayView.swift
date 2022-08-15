@@ -24,6 +24,7 @@ struct PlayView: View {
 
     @State var isShowingGameOverModal = true
     @State var hideButtons = false
+    @State var hideHideButtonsHint = false
     @State var isShareSheetPresented = false
     @State var userInteractionEnabled = true
 
@@ -93,6 +94,7 @@ struct PlayView: View {
                 .topAligned()
                 .centeredHorizontally()
                 .padding(.top, -10)
+                .isHidden(hideHideButtonsHint)
         }
     }
     
@@ -192,6 +194,9 @@ struct PlayView: View {
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight + 30)
             .padding(.bottom, -23))
         .onTapGesture(count: 2) {
+            if !hideHideButtonsHint {
+                hideHideButtonsHint = true
+            }
             hideButtons.toggle()
         }
         .defaultScreenSetup(addBottomPadding: false)
