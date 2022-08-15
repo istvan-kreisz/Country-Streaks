@@ -156,23 +156,23 @@ struct PlayView: View {
     }
     
     func skipLevelModal() -> some View {
-        VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
-            Text("Watch an ad to skip level")
-                .font(.system(size: .init(adaptiveSize: 20), weight: .semibold, design: .default))
+        VStack(alignment: .center, spacing: .init(adaptiveSize: 70)) {
+            Text("Watch an ad to skip this level!")
+                .font(.semiBold(size: .init(adaptiveSize: 25)))
                 .foregroundColor(.customYellow)
             HStack(spacing: 20) {
-                MainButton(text: "Cancel", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
+                MainButton(text: "Cancel", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: .init(adaptiveSize: 130)) {
                     showSkipLevelModal = false
                     userInteractionEnabled = true
                 }
-                MainButton(text: "Watch Ad", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
+                MainButton(text: "Watch Ad", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: .init(adaptiveSize: 130)) {
                     showSkipLevelModal = false
                     skipLevel()
                 }
             }
         }
         .padding(.vertical, .init(adaptiveSize: 20))
-        .frame(width: .init(adaptiveSize: 400))
+        .frame(width: .init(adaptiveSize: 420))
         .background(Color.customBlue.opacity(0.9))
         .cornerRadius(30)
     }
