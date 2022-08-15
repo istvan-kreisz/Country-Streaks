@@ -179,7 +179,6 @@
 				5D14ABAC259C0390003C5E28 /* TikQuiz */,
 				5D74B69625D06A360070ADE6 /* TikQuizUITests */,
 				5D14ABAB259C0390003C5E28 /* Products */,
-				6AD4394895CD783749F0FEB7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -382,13 +381,6 @@
 			path = Play;
 			sourceTree = "<group>";
 		};
-		6AD4394895CD783749F0FEB7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -462,9 +454,9 @@
 			);
 			mainGroup = 5D14ABA1259C0390003C5E28;
 			packageReferences = (
-				5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+				5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */,
 				5D4CC0FC28A9662E0098917F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */,
+				5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 5D14ABAB259C0390003C5E28 /* Products */;
 			projectDirPath = "";
@@ -819,7 +811,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+		5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
 			requirement = {
@@ -835,7 +827,7 @@
 				minimumVersion = 9.4.1;
 			};
 		};
-		5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */ = {
+		5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {
@@ -848,7 +840,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		5D14AC18259C0564003C5E28 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			package = 5D14AC17259C0564003C5E28 /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
 		};
 		5D4CC0FD28A9662E0098917F /* FirebaseAnalytics */ = {
@@ -868,7 +860,7 @@
 		};
 		5DE0E89128A9BF9B00662C0C /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */;
+			package = 5DE0E89028A9BF9B00662C0C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
