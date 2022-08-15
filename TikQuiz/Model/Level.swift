@@ -14,11 +14,13 @@ enum LevelResult: String, Codable {
     case none
     case correct
     case wrong
+    case skipped
 
     var didComplete: Bool {
         switch self {
         case .correct,
-             .wrong:
+             .wrong,
+             .skipped:
             return true
         case .none:
             return false

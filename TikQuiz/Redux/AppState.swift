@@ -46,24 +46,24 @@ struct AppState {
     }
 
     private func result(of level: Level) -> LevelResult {
-        switch UserDefaults.standard.integer(forKey: level.levelId) {
-        case 0:
+        if let result = UserDefaults.standard.string(forKey: level.levelId) {
+            return LevelResult(rawValue: result) ?? .none
+        } else {
             return .none
-        case 1:
-            return .correct
-        default:
-            return .wrong
         }
     }
 
     mutating func set(result: LevelResult, for level: Level) {
         guard result != .none else { return }
-        UserDefaults.standard.set(result == .correct ? 1 : -1, forKey: level.levelId)
+        UserDefaults.standard.set(result.rawValue, forKey: level.levelId)
         let levelIndex = index(of: level)
         levels[levelIndex].result = result
-        if result == .correct {
+        switch result {
+        case .none, .skipped:
+            break
+        case .correct:
             currentStreak += 1
-        } else {
+        case .wrong:
             currentStreak = 0
         }
     }
@@ -75,7 +75,7 @@ struct AppState {
             return newLevel
         }
         levels.forEach { level in
-            UserDefaults.standard.set(0, forKey: level.levelId)
+            UserDefaults.standard.set(LevelResult.none.rawValue, forKey: level.levelId)
         }
     }
 

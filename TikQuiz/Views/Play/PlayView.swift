@@ -212,7 +212,7 @@ struct PlayView: View {
         let answerIndex = level.answers.firstIndex(of: answer)!
         self.answerIndex = answerIndex
         let currentStreak = Store.shared.state.currentStreak
-        Store.shared.send(.finishedLevel(level: level, didGuessRight: answer == correctAnswer))
+        Store.shared.send(.finishedLevel(level: level, result: answer == correctAnswer ? .correct : .wrong))
         AVAudioPlayer.playSound(sound: "\(answer == correctAnswer ? "correct" : "wrong")-guess", type: "wav")
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
             if answer == correctAnswer {
@@ -222,15 +222,24 @@ struct PlayView: View {
             }
         }
     }
+    
+    private func skipLevel() {
+        userInteractionEnabled = false
+//        Store.shared.send(.finishedLevel(level: level, result: .skipped))
+    }
+    
+    private func setupNextLevel() {
+        var newLevel = Store.shared.state.nextLevel()
+        correctAnswer = newLevel.country.name
+        newLevel.result = .none
+        level = newLevel
+        answerIndex = -1
+        userInteractionEnabled = true
+    }
 
     private func goToNextLevel() {
-        AdManager.shared.showAd { didShowAd in
-            var newLevel = Store.shared.state.nextLevel()
-            correctAnswer = newLevel.country.name
-            newLevel.result = .none
-            level = newLevel
-            answerIndex = -1
-            userInteractionEnabled = true
+        AdManager.shared.showInterstitial { _ in
+            setupNextLevel()
         }
     }
 }

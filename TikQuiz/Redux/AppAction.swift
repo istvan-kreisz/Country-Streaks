@@ -14,7 +14,7 @@ enum IAPAction {
 }
 
 enum AppAction {
-    case finishedLevel(level: Level, didGuessRight: Bool)
+    case finishedLevel(level: Level, result: LevelResult)
     case iap(iapAction: IAPAction)
     case resetProgress
 }

@@ -17,7 +17,7 @@ final class Store: ObservableObject {
     @Published var state = AppState()
 
     private var cancellables: Set<AnyCancellable> = []
-    
+
     static let shared = Store()
 
     private init() {
@@ -32,8 +32,8 @@ final class Store: ObservableObject {
 
     func send(_ action: AppAction) {
         switch action {
-        case let .finishedLevel(level, didGuessRight):
-            state.set(result: didGuessRight ? .correct : .wrong, for: level)
+        case let .finishedLevel(level, levelResult):
+            state.set(result: levelResult, for: level)
         case .iap(iapAction: let iapAction):
             switch iapAction {
             case .removeAds:
