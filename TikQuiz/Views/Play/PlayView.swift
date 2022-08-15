@@ -65,24 +65,32 @@ struct PlayView: View {
     }
 
     var mainView: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             NavigationBar(title: "", isBackButtonVisible: true)
                 .layoutPriority(2)
             VStack {
-                Text("Current Streak")
-                    .font(.bold(size: .init(adaptiveSize: 18)))
-                    .foregroundColor(Color.white)
-                Text("\(Store.shared.state.currentStreak)")
-                    .font(.bold(size: .init(adaptiveSize: 20)))
-                    .foregroundColor(Color.white)
+                VStack {
+                    Text("Current Streak")
+                        .font(.bold(size: .init(adaptiveSize: 18)))
+                        .foregroundColor(Color.white)
+                    Text("\(Store.shared.state.currentStreak)")
+                        .font(.bold(size: .init(adaptiveSize: 20)))
+                        .foregroundColor(Color.white)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 5)
+                .background(Color.customOrange.opacity(0.6))
+                .cornerRadius(10)
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
+
+                MainButton(text: "Skip Level", fontSize: 20, fillColor: .customPurple) {
+                    showSkipLevelModal = true
+                    userInteractionEnabled = false
+                }
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 5)
-            .background(Color.customOrange.opacity(0.6))
-            .cornerRadius(10)
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
             .topAligned()
             .rightAligned()
+
 
             Text("Double tap the screen to hide buttons")
                 .font(.bold(size: .init(adaptiveSize: 14)))
@@ -94,7 +102,7 @@ struct PlayView: View {
                 .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.white, lineWidth: 2))
                 .topAligned()
                 .centeredHorizontally()
-                .padding(.top, -10)
+//                .padding(.top, -15)
                 .isHidden(hideHideButtonsHint)
         }
     }
@@ -146,6 +154,29 @@ struct PlayView: View {
         .background(Color.customBlue.opacity(0.9))
         .cornerRadius(30)
     }
+    
+    func skipLevelModal() -> some View {
+        VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
+            Text("Watch an ad to skip level")
+                .font(.system(size: .init(adaptiveSize: 20), weight: .semibold, design: .default))
+                .foregroundColor(.customYellow)
+            HStack(spacing: 20) {
+                MainButton(text: "Cancel", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
+                    showSkipLevelModal = false
+                    userInteractionEnabled = true
+                }
+                MainButton(text: "Watch Ad", fontSize: .init(adaptiveSize: 20), fillColor: .customOrange, width: 110) {
+                    showSkipLevelModal = false
+                    skipLevel()
+                }
+            }
+        }
+        .padding(.vertical, .init(adaptiveSize: 20))
+        .frame(width: .init(adaptiveSize: 400))
+        .background(Color.customBlue.opacity(0.9))
+        .cornerRadius(30)
+    }
+
 
     var body: some View {
         let hideUI = Binding<Bool>(get: { finalResult != nil || hideButtons }, set: { _ in })
@@ -187,6 +218,9 @@ struct PlayView: View {
                 }
             }
             .opacity(finalResult != nil ? 1 : 0)
+            
+            skipLevelModal()
+                .opacity(showSkipLevelModal ? 1 : 0)
         }
         .background(Image(level.attachment)
             .resizable()
@@ -225,14 +259,12 @@ struct PlayView: View {
     }
 
     private func skipLevel() {
-        userInteractionEnabled = false
         AdManager.shared.showVideoAd { shouldGetReward in
             if shouldGetReward {
                 Store.shared.send(.finishedLevel(level: level, result: .skipped))
                 setupNextLevel()
             } else {
                 userInteractionEnabled = true
-                showSkipLevelModal = false
             }
         }
     }
@@ -244,7 +276,6 @@ struct PlayView: View {
         level = newLevel
         answerIndex = -1
         userInteractionEnabled = true
-        showSkipLevelModal = false
     }
 
     private func goToNextLevel() {
