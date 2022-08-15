@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CircleButton: View {
-    private let size: CGFloat = .init(adaptiveSize: 44)
+    static let size: CGFloat = .init(adaptiveSize: 44)
 
     let iconName: String
     let action: () -> Void
@@ -18,7 +18,7 @@ struct CircleButton: View {
             Image(iconName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: size, height: size)
+                .frame(width: Self.size, height: Self.size)
         }
     }
 }

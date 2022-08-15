@@ -18,7 +18,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack(spacing: .init(adaptiveSize: 10)) {
+                VStack(alignment: .leading, spacing: .init(adaptiveSize: 10)) {
                     CircleButton(iconName: "stats-button") {
                         selectedMenuId = 2
                     }
@@ -33,14 +33,25 @@ struct MainView: View {
                             UIApplication.shared.open(url)
                         }
                     }
-                    CircleButton(iconName: store.state.didClickHnswButton ? "hnsw-button" : "hnsw-button-active") {
-                        if !store.state.didClickHnswButton {
-                            store.state.didClickHnswButton = true
+                    ZStack(alignment: .bottomLeading) {
+                        CircleButton(iconName: "hnsw-button") {
+                            if !store.state.didClickHnswButton {
+                                store.state.didClickHnswButton = true
+                            }
+                            if let url = URL(string: "https://hideandseek.world") {
+                                UIApplication.shared.open(url)
+                            }
                         }
-                        if let url = URL(string: "https://hideandseek.world") {
-                            UIApplication.shared.open(url)
+                        if !store.state.didClickHnswButton {
+                            Image("speech-bubble")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: .init(adaptiveSize: 139))
+                                .padding(.leading, .init(adaptiveSize: 41))
+                                .padding(.bottom, .init(adaptiveSize: 39))
                         }
                     }
+                    .padding(.top, !store.state.didClickHnswButton ? .init(adaptiveSize: -35) : 0)
                 }
                 .leftAligned()
                 .topAligned()
