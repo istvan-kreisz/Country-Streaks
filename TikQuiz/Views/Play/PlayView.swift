@@ -68,10 +68,10 @@ struct PlayView: View {
         ZStack(alignment: .top) {
             NavigationBar(title: "", isBackButtonVisible: true)
                 .layoutPriority(2)
-            VStack {
+            VStack(alignment: .trailing, spacing: 10) {
                 VStack {
                     Text("Current Streak")
-                        .font(.bold(size: .init(adaptiveSize: 18)))
+                        .font(.bold(size: .init(adaptiveSize: 16)))
                         .foregroundColor(Color.white)
                     Text("\(Store.shared.state.currentStreak)")
                         .font(.bold(size: .init(adaptiveSize: 20)))
@@ -83,9 +83,24 @@ struct PlayView: View {
                 .cornerRadius(10)
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
 
-                MainButton(text: "Skip Level", fontSize: 20, fillColor: .customPurple) {
+                Button {
                     showSkipLevelModal = true
                     userInteractionEnabled = false
+                } label: {
+                    VStack(spacing: 3) {
+                        Text("SKIP")
+                            .font(.bold(size: .init(adaptiveSize: 12)))
+                            .foregroundColor(.white)
+                        Image("video")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 22, height: 17)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 5)
+                    .background(Color.customPurple.opacity(0.5))
+                    .cornerRadius(10)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 3))
                 }
             }
             .topAligned()

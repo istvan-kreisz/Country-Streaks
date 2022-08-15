@@ -99,6 +99,7 @@ final class AdManager: NSObject {
         guard let rootViewController = rootViewController,
               let _ = try? self.interstitial?.canPresent(fromRootViewController: rootViewController)
         else {
+            loadInterstitial()
             completion()
             return
         }
@@ -120,6 +121,7 @@ final class AdManager: NSObject {
               let videoAd = self.videoAd,
               let _ = try? videoAd.canPresent(fromRootViewController: rootViewController)
         else {
+            loadVideoAd()
             completion(false)
             return
         }
