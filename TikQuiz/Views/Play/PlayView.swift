@@ -238,7 +238,7 @@ struct PlayView: View {
     }
 
     private func goToNextLevel() {
-        AdManager.shared.showInterstitial { _ in
+        AdManager.shared.showInterstitial {
             setupNextLevel()
         }
     }
