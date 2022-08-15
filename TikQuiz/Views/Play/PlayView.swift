@@ -27,6 +27,7 @@ struct PlayView: View {
     @State var hideHideButtonsHint = false
     @State var isShareSheetPresented = false
     @State var userInteractionEnabled = true
+    @State var showSkipLevelModal = false
 
     init(level: Level, didBuyRemoveAds: Bool) {
         self._correctAnswer = State<String>(initialValue: level.country.name)
@@ -97,7 +98,7 @@ struct PlayView: View {
                 .isHidden(hideHideButtonsHint)
         }
     }
-    
+
     func resultView(width: CGFloat = 500) -> some View {
         VStack(alignment: .center, spacing: .init(adaptiveSize: 20)) {
             Text("Streak Over".uppercased())
@@ -222,12 +223,20 @@ struct PlayView: View {
             }
         }
     }
-    
+
     private func skipLevel() {
         userInteractionEnabled = false
-//        Store.shared.send(.finishedLevel(level: level, result: .skipped))
+        AdManager.shared.showVideoAd { shouldGetReward in
+            if shouldGetReward {
+                Store.shared.send(.finishedLevel(level: level, result: .skipped))
+                setupNextLevel()
+            } else {
+                userInteractionEnabled = true
+                showSkipLevelModal = false
+            }
+        }
     }
-    
+
     private func setupNextLevel() {
         var newLevel = Store.shared.state.nextLevel()
         correctAnswer = newLevel.country.name
@@ -235,6 +244,7 @@ struct PlayView: View {
         level = newLevel
         answerIndex = -1
         userInteractionEnabled = true
+        showSkipLevelModal = false
     }
 
     private func goToNextLevel() {
