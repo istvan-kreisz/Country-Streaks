@@ -103,14 +103,22 @@ struct AppState {
         if let path = Bundle.main.path(forResource: "screenshots", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                self.levels = try JSONDecoder().decode([Level].self, from: data)
+                let levels = try JSONDecoder().decode([Level].self, from: data)
                     .enumerated()
-                    .map { index, level in
+                    .map { index, level -> Level in
                         var newLevel = level
                         newLevel.result = result(of: level)
                         return newLevel
                     }
-                    .shuffled()
+                self.levels = levels.shuffled()
+                self.levels.insert(levels[800], at: 0)
+                self.levels.insert(levels[2000], at: 1)
+                self.levels.insert(levels[1300], at: 2)
+                self.levels.insert(levels[1800], at: 3)
+                self.levels.insert(levels[1700], at: 4)
+                self.levels.insert(levels[1400], at: 5)
+                self.levels.insert(levels[1250], at: 6)
+                self.levels.insert(levels[1550], at: 7)
             } catch {
                 print(">>> decoding error")
                 print(error)

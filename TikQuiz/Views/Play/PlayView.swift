@@ -280,11 +280,16 @@ struct PlayView: View {
         }
         Store.shared.send(.finishedLevel(level: level, result: isCorrect ? .correct : .wrong))
         AVAudioPlayer.playSound(sound: "\(isCorrect ? "correct" : "wrong")-guess", type: "wav")
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
+        let delay = currentStreak == 1 ? 5.0 : 1.0
+        Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
             if isCorrect {
-                self.goToNextLevel()
+                if currentStreak != 6 {
+                    self.goToNextLevel()
+                }
             } else {
-                finalResult = currentStreak
+                if currentStreak != 6 {
+                    finalResult = currentStreak
+                }
             }
         }
     }
