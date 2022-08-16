@@ -10,6 +10,7 @@ import Foundation
 import GoogleMobileAds
 import SwiftUI
 import UIKit
+import AppTrackingTransparency
 
 final class AdManager: NSObject {
     private static let adsShownKey = "adsShown"
@@ -44,11 +45,20 @@ final class AdManager: NSObject {
     private var videoCompletion: ((Bool) -> Void)?
 
     static let shared = AdManager()
-
-    override init() {
-        super.init()
+    
+    private func loadAds() {
         loadInterstitial()
         loadVideoAd()
+    }
+    
+    func setup() {
+        if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+            ATTrackingManager.requestTrackingAuthorization { [weak self] _ in
+                self?.loadAds()
+            }
+        } else {
+            loadAds()
+        }
     }
 
     private var rootViewController: UIViewController? {

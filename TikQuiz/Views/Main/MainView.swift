@@ -93,6 +93,7 @@ struct MainView: View {
                 StoreReviewHelper.checkAndAskForReview {
                     self.selectedMenuId == nil
                 }
+                AdManager.shared.setup()
             }
         }
         .alert(isPresented: $showAlert) {
