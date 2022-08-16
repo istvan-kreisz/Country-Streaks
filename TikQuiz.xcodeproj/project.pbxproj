@@ -23,11 +23,11 @@
 		5D14ABF9259C0421003C5E28 /* DebugSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE1259C0421003C5E28 /* DebugSettings.swift */; };
 		5D14ABFE259C0421003C5E28 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14ABE7259C0421003C5E28 /* Colors.swift */; };
 		5D14AC19259C0564003C5E28 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 5D14AC18259C0564003C5E28 /* Reachability */; };
+		5D1ECF5628AB0F1F008FC615 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ECF5528AB0F1F008FC615 /* SnapshotHelper.swift */; };
 		5D4CC0FE28A9662E0098917F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4CC0FD28A9662E0098917F /* FirebaseAnalytics */; };
 		5D4CC10028A9662E0098917F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4CC0FF28A9662E0098917F /* FirebaseAnalyticsSwift */; };
 		5D4CC10228A9662E0098917F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4CC10128A9662E0098917F /* FirebaseCrashlytics */; };
 		5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */; };
-		5D74B6AA25D073570070ADE6 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */; };
 		5D75884428A90ADD00F4F60C /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D75883D28A90ADC00F4F60C /* Dosis-Regular.ttf */; };
 		5D75884528A90ADD00F4F60C /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D75883E28A90ADC00F4F60C /* Dosis-ExtraBold.ttf */; };
 		5D75884628A90ADD00F4F60C /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D75883F28A90ADC00F4F60C /* Dosis-Bold.ttf */; };
@@ -97,10 +97,10 @@
 		5D14ABDA259C0404003C5E28 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		5D14ABE1259C0421003C5E28 /* DebugSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugSettings.swift; sourceTree = "<group>"; };
 		5D14ABE7259C0421003C5E28 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5D1ECF5528AB0F1F008FC615 /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		5D74B69525D06A360070ADE6 /* TikQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TikQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikQuizUITests.swift; sourceTree = "<group>"; };
 		5D74B69925D06A360070ADE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		5D75883D28A90ADC00F4F60C /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		5D75883E28A90ADC00F4F60C /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
 		5D75883F28A90ADC00F4F60C /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.ttf"; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		5D74B69625D06A360070ADE6 /* TikQuizUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5D74B6A925D073570070ADE6 /* SnapshotHelper.swift */,
+				5D1ECF5528AB0F1F008FC615 /* SnapshotHelper.swift */,
 				5D74B69725D06A360070ADE6 /* TikQuizUITests.swift */,
 				5D74B69925D06A360070ADE6 /* Info.plist */,
 			);
@@ -551,7 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D74B69825D06A360070ADE6 /* TikQuizUITests.swift in Sources */,
-				5D74B6AA25D073570070ADE6 /* SnapshotHelper.swift in Sources */,
+				5D1ECF5628AB0F1F008FC615 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,10 @@
 import XCTest
 
 class TikQuizUITests: XCTestCase {
-
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-        
+
     private func resetProgress(app: XCUIApplication) {
         app.buttons["Stats"].tap()
         app.scrollViews.otherElements.buttons["Reset Progress"].tap()
@@ -20,15 +19,19 @@ class TikQuizUITests: XCTestCase {
         let arrowLeftButton = app.buttons["arrow.left"]
         arrowLeftButton.tap()
     }
-    
+
     private func launchApp() -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["testMode"]
         setupSnapshot(app)
         app.launch()
+        wait()
+        wait()
+        wait()
+        app.scrollViews.otherElements.buttons["Not Now"].tap()
         return app
     }
-    
+
     private func wait() {
         let exp = expectation(description: "")
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
@@ -37,75 +40,54 @@ class TikQuizUITests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    
+    private func play() -> XCUIApplication {
+        let app = launchApp()
+//        resetProgress(app: app)
+        app.scrollViews.otherElements.buttons["Not Now"].tap()
+        app.buttons["play-button"].tap()
+        return app
+    }
+
+    private func playAndClickAnswer(answerIndex: Int) {
+        let app = play()
+        app.buttons.element(boundBy: answerIndex).tap()
+    }
+
     func testMainScreen() throws {
         _ = launchApp()
-    }
-    
-    func testCategories() throws {
-        let app = launchApp()
-        resetProgress(app: app)
-        XCUIApplication().buttons["Categories"].tap()
         snapshot("main")
-    }
-    
-    func testStats() throws {
-        let app = launchApp()
-        resetProgress(app: app)
-        XCUIApplication().buttons["Stats"].tap()
-        snapshot("stats")
-    }
-    
-    func testFirstQuestion() throws {
-        let app = launchApp()
-        resetProgress(app: app)
-        XCUIApplication().buttons["Play"].tap()
-        
-        snapshot("firstq")
         wait()
     }
-    
-    func testFirstQuestionAnswer() throws {
-        let app = launchApp()
-        resetProgress(app: app)
-        app.buttons["Play"].tap()
-        app.buttons["Loren Gray"].tap()
-        snapshot("firstqans")
-    }
-    
-    func testSecondQuestion() throws {
-        let app = launchApp()
-        resetProgress(app: app)
-        app.buttons["Categories"].tap()
-        app.scrollViews.otherElements.buttons["Trends"].tap()
-        app.buttons["Roxanne"].tap()
-        snapshot("secondq")
-        wait()
-    }
-    
-    func testThirdQuestion() throws {
-        let app = launchApp()
-        resetProgress(app: app)
 
-        app.buttons["Categories"].tap()
-        app.scrollViews.otherElements.buttons["Trends"].tap()
-        app.buttons["Yummy"].tap()
-        app.buttons["Git Up"].tap()
-        app.buttons["Roxanne"].tap()
-        snapshot("thirdq")
-        wait()
-    }
-    
-    func testFourthQuestion() throws {
-        let app = launchApp()
-        resetProgress(app: app)
-
-        app.buttons["Play"].tap()
-        app.buttons["Charli D'Amelio"].tap()
-        app.buttons["Lil huddy"].tap()
-        app.buttons["Feeling Good"].tap()
-        app.buttons["Git Up"].tap()
-        app.buttons["Roxanne"].tap()
-        snapshot("fourthq")
-        wait()
-    }
+//    func testStats() throws {
+//        let app = launchApp()
+//        resetProgress(app: app)
+//        XCUIApplication().buttons["Stats"].tap()
+//        snapshot("stats")
+//    }
+//
+//    func testGame() {
+//        _ = play()
+//        snapshot("play")
+//        wait()
+//    }
+//
+//    func testQuestion1() throws {
+//        playAndClickAnswer(answerIndex: 0)
+//        snapshot("question1")
+//        wait()
+//    }
+//
+//    func testQuestion2() throws {
+//        playAndClickAnswer(answerIndex: 1)
+//        snapshot("question2")
+//        wait()
+//    }
+//    
+//    func testQuestion3() throws {
+//        playAndClickAnswer(answerIndex: 2)
+//        snapshot("question3")
+//        wait()
+//    }
 }
