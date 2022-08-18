@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StoreReviewHelper.incrementAppOpenedCount()
 
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["ece1182e484279d636df276a2ce5efb5"]
+
         FirebaseApp.configure()
-        
+
         return true
     }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    static var didRunSetup = false
     @EnvironmentObject var store: Store
 
     @State private var selectedMenuId: Int?
@@ -89,11 +90,14 @@ struct MainView: View {
         }
         .navigationViewStyle(.stack)
         .onAppear {
-            Timer.scheduledTimer(withTimeInterval: 1.4, repeats: false) { _ in
-                StoreReviewHelper.checkAndAskForReview {
-                    self.selectedMenuId == nil
+            if !Self.didRunSetup {
+                Self.didRunSetup = true
+                Timer.scheduledTimer(withTimeInterval: 1.4, repeats: false) { _ in
+                    StoreReviewHelper.checkAndAskForReview {
+                        self.selectedMenuId == nil
+                    }
+                    AdManager.shared.setup()
                 }
-                AdManager.shared.setup()
             }
         }
         .alert(isPresented: $showAlert) {
