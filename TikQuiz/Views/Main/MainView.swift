@@ -52,7 +52,7 @@ struct MainView: View {
                                 .padding(.bottom, .init(adaptiveSize: 39))
                         }
                     }
-                    .padding(.top, !store.state.didClickHnswButton ? .init(adaptiveSize: -35) : 0)
+                    .padding(.top, !store.state.didClickHnswButton && store.state.hasPlayed6Levels ? .init(adaptiveSize: -35) : 0)
                 }
                 .leftAligned()
                 .topAligned()
