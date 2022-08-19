@@ -20,7 +20,6 @@ enum Country: String, Codable, CaseIterable, Equatable {
     case BGR
     case BLR
     case BMU
-    case BOL
     case BRA
     case BTN
     case BWA
@@ -110,7 +109,6 @@ enum Country: String, Codable, CaseIterable, Equatable {
         case .BGR: return "Bulgaria"
         case .BLR: return "Belarus"
         case .BMU: return "Bermuda"
-        case .BOL: return "Bolivia"
         case .BRA: return "Brazil"
         case .BTN: return "Bhutan"
         case .BWA: return "Botswana"
