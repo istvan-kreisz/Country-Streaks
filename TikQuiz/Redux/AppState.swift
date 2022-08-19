@@ -14,6 +14,7 @@ struct AppState {
     private static let bestStreak = "bestStreak"
     private static let didClickDiscordButton = "didClickDiscordButton"
     private static let didClickHnswButton = "didClickHnswButton"
+    private static let correctGuessesSinceLastSkip = "correctGuessesSinceLastSkip"
 
     var levels: [Level] = []
     var currentStreak: Int {
@@ -32,6 +33,11 @@ struct AppState {
     var bestStreak: Int {
         get { UserDefaults.standard.integer(forKey: Self.bestStreak) }
         set { UserDefaults.standard.set(newValue, forKey: Self.bestStreak) }
+    }
+    
+    var correctGuessesSinceLastSkip: Int {
+        get { UserDefaults.standard.integer(forKey: Self.correctGuessesSinceLastSkip) }
+        set { UserDefaults.standard.set(newValue, forKey: Self.correctGuessesSinceLastSkip) }
     }
     
     var didBuyRemoveAds: Bool {
@@ -63,11 +69,15 @@ struct AppState {
         let levelIndex = index(of: level)
         levels[levelIndex].result = result
         switch result {
-        case .none, .skipped:
+        case .none:
             break
+        case .skipped:
+            correctGuessesSinceLastSkip = 0
         case .correct:
+            correctGuessesSinceLastSkip += 1
             currentStreak += 1
         case .wrong:
+            correctGuessesSinceLastSkip = 0
             currentStreak = 0
         }
     }

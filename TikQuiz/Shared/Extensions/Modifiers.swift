@@ -138,6 +138,7 @@ extension View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
                 .frame(height: UIScreen.screenHeight)
+                .padding(.top, 20)
         })
     }
 }

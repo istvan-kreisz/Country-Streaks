@@ -69,20 +69,15 @@ struct PlayView: View {
         ZStack(alignment: .top) {
             NavigationBar(title: "", isBackButtonVisible: true)
                 .layoutPriority(2)
-            VStack(alignment: .trailing, spacing: 10) {
-                VStack {
-                    Text("Current Streak")
-                        .font(.bold(size: .init(adaptiveSize: 16)))
-                        .foregroundColor(Color.white)
-                    Text("\(Store.shared.state.currentStreak)")
-                        .font(.bold(size: .init(adaptiveSize: 20)))
-                        .foregroundColor(Color.white)
-                }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 5)
-                .background(Color.customOrange.opacity(0.6))
-                .cornerRadius(10)
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
+            VStack(alignment: .center, spacing: 10) {
+                Text("\(Store.shared.state.currentStreak)")
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color.black.opacity(0.5),
+                            radius: 4,
+                            x: 0,
+                            y: 4)
+
 
                 Button {
                     showSkipLevelModal = true
@@ -101,8 +96,9 @@ struct PlayView: View {
                     .padding(.vertical, 5)
                     .background(Color.customPurple.opacity(0.5))
                     .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 3))
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
                 }
+                .isHidden(Store.shared.state.correctGuessesSinceLastSkip < 3)
             }
             .topAligned()
             .rightAligned()
@@ -130,15 +126,15 @@ struct PlayView: View {
                 .foregroundColor(.customYellow)
             HStack(alignment: .top, spacing: 55) {
                 VStack(alignment: .trailing, spacing: 5) {
-                    VStack(alignment: .trailing, spacing: 3) {
+                    VStack(alignment: .trailing, spacing: 0) {
                         Text("Score")
                             .font(.bold(size: .init(adaptiveSize: 24)))
                             .foregroundColor(Color.white)
                         Text("\(finalResult ?? 0)")
-                            .font(.bold(size: .init(adaptiveSize: 24)))
+                            .font(.system(size: 25, weight: .bold))
                             .foregroundColor(Color.white)
                     }
-                    VStack(alignment: .trailing, spacing: 3) {
+                    VStack(alignment: .trailing, spacing: 0) {
                         HStack(alignment: .center, spacing: 3) {
                             if isNewRecord {
                                 Text("NEW")
@@ -155,7 +151,7 @@ struct PlayView: View {
                                 .foregroundColor(Color.white)
                         }
                         Text("\(Store.shared.state.bestStreak)")
-                            .font(.bold(size: .init(adaptiveSize: 24)))
+                            .font(.system(size: 25, weight: .bold))
                             .foregroundColor(Color.white)
                     }
                 }

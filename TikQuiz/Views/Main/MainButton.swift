@@ -39,7 +39,7 @@ struct MainButton: View {
             .frame(width: width)
             .background(fillColor)
             .cornerRadius(10)
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 3))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
         }
     }
 }
