@@ -137,8 +137,8 @@ extension View {
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
+                .padding(.top, 120)
                 .frame(height: UIScreen.screenHeight)
-                .padding(.top, 20)
         })
     }
 }
