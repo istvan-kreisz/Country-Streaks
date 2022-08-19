@@ -25,8 +25,8 @@ struct AppState {
         }
     }
     
-    var didPlayGame: Bool {
-        levels.first({ $0.result == .correct || $0.result == .correct }) != nil
+    var hasPlayed6Levels: Bool {
+        levels.filter({ $0.result == .correct || $0.result == .wrong }).count >= 6
     }
     
     var bestStreak: Int {
