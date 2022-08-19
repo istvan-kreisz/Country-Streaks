@@ -55,7 +55,7 @@
 		5DA1E151259D417900CFF764 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E150259D417900CFF764 /* MainButton.swift */; };
 		5DA1E157259D428400CFF764 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E154259D428400CFF764 /* Spinner.swift */; };
 		5DA1E158259D428400CFF764 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1E155259D428400CFF764 /* NavigationBar.swift */; };
-		5DD08B46289E73DD004C8687 /* screenshots.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD08B45289E73DD004C8687 /* screenshots.json */; };
+		5DC44C5928B0414100E376E0 /* screenshots.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DC44C5828B0414100E376E0 /* screenshots.json */; };
 		5DD08B48289E747D004C8687 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD08B47289E747D004C8687 /* Country.swift */; };
 		5DE0E88728A9A09A00662C0C /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0E88628A9A09A00662C0C /* ShareSheetView.swift */; };
 		5DE0E88928A9ADCA00662C0C /* SKStoreReviewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0E88828A9ADCA00662C0C /* SKStoreReviewController+Extensions.swift */; };
@@ -128,7 +128,7 @@
 		5DA1E150259D417900CFF764 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		5DA1E154259D428400CFF764 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5DA1E155259D428400CFF764 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		5DD08B45289E73DD004C8687 /* screenshots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = screenshots.json; sourceTree = "<group>"; };
+		5DC44C5828B0414100E376E0 /* screenshots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = screenshots.json; sourceTree = "<group>"; };
 		5DD08B47289E747D004C8687 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		5DE0E88628A9A09A00662C0C /* ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
 		5DE0E88828A9ADCA00662C0C /* SKStoreReviewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKStoreReviewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -266,11 +266,11 @@
 				5D80466A28A90EA3007ED2F0 /* Extensions */,
 				5D80466828A90DE3007ED2F0 /* StoreReviewHelper.swift */,
 				5D14ABAD259C0390003C5E28 /* AppDelegate.swift */,
+				5DC44C5828B0414100E376E0 /* screenshots.json */,
 				5D14ABAF259C0390003C5E28 /* SceneDelegate.swift */,
 				5D14ABB3259C0392003C5E28 /* Assets.xcassets */,
 				5D14ABB8259C0392003C5E28 /* LaunchScreen.storyboard */,
 				5D14ABE1259C0421003C5E28 /* DebugSettings.swift */,
-				5DD08B45289E73DD004C8687 /* screenshots.json */,
 				5D14ABE7259C0421003C5E28 /* Colors.swift */,
 				5DE0E88D28A9BB7700662C0C /* correct-guess.wav */,
 				5DE0E88C28A9BB7600662C0C /* wrong-guess.wav */,
@@ -481,9 +481,9 @@
 				5D75884A28A90ADD00F4F60C /* Dosis-Medium.ttf in Resources */,
 				5D80468A28A96245007ED2F0 /* GoogleService-Info.plist in Resources */,
 				5DE0E88F28A9BB7700662C0C /* correct-guess.wav in Resources */,
-				5DD08B46289E73DD004C8687 /* screenshots.json in Resources */,
 				5D75884428A90ADD00F4F60C /* Dosis-Regular.ttf in Resources */,
 				5D75884628A90ADD00F4F60C /* Dosis-Bold.ttf in Resources */,
+				5DC44C5928B0414100E376E0 /* screenshots.json in Resources */,
 				5DE0E88E28A9BB7700662C0C /* wrong-guess.wav in Resources */,
 				5D75884728A90ADD00F4F60C /* Dosis-Light.ttf in Resources */,
 				5D75884828A90ADD00F4F60C /* Dosis-SemiBold.ttf in Resources */,
