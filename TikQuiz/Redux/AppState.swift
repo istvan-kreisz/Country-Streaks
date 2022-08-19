@@ -25,6 +25,10 @@ struct AppState {
         }
     }
     
+    var didPlayGame: Bool {
+        levels.first({ $0.result == .correct || $0.result == .correct }) != nil
+    }
+    
     var bestStreak: Int {
         get { UserDefaults.standard.integer(forKey: Self.bestStreak) }
         set { UserDefaults.standard.set(newValue, forKey: Self.bestStreak) }
@@ -96,7 +100,7 @@ struct AppState {
         let wrong = levels.filter { $0.result == .wrong }.count
         return (correct, wrong)
     }
-
+    
     init() {
         self.currentStreak = UserDefaults.standard.integer(forKey: Self.currentStreak)
         

@@ -43,7 +43,7 @@ struct MainView: View {
                                 UIApplication.shared.open(url)
                             }
                         }
-                        if !store.state.didClickHnswButton {
+                        if !store.state.didClickHnswButton && store.state.didPlayGame {
                             Image("speech-bubble")
                                 .resizable()
                                 .scaledToFit()
